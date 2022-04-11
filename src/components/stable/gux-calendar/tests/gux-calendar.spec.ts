@@ -13,11 +13,10 @@ describe('gux-calendar', () => {
   describe('#render', () => {
     const components = [GuxCalendar];
     [
-      `<gux-calendar></gux-calendar>`,
       `<gux-calendar value="2018-02-13"></gux-calendar>`,
-      `<gux-calendar mode="${CalendarModes.Single}" number-of-months="2"></gux-calendar>`,
-      `<gux-calendar mode="${CalendarModes.Range}"></gux-calendar>`,
-      `<gux-calendar mode="${CalendarModes.Range}" min-date="2019-05-02" max-date="2019-07-10"></gux-calendar>`
+      `<gux-calendar value="2018-02-13" mode="${CalendarModes.Single}" number-of-months="2"></gux-calendar>`,
+      `<gux-calendar value="2018-02-13/2018-02-20" mode="${CalendarModes.Range}"></gux-calendar>`,
+      `<gux-calendar value="2019-06-13/2019-06-20" mode="${CalendarModes.Range}" min-date="2019-05-02" max-date="2019-07-10"></gux-calendar>`
     ].forEach((input, index) => {
       it(`should render component as expected (${index + 1})`, async () => {
         const page = await newSpecPage({
