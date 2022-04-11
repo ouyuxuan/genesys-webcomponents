@@ -1,11 +1,35 @@
+import { newSpecPage } from '@stencil/core/testing';
 import { CalendarModes } from '../../../../common-enums';
 import * as utils from '../../../../utils/dom/manipulate-elements-classes';
 import { GuxCalendar } from '../gux-calendar';
+
+const language = 'en';
 
 describe('gux-calendar', () => {
   let component: GuxCalendar;
   let componentRoot: any;
   let componentShadowRoot: any;
+
+  describe('#render', () => {
+    const components = [GuxCalendar];
+    [
+      `<gux-calendar></gux-calendar>`,
+      `<gux-calendar value="2018-02-13"></gux-calendar>`,
+      `<gux-calendar mode="${CalendarModes.Single}" number-of-months="2"></gux-calendar>`,
+      `<gux-calendar mode="${CalendarModes.Range}"></gux-calendar>`,
+      `<gux-calendar mode="${CalendarModes.Range}" min-date="2019-05-02" max-date="2019-07-10"></gux-calendar>`
+    ].forEach((input, index) => {
+      it(`should render component as expected (${index + 1})`, async () => {
+        const page = await newSpecPage({
+          components,
+          html: input,
+          language
+        });
+
+        expect(page.root).toMatchSnapshot();
+      });
+    });
+  });
 
   beforeEach(async () => {
     component = new GuxCalendar();

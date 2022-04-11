@@ -1,250 +1,141 @@
-import {
-  getClampedMonthValue,
-  incrementDay,
-  incrementMonth,
-  incrementYear,
-  getFormattedDate
-} from '../gux-datepicker.service';
+import { newSpecPage } from '@stencil/core/testing';
 
-describe('datepicker.service', () => {
-  describe('getClampedMonthValue', () => {
-    [
-      {
-        input: -100,
-        expectedOutput: 8
-      },
-      {
-        input: -10,
-        expectedOutput: 2
-      },
-      {
-        input: -1,
-        expectedOutput: 11
-      },
-      {
-        input: 0,
-        expectedOutput: 0
-      },
-      {
-        input: 1,
-        expectedOutput: 1
-      },
-      {
-        input: 10,
-        expectedOutput: 10
-      },
-      {
-        input: 12,
-        expectedOutput: 0
-      },
-      {
-        input: 100,
-        expectedOutput: 4
-      }
-    ].forEach(({ input, expectedOutput }) => {
-      it(`should output ${expectedOutput} for ${input}`, () => {
-        expect(getClampedMonthValue(input)).toEqual(expectedOutput);
-      });
-    });
-  });
+import { GuxDatepicker } from '../gux-datepicker';
+import { CalendarModes } from '../../../../common-enums';
 
-  describe('incrementDay', () => {
+const components = [GuxDatepicker];
+const language = 'en';
+
+describe('gux-datepicker', () => {
+  describe('#render', () => {
     [
-      // Start of month
-      {
-        increment: 1,
-        numberOfIncrements: 1,
-        inputDate: new Date(2021, 0, 1),
-        expectedOutput: new Date(2021, 0, 2)
-      },
-      {
-        increment: -1,
-        numberOfIncrements: 1,
-        inputDate: new Date(2021, 0, 1),
-        expectedOutput: new Date(2021, 0, 31)
-      },
-      // End of month
-      {
-        increment: 1,
-        numberOfIncrements: 1,
-        inputDate: new Date(2021, 0, 31),
-        expectedOutput: new Date(2021, 0, 1)
-      },
-      {
-        increment: -1,
-        numberOfIncrements: 1,
-        inputDate: new Date(2021, 0, 31),
-        expectedOutput: new Date(2021, 0, 30)
-      },
-      // Not a leap year
-      {
-        increment: 1,
-        numberOfIncrements: 30,
-        inputDate: new Date(2021, 1, 1),
-        expectedOutput: new Date(2021, 1, 3)
-      },
-      {
-        increment: -1,
-        numberOfIncrements: 30,
-        inputDate: new Date(2021, 1, 1),
-        expectedOutput: new Date(2021, 1, 27)
-      },
-      // Leap year
-      {
-        increment: 1,
-        numberOfIncrements: 30,
-        inputDate: new Date(2020, 1, 1),
-        expectedOutput: new Date(2020, 1, 2)
-      },
-      {
-        increment: -1,
-        numberOfIncrements: 30,
-        inputDate: new Date(2020, 1, 1),
-        expectedOutput: new Date(2020, 1, 29)
-      },
-      // DST Spring
-      {
-        increment: 1,
-        numberOfIncrements: 31,
-        inputDate: new Date(2021, 2, 1),
-        expectedOutput: new Date(2021, 2, 1)
-      },
-      {
-        increment: -1,
-        numberOfIncrements: 31,
-        inputDate: new Date(2021, 2, 1),
-        expectedOutput: new Date(2021, 2, 1)
-      },
-      // DST Autumn/Fall
-      {
-        increment: 1,
-        numberOfIncrements: 31,
-        inputDate: new Date(2021, 9, 1),
-        expectedOutput: new Date(2021, 9, 1)
-      },
-      {
-        increment: -1,
-        numberOfIncrements: 31,
-        inputDate: new Date(2021, 9, 1),
-        expectedOutput: new Date(2021, 9, 1)
-      }
-    ].forEach(
-      ({ increment, numberOfIncrements, inputDate, expectedOutput }) => {
-        it(`should output ${expectedOutput.toISOString()} for ${inputDate.toISOString()} and an increment of ${increment} ${numberOfIncrements} times`, () => {
-          let date = inputDate;
-          for (let i = 0; i < numberOfIncrements; i++) {
-            date = incrementDay(increment, date);
-          }
-          expect(date).toEqual(expectedOutput);
+      `<gux-datepicker value="1997-08-15"></gux-datepicker>`,
+      `<gux-datepicker value="1997-08-15" format="mm/dd/yy"></gux-datepicker>`,
+      `<gux-datepicker value="1997-08-15" format="mm.dd.yyyy"></gux-datepicker>`,
+      `<gux-datepicker value="1997-08-15" disabled></gux-datepicker>`,
+      `<gux-datepicker mode="range" value="2019-11-25/2019-12-02" number-of-months="2" ></gux-datepicker>`,
+      `<gux-datepicker mode="range" value="2019-11-25/2019-12-02" min-date="2019-11-10" max-date="2019-12-31" number-of-months="2" ></gux-datepicker>`,
+      `<gux-datepicker mode="range" value="2019-11-25/2019-12-02" min-date="2019-11-10" max-date="2019-12-31" number-of-months="2" format="mm.dd.yyyy" ></gux-datepicker>`,
+      `<gux-datepicker mode="range" value="2019-11-25/2019-12-02" number-of-months="2" disabled></gux-datepicker>`
+    ].forEach((input, index) => {
+      it(`should render component as expected (${index + 1})`, async () => {
+        const page = await newSpecPage({
+          components,
+          html: input,
+          language
         });
-      }
-    );
-  });
 
-  describe('incrementMonth', () => {
-    [
-      {
-        increment: 1,
-        inputDate: new Date(2021, 0, 1),
-        expectedOutput: new Date(2021, 1, 1)
-      },
-      {
-        increment: -1,
-        inputDate: new Date(2021, 0, 1),
-        expectedOutput: new Date(2021, 11, 1)
-      },
-      {
-        increment: 1,
-        inputDate: new Date(2021, 11, 1),
-        expectedOutput: new Date(2021, 0, 1)
-      },
-      {
-        increment: -1,
-        inputDate: new Date(2021, 11, 1),
-        expectedOutput: new Date(2021, 10, 1)
-      },
-      {
-        increment: 1,
-        inputDate: new Date(2021, 6, 1),
-        expectedOutput: new Date(2021, 7, 1)
-      },
-      {
-        increment: -1,
-        inputDate: new Date(2021, 7, 1),
-        expectedOutput: new Date(2021, 6, 1)
-      },
-      {
-        increment: 1,
-        inputDate: new Date(2021, 2, 31),
-        expectedOutput: new Date(2021, 3, 30)
-      },
-      {
-        increment: -1,
-        inputDate: new Date(2022, 2, 31),
-        expectedOutput: new Date(2022, 1, 28)
-      }
-    ].forEach(({ increment, inputDate, expectedOutput }) => {
-      it(`should output ${expectedOutput.toISOString()} for ${inputDate.toISOString()} and an increment of ${increment}`, () => {
-        expect(incrementMonth(increment, inputDate)).toEqual(expectedOutput);
+        expect(page.root).toMatchSnapshot();
       });
     });
   });
 
-  describe('incrementYear', () => {
-    [
-      {
-        increment: 1,
-        inputDate: new Date(2021, 0, 1),
-        expectedOutput: new Date(2022, 0, 1)
-      },
-      {
-        increment: -1,
-        inputDate: new Date(2021, 0, 1),
-        expectedOutput: new Date(2020, 0, 1)
-      }
-    ].forEach(({ increment, inputDate, expectedOutput }) => {
-      it(`should output ${expectedOutput.toISOString()} for ${inputDate.toISOString()} and an increment of ${increment}`, () => {
-        expect(incrementYear(increment, inputDate)).toEqual(expectedOutput);
+  it('should build', async () => {
+    const page = await newSpecPage({
+      components,
+      html: `<gux-datepicker></gux-datepicker>`,
+      language
+    });
+    expect(page.rootInstance).toBeInstanceOf(GuxDatepicker);
+  });
+
+  describe('with default input properties', () => {
+    let component: GuxDatepicker;
+
+    beforeEach(async () => {
+      const page = await newSpecPage({
+        components: components,
+        html: `<gux-datepicker></gux-datepicker>`,
+        language: 'en'
       });
+      component = page.rootInstance;
+      component.calendarElement = new HTMLElement() as HTMLGuxCalendarElement;
+      component.calendarElement.setValue = async () => {
+        return;
+      };
+      component.calendarElement.focusPreviewDate = async () => {
+        return;
+      };
+    });
+
+    it('should set to defaults', async () => {
+      expect(component.disabled).toBe(false);
+      expect(component.format).toBe('mm/dd/yyyy');
+      expect(component.label).toBe('');
+      expect(component.minDate).toBe('');
+      expect(component.maxDate).toBe('');
+      expect(component.mode).toBe(CalendarModes.Single);
+      expect(component.numberOfMonths).toBe(1);
+    });
+    it('should set the formatted value', async () => {
+      component.value = '1998-04-24';
+
+      expect(component.formatedValue).toBe('04/24/1998');
+    });
+    it('should emit when the input value changes', async () => {
+      spyOn(component.input, 'emit').and.callFake(() => {
+        return;
+      });
+      component.inputElement.value = '04/24/1998';
+      component.setValue();
+
+      expect(component.input.emit).toHaveBeenCalledWith('1998-04-24');
+    });
+
+    it('should focus the calendar when the calendar is in the DOM', async () => {
+      spyOn(component.calendarElement, 'focusPreviewDate').and.callFake(() => {
+        return;
+      });
+
+      const componentRoot = component.root as any;
+      componentRoot.shadowRoot = {
+        querySelector: () => {
+          return {
+            classList: {
+              contains: () => true
+            }
+          };
+        }
+      } as any;
+      component.toggleCalendar();
+      expect(component['focusPreviewDateAfterCalendarActive']).toBe(false);
+      expect(component.calendarElement.focusPreviewDate).toHaveBeenCalled();
+    });
+    it('should set calendar focus on next render when the calendar is in not the DOM', async () => {
+      const componentRoot = component.root as any;
+      componentRoot.shadowRoot = {
+        querySelector: () => {
+          return {
+            classList: {
+              contains: () => false
+            }
+          };
+        }
+      } as any;
+      component.toggleCalendar();
+      expect(component['focusPreviewDateAfterCalendarActive']).toBe(true);
     });
   });
 
-  describe('getFormattedDate', () => {
-    [
-      {
-        inputDate: new Date(2021, 0, 1),
-        format: 'dd/mm/yyyy',
-        expectedOutput: '01/01/2021'
-      },
-      {
-        inputDate: new Date(2021, 0, 1),
-        format: 'yyyy/mm/dd',
-        expectedOutput: '2021/01/01'
-      },
-      {
-        inputDate: new Date(2021, 2, 31),
-        format: 'mm/dd/yyyy',
-        expectedOutput: '03/31/2021'
-      },
-      {
-        inputDate: new Date(2021, 0, 1),
-        format: 'dd/mm/yy',
-        expectedOutput: '01/01/21'
-      },
-      {
-        inputDate: new Date(2021, 2, 31),
-        format: 'yyyy-mm-dd',
-        expectedOutput: '2021-03-31'
-      },
-      {
-        inputDate: new Date(2021, 2, 31),
-        format: 'yyyy.mm.dd',
-        expectedOutput: '2021.03.31'
-      }
-    ].forEach(({ inputDate, format, expectedOutput }) => {
-      it(`should output ${expectedOutput} for ${inputDate.toISOString()} and a format of ${format}`, () => {
-        expect(getFormattedDate(inputDate, format)).toEqual(expectedOutput);
+  describe('with custom input properties', () => {
+    let component: GuxDatepicker;
+
+    beforeEach(async () => {
+      const page = await newSpecPage({
+        components: components,
+        html: `<gux-datepicker disabled format="yyyy/mm/dd" label="myLabel" min-date="2022-05-03" max-date="2022-07-10" mode="range" number-of-months="3"></gux-datepicker>`,
+        language: 'en'
       });
+      component = page.rootInstance;
+    });
+    it('should set to passed in values', async () => {
+      expect(component.disabled).toBe(true);
+      expect(component.format).toBe('yyyy/mm/dd');
+      expect(component.label).toBe('myLabel');
+      expect(component.minDate).toBe('2022-05-03');
+      expect(component.maxDate).toBe('2022-07-10');
+      expect(component.mode).toBe(CalendarModes.Range);
+      expect(component.numberOfMonths).toBe(3);
     });
   });
 });
