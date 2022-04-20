@@ -43,6 +43,9 @@ export class GuxFormField {
   displayUnits: string;
 
   @Prop()
+  interval: string;
+
+  @Prop()
   valueInTooltip: boolean;
 
   @Prop()
@@ -152,6 +155,28 @@ export class GuxFormField {
           >
             <slot name="input" />
           </gux-input-color>
+          {this.renderError(hasError)}
+        </div>
+      </div>
+    ) as JSX.Element;
+  }
+
+  private renderInputTime(interval: string, hasError: boolean): JSX.Element {
+    return (
+      <div
+        class={`gux-label-and-input-and-error-container gux-${this.computedLabelPosition}`}
+      >
+        {this.renderLabel(this.required)}
+        <div class="gux-input-and-error-container">
+          <gux-input-time
+            gux-error-describedby={this.errorId}
+            class={{
+              'gux-input-error': hasError
+            }}
+            interval={interval}
+          >
+            <slot name="input" />
+          </gux-input-time>
           {this.renderError(hasError)}
         </div>
       </div>
@@ -312,6 +337,8 @@ export class GuxFormField {
             return this.renderInputNumber(this.clearable, this.hasError);
           case 'search':
             return this.renderInputSearch(this.hasError);
+          case 'time':
+            return this.renderInputTime(this.interval, this.hasError);
           default:
             return (
               <div>

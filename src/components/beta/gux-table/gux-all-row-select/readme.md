@@ -45,6 +45,7 @@ graph TD;
   gux-form-field --> gux-input-checkbox
   gux-form-field --> gux-input-radio
   gux-form-field --> gux-input-color
+  gux-form-field --> gux-input-time
   gux-form-field --> gux-input-range
   gux-form-field --> gux-input-number
   gux-form-field --> gux-input-select
@@ -55,6 +56,8 @@ graph TD;
   gux-input-color --> gux-icon
   gux-input-color --> gux-color-select
   gux-color-select --> gux-input-color-option
+  gux-input-time --> gux-option
+  gux-input-time --> gux-icon
   gux-input-number --> gux-icon
   gux-input-select --> gux-icon
   gux-input-text-like --> gux-icon

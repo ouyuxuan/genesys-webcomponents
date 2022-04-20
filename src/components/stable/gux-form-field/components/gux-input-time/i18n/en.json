@@ -1,0 +1,9 @@
+{
+  "am": "AM",
+  "colon": ":",
+  "clockButton": "Toggle suggested times",
+  "hoursInput": "Input hours",
+  "minutesInput": "Input minutes",
+  "pm": "PM",
+  "toggleAmPM": "{amOrPm} selected, click to toggle"
+}

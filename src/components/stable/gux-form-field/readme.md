@@ -11,6 +11,7 @@
 | ---------------- | ------------------ | ----------- | --------------------------------------- | ----------- |
 | `clearable`      | `clearable`        |             | `boolean`                               | `undefined` |
 | `displayUnits`   | `display-units`    |             | `string`                                | `undefined` |
+| `interval`       | `interval`         |             | `string`                                | `undefined` |
 | `labelPosition`  | `label-position`   |             | `"above" \| "beside" \| "screenreader"` | `undefined` |
 | `resize`         | `resize`           |             | `"auto" \| "manual" \| "none"`          | `undefined` |
 | `valueInTooltip` | `value-in-tooltip` |             | `boolean`                               | `undefined` |
@@ -36,6 +37,7 @@
 - [gux-input-checkbox](./components/gux-input-checkbox)
 - [gux-input-radio](./components/gux-input-radio)
 - [gux-input-color](./components/gux-input-color)
+- [gux-input-time](./components/gux-input-time)
 - [gux-input-range](./components/gux-input-range)
 - [gux-input-number](./components/gux-input-number)
 - [gux-input-select](./components/gux-input-select)
@@ -50,6 +52,7 @@ graph TD;
   gux-form-field --> gux-input-checkbox
   gux-form-field --> gux-input-radio
   gux-form-field --> gux-input-color
+  gux-form-field --> gux-input-time
   gux-form-field --> gux-input-range
   gux-form-field --> gux-input-number
   gux-form-field --> gux-input-select
@@ -60,6 +63,8 @@ graph TD;
   gux-input-color --> gux-icon
   gux-input-color --> gux-color-select
   gux-color-select --> gux-input-color-option
+  gux-input-time --> gux-option
+  gux-input-time --> gux-icon
   gux-input-number --> gux-icon
   gux-input-select --> gux-icon
   gux-input-text-like --> gux-icon

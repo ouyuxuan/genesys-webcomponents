@@ -28,6 +28,19 @@ Type: `Promise<boolean>`
 
 
 
+## Dependencies
+
+### Used by
+
+ - [gux-input-time](../../gux-form-field/components/gux-input-time)
+
+### Graph
+```mermaid
+graph TD;
+  gux-input-time --> gux-option
+  style gux-option fill:#f9f,stroke:#333,stroke-width:4px
+```
+
 ----------------------------------------------
 
 *Built with [StencilJS](https://stenciljs.com/)*
