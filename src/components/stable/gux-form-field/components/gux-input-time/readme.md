@@ -7,14 +7,16 @@
 
 ## Properties
 
-| Property          | Attribute             | Description                                            | Type      | Default |
-| ----------------- | --------------------- | ------------------------------------------------------ | --------- | ------- |
-| `hoursValue`      | `hours-value`         | Hours input value                                      | `string`  | `'12'`  |
-| `interval`        | `interval`            | Time interval between suggested times in dropdown list | `string`  | `'15'`  |
-| `minutesValue`    | `minutes-value`       | Minutes input value                                    | `string`  | `'00'`  |
-| `opened`          | `opened`              | Suggested times dropdown list state - open/closed      | `boolean` | `false` |
-| `toggleAmPMValue` | `toggle-am-p-m-value` | AM/PM toggle value                                     | `string`  | `''`    |
-| `value`           | `value`               | Indicate the dropdown input value                      | `string`  | `''`    |
+| Property          | Attribute             | Description                                                         | Type           | Default |
+| ----------------- | --------------------- | ------------------------------------------------------------------- | -------------- | ------- |
+| `dropdownValue`   | `dropdown-value`      | Indicate the dropdown input value                                   | `string`       | `''`    |
+| `hoursValue`      | `hours-value`         | Hours input value                                                   | `string`       | `'12'`  |
+| `interval`        | `interval`            | Time interval between suggested times in dropdown list - default 15 | `"15" \| "30"` | `'15'`  |
+| `minutesValue`    | `minutes-value`       | Minutes input value                                                 | `string`       | `'00'`  |
+| `opened`          | `opened`              | Suggested times dropdown list state - opened/closed                 | `boolean`      | `false` |
+| `optionSelected`  | `option-selected`     | True when suggested time option is selected                         | `boolean`      | `false` |
+| `timeFormat`      | `time-format`         | User's locale for 12h or 24h time format                            | `string`       | `'12h'` |
+| `toggleAmPMValue` | `toggle-am-p-m-value` | AM/PM toggle value                                                  | `string`       | `''`    |
 
 
 ## Slots

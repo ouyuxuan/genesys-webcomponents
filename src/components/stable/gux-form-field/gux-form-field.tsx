@@ -6,7 +6,7 @@ import { logError } from '../../../utils/error/log-error';
 import { onRequiredChange } from '../../../utils/dom/on-attribute-change';
 import { preventBrowserValidationStyling } from '../../../utils/dom/prevent-browser-validation-styling';
 import { trackComponent } from '../../../usage-tracking';
-
+import { GuxInterval } from './components/gux-input-time/gux-input-time.types';
 import { GuxInputTextAreaResize } from './components/gux-input-textarea/gux-input-textarea.types';
 import {
   GuxFormFieldSlottedElementType,
@@ -43,7 +43,7 @@ export class GuxFormField {
   displayUnits: string;
 
   @Prop()
-  interval: string;
+  interval: GuxInterval;
 
   @Prop()
   valueInTooltip: boolean;
@@ -161,7 +161,10 @@ export class GuxFormField {
     ) as JSX.Element;
   }
 
-  private renderInputTime(interval: string, hasError: boolean): JSX.Element {
+  private renderInputTime(
+    interval: GuxInterval,
+    hasError: boolean
+  ): JSX.Element {
     return (
       <div
         class={`gux-label-and-input-and-error-container gux-${this.computedLabelPosition}`}

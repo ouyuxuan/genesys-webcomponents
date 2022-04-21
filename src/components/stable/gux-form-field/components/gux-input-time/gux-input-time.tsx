@@ -14,13 +14,18 @@ import { onDisabledChange } from '../../../../../utils/dom/on-attribute-change';
 import { whenEventIsFrom } from '../../../../../utils/dom/when-event-is-from';
 import { OnClickOutside } from '../../../../../utils/decorator/on-click-outside';
 import {
-  Gux15MinuteInterval,
-  Gux30MinuteInterval
+  Gux15MinuteInterval12h,
+  Gux30MinuteInterval12h,
+  Gux15MinuteInterval24h,
+  Gux30MinuteInterval24h
 } from './gux-input-time-suggested-times';
+import { GuxInterval } from './gux-input-time.types';
 
-const MAX_HOURS: string = '12';
+const MAX_HOURS_12H: string = '12';
+const MIN_HOURS_12H: string = '1';
+const MAX_HOURS_24H: string = '23';
+const MIN_HOURS_24H: string = '00';
 const MAX_MINUTES: string = '59';
-const MIN_HOURS: string = '1';
 const MIN_MINUTES: string = '00';
 
 /**
@@ -39,13 +44,19 @@ export class GuxInputTime {
   private root: HTMLElement;
 
   /**
+   * User's locale for 12h or 24h time format
+   */
+  @Prop({ mutable: true })
+  timeFormat: string = '12h';
+
+  /**
    * AM/PM toggle value
    */
   @Prop({ mutable: true })
   toggleAmPMValue: string = '';
 
   /**
-   * Suggested times dropdown list state - open/closed
+   * Suggested times dropdown list state - opened/closed
    */
   @Prop({ mutable: true })
   opened: boolean = false;
@@ -54,7 +65,7 @@ export class GuxInputTime {
    * Indicate the dropdown input value
    */
   @Prop({ mutable: true })
-  value: string = '';
+  dropdownValue: string = '';
 
   /**
    * Hours input value
@@ -69,10 +80,16 @@ export class GuxInputTime {
   minutesValue: string = '00';
 
   /**
-   * Time interval between suggested times in dropdown list
+   * Time interval between suggested times in dropdown list - default 15
    */
   @Prop()
-  interval: string = '15';
+  interval: GuxInterval = '15';
+
+  /**
+   * True when suggested time option is selected
+   */
+  @Prop()
+  optionSelected: boolean = false;
 
   @State()
   private disabled: boolean;
@@ -83,9 +100,8 @@ export class GuxInputTime {
   async componentWillLoad(): Promise<void> {
     this.i18n = await buildI18nForComponent(this.root, componentResources);
     this.input = this.root.querySelector('input[slot="input"]');
-
-    this.disabled = this.input.disabled;
     this.toggleAmPMValue = this.i18n('am');
+    this.disabled = this.input.disabled;
 
     this.disabledObserver = onDisabledChange(
       this.input,
@@ -93,6 +109,18 @@ export class GuxInputTime {
         this.disabled = disabled;
       }
     );
+
+    const userCurrentTime = new Date().toLocaleTimeString();
+    if (
+      !userCurrentTime.includes(this.i18n('am')) &&
+      !userCurrentTime.includes(this.i18n('pm'))
+    ) {
+      this.timeFormat = '24h';
+    }
+
+    if (this.timeFormat === '24h') {
+      this.hoursValue = '00';
+    }
   }
 
   @Listen('keydown', { passive: false })
@@ -168,7 +196,7 @@ export class GuxInputTime {
   }
 
   setValue(value: string) {
-    this.value = value;
+    this.dropdownValue = value;
     this.opened = false;
   }
 
@@ -177,8 +205,16 @@ export class GuxInputTime {
    */
   suggestedTimesList() {
     const arrListItems = [];
+
+    let timeFormat15MinuteIntervalList = Gux15MinuteInterval12h;
+    let timeFormat30MinuteIntervalList = Gux30MinuteInterval12h;
+    if (this.timeFormat === '24h') {
+      timeFormat15MinuteIntervalList = Gux15MinuteInterval24h;
+      timeFormat30MinuteIntervalList = Gux30MinuteInterval24h;
+    }
+
     if (this.interval != '15') {
-      Gux30MinuteInterval.forEach(time => {
+      timeFormat30MinuteIntervalList.forEach(time => {
         arrListItems.push(
           <gux-option class="gux-time-option" value={time}>
             {time}
@@ -186,7 +222,7 @@ export class GuxInputTime {
         );
       });
     } else {
-      Gux15MinuteInterval.forEach(time => {
+      timeFormat15MinuteIntervalList.forEach(time => {
         arrListItems.push(
           <gux-option class="gux-time-option" value={time}>
             {time}
@@ -244,8 +280,8 @@ export class GuxInputTime {
   }
 
   getHoursMinutesNewValue() {
-    if (this.value != '') {
-      const splitValue = this.value.split(':');
+    if (this.dropdownValue != '') {
+      const splitValue = this.dropdownValue.split(':');
       this.hoursValue = splitValue[0];
       this.minutesValue = splitValue[1];
     }
@@ -259,20 +295,28 @@ export class GuxInputTime {
   increment(delta: number, e: Event) {
     const target = e.target as HTMLGuxInputTimeElement;
     const targetInput = target.className;
-    const targetValue = target.value;
+    let targetValue = '';
+
+    let timeFormatMaxHours = MAX_HOURS_12H;
+    let timeFormatMinHours = MIN_HOURS_12H;
+    if (this.timeFormat === '24h') {
+      timeFormatMaxHours = MAX_HOURS_24H;
+      timeFormatMinHours = MIN_HOURS_24H;
+    }
 
     if (targetInput === 'gux-input-time-hours') {
+      targetValue = this.hoursValue;
       if (delta === 1) {
-        if (targetValue === MAX_HOURS) {
-          this.hoursValue = MIN_HOURS;
+        if (targetValue === timeFormatMaxHours) {
+          this.hoursValue = timeFormatMinHours;
         } else {
           this.hoursValue = (parseInt(targetValue) + 1).toString();
         }
       }
 
       if (delta === -1) {
-        if (targetValue === MIN_HOURS) {
-          this.hoursValue = MAX_HOURS;
+        if (targetValue === timeFormatMinHours) {
+          this.hoursValue = timeFormatMaxHours;
         } else {
           this.hoursValue = (parseInt(targetValue) - 1).toString();
         }
@@ -280,6 +324,7 @@ export class GuxInputTime {
     }
 
     if (targetInput === 'gux-input-time-minutes') {
+      targetValue = this.minutesValue;
       if (delta === 1) {
         if (targetValue === MAX_MINUTES) {
           this.minutesValue = MIN_MINUTES;
@@ -306,21 +351,42 @@ export class GuxInputTime {
     this.input = this.root.querySelector('.gux-input-time-hours');
     const hoursValue = this.input.value.replace(/\s/g, '');
 
+    let timeFormatMaxHours = MAX_HOURS_12H;
+    let timeFormatMinHours = MIN_HOURS_12H;
+    if (this.timeFormat === '24h') {
+      timeFormatMaxHours = MAX_HOURS_24H;
+      timeFormatMinHours = MIN_HOURS_24H;
+    }
+
     if (
-      parseInt(hoursValue) <= parseInt(MAX_HOURS) &&
-      parseInt(hoursValue) >= parseInt(MIN_HOURS)
+      parseInt(hoursValue) <= parseInt(timeFormatMaxHours) &&
+      parseInt(hoursValue) >= parseInt(timeFormatMinHours)
     ) {
       this.hoursValue = hoursValue;
     } else if (
-      parseInt(hoursValue) > parseInt(MAX_HOURS) ||
-      parseInt(hoursValue) < parseInt(MIN_HOURS)
+      parseInt(hoursValue) > parseInt(timeFormatMaxHours) ||
+      parseInt(hoursValue) < parseInt(timeFormatMinHours)
     ) {
-      this.hoursValue = MAX_HOURS;
+      if (this.timeFormat === '24h') {
+        this.hoursValue = MIN_HOURS_24H;
+      } else {
+        // 12 Hour
+        this.hoursValue = MAX_HOURS_12H;
+      }
     } else if (hoursValue.length < 1) {
-      // 12 Hour
-      this.hoursValue = MAX_HOURS;
+      if (this.timeFormat === '24h') {
+        this.hoursValue = MIN_HOURS_24H;
+      } else {
+        // 12 Hour
+        this.hoursValue = MAX_HOURS_12H;
+      }
     } else {
-      this.hoursValue = MAX_HOURS;
+      if (this.timeFormat === '24h') {
+        this.hoursValue = MIN_HOURS_24H;
+      } else {
+        // 12 Hour
+        this.hoursValue = MAX_HOURS_12H;
+      }
     }
 
     this.input.value = this.hoursValue;
@@ -340,7 +406,7 @@ export class GuxInputTime {
     } else if (minutesValue.length < 2) {
       this.minutesValue = '0' + minutesValue;
     } else {
-      this.minutesValue = MIN_MINUTES;
+      this.minutesValue = minutesValue;
     }
 
     this.input.value = this.minutesValue;
@@ -355,17 +421,22 @@ export class GuxInputTime {
   }
 
   renderAmPmSelector(): JSX.Element {
-    return (
-      <button
-        class="gux-input-time-am-pm-selector"
-        type="button"
-        disabled={this.disabled}
-        aria-label={this.i18n('toggleAmPM', { amOrPm: this.toggleAmPMValue })}
-        onClick={() => this.onAmPmSelectorClicked()}
-      >
-        {this.toggleAmPMValue}
-      </button>
-    ) as JSX.Element;
+    if (this.timeFormat === '24h') {
+      return;
+    } else {
+      // 12h format
+      return (
+        <button
+          class="gux-input-time-am-pm-selector"
+          type="button"
+          disabled={this.disabled}
+          aria-label={this.i18n('toggleAmPM', { amOrPm: this.toggleAmPMValue })}
+          onClick={() => this.onAmPmSelectorClicked()}
+        >
+          {this.toggleAmPMValue}
+        </button>
+      ) as JSX.Element;
+    }
   }
 
   renderClockButton(): JSX.Element {
@@ -405,8 +476,8 @@ export class GuxInputTime {
               <input
                 class="gux-input-time-hours"
                 type="number"
-                min={MIN_HOURS}
-                max={MAX_HOURS}
+                min={this.timeFormat === '24h' ? MIN_HOURS_24H : MIN_HOURS_12H}
+                max={this.timeFormat === '24h' ? MAX_HOURS_24H : MAX_HOURS_12H}
                 disabled={this.disabled}
                 value={this.hoursValue}
                 onChange={this.onHoursChanged.bind(this)}

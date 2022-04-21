@@ -11,7 +11,7 @@
 | ---------------- | ------------------ | ----------- | --------------------------------------- | ----------- |
 | `clearable`      | `clearable`        |             | `boolean`                               | `undefined` |
 | `displayUnits`   | `display-units`    |             | `string`                                | `undefined` |
-| `interval`       | `interval`         |             | `string`                                | `undefined` |
+| `interval`       | `interval`         |             | `"15" \| "30"`                          | `undefined` |
 | `labelPosition`  | `label-position`   |             | `"above" \| "beside" \| "screenreader"` | `undefined` |
 | `resize`         | `resize`           |             | `"auto" \| "manual" \| "none"`          | `undefined` |
 | `valueInTooltip` | `value-in-tooltip` |             | `boolean`                               | `undefined` |

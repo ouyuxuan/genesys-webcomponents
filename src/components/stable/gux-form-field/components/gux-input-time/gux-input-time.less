@@ -43,7 +43,6 @@ gux-input-time {
           align-content: stretch;
           align-items: center;
           justify-content: center;
-          // width: 100%;
           width: 125px;
           height: 32px;
           font-family: inherit;
@@ -57,6 +56,10 @@ gux-input-time {
           input {
             &:first-child {
               padding-left: 8px;
+            }
+
+            &:not(:first-child) {
+              padding-right: 8px;
             }
 
             flex: 1 1 auto;
@@ -87,7 +90,7 @@ gux-input-time {
           }
 
           .gux-time-separator {
-            padding: 0 4px 0 4px;
+            padding: 0 4px 2px 4px;
 
             &.gux-disabled {
               pointer-events: none;
@@ -98,7 +101,7 @@ gux-input-time {
             flex: 0 1 auto;
             align-self: auto;
             order: 0;
-            padding: 0 8px 0 0;
+            padding: 0 8px 0 8px;
             color: @gux-black-90;
             background: transparent;
             border: none;
@@ -137,7 +140,7 @@ gux-input-time {
           }
 
           .gux-input-time-am-pm-selector {
-            padding: 0 8px 0 8px;
+            padding: 0;
             font-size: 12px;
             font-weight: bold;
             color: @gux-black-50;
@@ -163,7 +166,6 @@ gux-input-time {
       position: absolute;
       z-index: 1;
       display: none;
-      // width: 100%;
       width: 125px;
       height: 150px;
       padding: 8px 0;
@@ -184,15 +186,11 @@ gux-input-time {
             display: flex;
             height: 32px;
             padding: 0 16px;
+            overflow: hidden;
             line-height: 32px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
             cursor: pointer;
-
-            div {
-              position: relative;
-              overflow: hidden;
-              text-overflow: ellipsis;
-              white-space: nowrap;
-            }
 
             &[disabled] {
               pointer-events: none;
@@ -200,17 +198,10 @@ gux-input-time {
               opacity: 0.5;
             }
 
-            &:not([disabled]) {
-              &[selected] {
-                color: @gux-black-50;
-                background: @gux-blue-100;
-              }
-
-              &:hover,
-              &:focus {
-                color: @gux-type-dark;
-                background: @gux-blue-60;
-              }
+            &:hover,
+            &:focus {
+              color: @gux-type-dark;
+              background: @gux-blue-60;
             }
           }
         }
