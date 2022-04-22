@@ -115,6 +115,12 @@ export class GuxFormFieldTimepicker {
   interval: GuxInterval = '60';
 
   /**
+   * User's locale language
+   */
+  @Prop()
+  lang: string;
+
+  /**
    * True when suggested time option is selected
    */
   @Prop()
@@ -151,7 +157,7 @@ export class GuxFormFieldTimepicker {
     this.setLabel();
     this.hasError = hasErrorSlot(this.root);
 
-    const userCurrentTime = new Date().toLocaleTimeString();
+    const userCurrentTime = new Date().toLocaleTimeString(this.lang);
     if (
       !userCurrentTime.includes(this.i18n('am')) &&
       !userCurrentTime.includes(this.i18n('pm'))
