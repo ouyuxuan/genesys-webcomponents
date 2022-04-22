@@ -6,7 +6,6 @@ import { logError } from '../../../utils/error/log-error';
 import { onRequiredChange } from '../../../utils/dom/on-attribute-change';
 import { preventBrowserValidationStyling } from '../../../utils/dom/prevent-browser-validation-styling';
 import { trackComponent } from '../../../usage-tracking';
-import { GuxInterval } from './components/gux-input-time/gux-input-time.types';
 import { GuxInputTextAreaResize } from './components/gux-input-textarea/gux-input-textarea.types';
 import {
   GuxFormFieldSlottedElementType,
@@ -41,9 +40,6 @@ export class GuxFormField {
 
   @Prop()
   displayUnits: string;
-
-  @Prop()
-  interval: GuxInterval;
 
   @Prop()
   valueInTooltip: boolean;
@@ -155,31 +151,6 @@ export class GuxFormField {
           >
             <slot name="input" />
           </gux-input-color>
-          {this.renderError(hasError)}
-        </div>
-      </div>
-    ) as JSX.Element;
-  }
-
-  private renderInputTime(
-    interval: GuxInterval,
-    hasError: boolean
-  ): JSX.Element {
-    return (
-      <div
-        class={`gux-label-and-input-and-error-container gux-${this.computedLabelPosition}`}
-      >
-        {this.renderLabel(this.required)}
-        <div class="gux-input-and-error-container">
-          <gux-input-time
-            gux-error-describedby={this.errorId}
-            class={{
-              'gux-input-error': hasError
-            }}
-            interval={interval}
-          >
-            <slot name="input" />
-          </gux-input-time>
           {this.renderError(hasError)}
         </div>
       </div>
@@ -340,8 +311,6 @@ export class GuxFormField {
             return this.renderInputNumber(this.clearable, this.hasError);
           case 'search':
             return this.renderInputSearch(this.hasError);
-          case 'time':
-            return this.renderInputTime(this.interval, this.hasError);
           default:
             return (
               <div>

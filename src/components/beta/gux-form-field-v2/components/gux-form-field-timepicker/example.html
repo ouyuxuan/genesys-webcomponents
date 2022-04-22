@@ -1,0 +1,47 @@
+<h1>gux-form-field-timepicker-beta</h1>
+
+<p>slot a input[type=time] into a gux-form-field-timepicker-beta element</p>
+
+<h2>Examples</h2>
+<form onchange="notify(event)" oninput="notify(event)">
+  <fieldset>
+    <legend>Default</legend>
+    <gux-form-field-timepicker-beta label-position="screenreader">
+      <input slot="input" type="time" name="t-1" />
+      <label slot="label">Select Time</label>
+    </gux-form-field-timepicker-beta>
+  </fieldset>
+
+  <fieldset>
+    <legend>Label Position</legend>
+    <gux-form-field-timepicker-beta label-position="above">
+      <input slot="input" type="time" name="t-2" />
+      <label slot="label">Select Time</label>
+    </gux-form-field-timepicker-beta>
+  </fieldset>
+
+  <fieldset>
+    <legend>Interval=30</legend>
+    <gux-form-field-timepicker-beta interval="30" label-position="screenreader">
+      <input slot="input" type="time" name="t-3" />
+      <label slot="label">Select Time</label>
+    </gux-form-field-timepicker-beta>
+  </fieldset>
+
+  <fieldset>
+    <legend>Disabled</legend>
+    <gux-form-field-timepicker-beta label-position="screenreader">
+      <input slot="input" type="time" name="t-4" disabled />
+      <label slot="label">Select Time</label>
+    </gux-form-field-timepicker-beta>
+  </fieldset>
+
+  <fieldset>
+    <legend>Error</legend>
+    <gux-form-field-timepicker-beta label-position="screenreader">
+      <input slot="input" type="time" name="t-5" />
+      <label slot="label">Select Time</label>
+      <span slot="error">This is an error message</span>
+    </gux-form-field-timepicker-beta>
+  </fieldset>
+</form>

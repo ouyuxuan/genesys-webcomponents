@@ -13,13 +13,27 @@ import componentResources from './i18n/en.json';
 import { onDisabledChange } from '../../../../../utils/dom/on-attribute-change';
 import { whenEventIsFrom } from '../../../../../utils/dom/when-event-is-from';
 import { OnClickOutside } from '../../../../../utils/decorator/on-click-outside';
+import { OnMutation } from '../../../../../utils/decorator/on-mutation';
+import { trackComponent } from '../../../../../usage-tracking';
+import { preventBrowserValidationStyling } from '../../../../../utils/dom/prevent-browser-validation-styling';
+
+import { GuxFormFieldContainer } from '../../functional-components/gux-form-field-container/gux-form-field-container';
+import { GuxFormFieldError } from '../../functional-components/gux-form-field-error/gux-form-field-error';
+import { GuxFormFieldLabel } from '../../functional-components/gux-form-field-label/gux-form-field-label';
+
 import {
   Gux15MinuteInterval12h,
   Gux30MinuteInterval12h,
   Gux15MinuteInterval24h,
   Gux30MinuteInterval24h
-} from './gux-input-time-suggested-times';
-import { GuxInterval } from './gux-input-time.types';
+} from './gux-form-field-timepicker-suggested-times';
+import { GuxInterval } from './gux-form-field-timepicker.types';
+import { GuxFormFieldLabelPosition } from '../../gux-form-field.types';
+import {
+  hasErrorSlot,
+  getComputedLabelPosition,
+  validateFormIds
+} from '../../gux-form-field.servce';
 
 const MAX_HOURS_12H: string = '12';
 const MIN_HOURS_12H: string = '1';
@@ -29,19 +43,29 @@ const MAX_MINUTES: string = '59';
 const MIN_MINUTES: string = '00';
 
 /**
- * @slot input - Required slot for input[type="time"]
+ * @slot input - Required slot for input tag
+ * @slot label - Optional slot for label tag
+ * @slot error - Optional slot for error message
  */
 @Component({
-  styleUrl: 'gux-input-time.less',
-  tag: 'gux-input-time'
+  styleUrl: 'gux-form-field-timepicker.less',
+  tag: 'gux-form-field-timepicker-beta',
+  shadow: true
 })
-export class GuxInputTime {
+export class GuxFormFieldTimepicker {
   private i18n: GetI18nValue;
   private input: HTMLInputElement;
+  private label: HTMLLabelElement;
   private disabledObserver: MutationObserver;
 
   @Element()
   private root: HTMLElement;
+
+  @Prop()
+  labelPosition: GuxFormFieldLabelPosition;
+
+  @State()
+  private computedLabelPosition: GuxFormFieldLabelPosition = 'above';
 
   /**
    * User's locale for 12h or 24h time format
@@ -92,10 +116,18 @@ export class GuxInputTime {
   optionSelected: boolean = false;
 
   @State()
+  clockActive: boolean = false;
+
+  @State()
   private disabled: boolean;
 
   @State()
-  clockActive: boolean = false;
+  private hasError: boolean = false;
+
+  @OnMutation({ childList: true, subtree: true })
+  onMutation(): void {
+    this.hasError = hasErrorSlot(this.root);
+  }
 
   async componentWillLoad(): Promise<void> {
     this.i18n = await buildI18nForComponent(this.root, componentResources);
@@ -110,6 +142,10 @@ export class GuxInputTime {
       }
     );
 
+    this.setInput();
+    this.setLabel();
+    this.hasError = hasErrorSlot(this.root);
+
     const userCurrentTime = new Date().toLocaleTimeString();
     if (
       !userCurrentTime.includes(this.i18n('am')) &&
@@ -121,6 +157,8 @@ export class GuxInputTime {
     if (this.timeFormat === '24h') {
       this.hoursValue = '00';
     }
+
+    trackComponent(this.root);
   }
 
   @Listen('keydown', { passive: false })
@@ -157,9 +195,8 @@ export class GuxInputTime {
         }
         break;
       case 'Enter':
-      case 'Space':
         if (this.clockActive) {
-          this.optionSelectedHandler(event);
+          this.optionSelectedHandler(event, true);
         }
         break;
       default:
@@ -183,6 +220,15 @@ export class GuxInputTime {
 
   disconnectedCallback(): void {
     this.disabledObserver.disconnect();
+  }
+
+  private setLabel(): void {
+    this.label = this.root.querySelector('label[slot="label"]');
+
+    this.computedLabelPosition = getComputedLabelPosition(
+      this.label,
+      this.labelPosition
+    );
   }
 
   /**
@@ -216,7 +262,7 @@ export class GuxInputTime {
     if (this.interval != '15') {
       timeFormat30MinuteIntervalList.forEach(time => {
         arrListItems.push(
-          <gux-option class="gux-time-option" value={time}>
+          <gux-option class="gux-time-option" title={time} value={time}>
             {time}
           </gux-option>
         );
@@ -224,7 +270,7 @@ export class GuxInputTime {
     } else {
       timeFormat15MinuteIntervalList.forEach(time => {
         arrListItems.push(
-          <gux-option class="gux-time-option" value={time}>
+          <gux-option class="gux-time-option" title={time} value={time}>
             {time}
           </gux-option>
         );
@@ -241,7 +287,7 @@ export class GuxInputTime {
    */
   private getTimeOptions(): HTMLGuxOptionElement[] {
     const result: HTMLGuxOptionElement[] = [];
-    const options: HTMLElement = this.root.getElementsByClassName(
+    const options: HTMLElement = this.input.getElementsByClassName(
       'gux-time-options'
     )[0] as HTMLElement;
 
@@ -263,7 +309,18 @@ export class GuxInputTime {
    * Set hours and minutes value when suggested option is selected
    * @param e - option selected event
    */
-  private optionSelectedHandler(e: Event) {
+  private optionSelectedHandler(e: Event, fromEnterKeyPress: boolean = false) {
+    if (fromEnterKeyPress) {
+      const option = e.composedPath()[0] as HTMLGuxOptionElement;
+      const selectionOptions = this.getTimeOptions();
+
+      selectionOptions.forEach(selectionOption => {
+        if (selectionOption === option) {
+          this.setValue(selectionOption.value);
+        }
+      });
+    }
+
     whenEventIsFrom('gux-option', e, elem => {
       const option = elem as HTMLGuxOptionElement;
       const selectionOptions = this.getTimeOptions();
@@ -293,7 +350,7 @@ export class GuxInputTime {
    * @param e - mouse click event
    */
   increment(delta: number, e: Event) {
-    const target = e.target as HTMLGuxInputTimeElement;
+    const target = e.composedPath()[0] as HTMLGuxFormFieldTimepickerBetaElement;
     const targetInput = target.className;
     let targetValue = '';
 
@@ -458,66 +515,101 @@ export class GuxInputTime {
 
   render(): JSX.Element {
     return (
-      <div
-        class={{
-          'gux-input-time': true,
-          'gux-disabled': this.disabled
-        }}
-        aria-disabled={this.disabled.toString()}
-        ref={(el: HTMLInputElement) => (this.input = el)}
-      >
-        <div class="gux-input-time-field">
-          <div class="gux-input-time-field-input">
+      <GuxFormFieldContainer labelPosition={this.computedLabelPosition}>
+        <GuxFormFieldLabel
+          position={this.computedLabelPosition}
+          required={false}
+        >
+          <slot name="label" onSlotchange={() => this.setLabel()} />
+        </GuxFormFieldLabel>
+        <div class="gux-input-and-error-container">
+          <div
+            class={{
+              'gux-input': true,
+              'gux-input-error': this.hasError
+            }}
+          >
             <div
               class={{
-                'gux-input-time-field-text-input': true
+                'gux-timepicker': true,
+                'gux-disabled': this.disabled
               }}
+              aria-disabled={this.disabled.toString()}
+              ref={(el: HTMLInputElement) => (this.input = el)}
             >
-              <input
-                class="gux-input-time-hours"
-                type="number"
-                min={this.timeFormat === '24h' ? MIN_HOURS_24H : MIN_HOURS_12H}
-                max={this.timeFormat === '24h' ? MAX_HOURS_24H : MAX_HOURS_12H}
-                disabled={this.disabled}
-                value={this.hoursValue}
-                onChange={this.onHoursChanged.bind(this)}
-                aria-label={this.i18n('hoursInput')}
-              />
-              <span
+              <div class="gux-input-time">
+                <input
+                  class="gux-input-time-hours"
+                  type="number"
+                  min={
+                    this.timeFormat === '24h' ? MIN_HOURS_24H : MIN_HOURS_12H
+                  }
+                  max={
+                    this.timeFormat === '24h' ? MAX_HOURS_24H : MAX_HOURS_12H
+                  }
+                  disabled={this.disabled}
+                  value={this.hoursValue}
+                  onChange={this.onHoursChanged.bind(this)}
+                  aria-label={this.i18n('hoursInput')}
+                />
+                <span
+                  class={{
+                    'gux-time-separator': true,
+                    'gux-disabled': this.disabled
+                  }}
+                >
+                  {this.i18n('colon')}
+                </span>
+                <input
+                  class="gux-input-time-minutes"
+                  type="number"
+                  min={MIN_MINUTES}
+                  max={MAX_MINUTES}
+                  disabled={this.disabled}
+                  value={this.minutesValue}
+                  onChange={this.onMinutesChanged.bind(this)}
+                  aria-label={this.i18n('minutesInput')}
+                />
+                {this.renderAmPmSelector()}
+                {this.renderClockButton()}
+              </div>
+              <div
                 class={{
-                  'gux-time-separator': true,
+                  'gux-time-options': true,
+                  'gux-opened': this.opened,
                   'gux-disabled': this.disabled
                 }}
+                aria-label={this.i18n('timeOptionsState', {
+                  state: this.opened.toString()
+                })}
+                onClick={this.optionSelectedHandler.bind(this)}
               >
-                {this.i18n('colon')}
-              </span>
-              <input
-                class="gux-input-time-minutes"
-                type="number"
-                min={MIN_MINUTES}
-                max={MAX_MINUTES}
-                disabled={this.disabled}
-                value={this.minutesValue}
-                onChange={this.onMinutesChanged.bind(this)}
-                aria-label={this.i18n('minutesInput')}
-              />
-              {this.renderAmPmSelector()}
-              {this.renderClockButton()}
+                {this.suggestedTimesList()}
+              </div>
             </div>
           </div>
+          <GuxFormFieldError hasError={this.hasError}>
+            <slot name="error" />
+          </GuxFormFieldError>
         </div>
-        <div
-          class={{
-            'gux-time-options': true,
-            'gux-opened': this.opened,
-            'gux-disabled': this.disabled
-          }}
-          aria-label="time options opened"
-          onClick={this.optionSelectedHandler.bind(this)}
-        >
-          {this.suggestedTimesList()}
-        </div>
-      </div>
+      </GuxFormFieldContainer>
     ) as JSX.Element;
+  }
+
+  private setInput(): void {
+    this.input = this.root.querySelector('input[type="time"][slot="input"]');
+
+    preventBrowserValidationStyling(this.input);
+
+    this.disabled = this.input.disabled;
+
+    this.disabledObserver = onDisabledChange(
+      this.input,
+      (disabled: boolean) => {
+        this.disabled = disabled;
+      }
+    );
+
+    validateFormIds(this.root, this.input);
   }
 }
