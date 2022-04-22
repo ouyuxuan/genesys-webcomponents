@@ -50,18 +50,22 @@ describe('gux-form-field-timepicker-beta', () => {
       });
     });
 
-    describe('interval', () => {
-      it('should render component as expected', async () => {
-        const html = `
-          <gux-form-field-timepicker-beta interval="30">
-            <input slot="input" type="time"/>
-            <label slot="label">Label</label>
-          </gux-form-field-timepicker-beta>
-        `;
-        const page = await newSpecPage({ components, html, language });
+    describe('intervals', () => {
+      ['interval="15"', 'interval="30"', 'interval="60"'].forEach(
+        (componentAttribute, index) => {
+          it(`should render component as expected (${index + 1})`, async () => {
+            const html = `
+            <gux-form-field-timepicker-beta ${componentAttribute}>
+              <input slot="input" type="time"/>
+              <label slot="label">Label</label>
+            </gux-form-field-timepicker-beta>
+          `;
+            const page = await newSpecPage({ components, html, language });
 
-        expect(page.root).toMatchSnapshot();
-      });
+            expect(page.root).toMatchSnapshot();
+          });
+        }
+      );
     });
   });
 });

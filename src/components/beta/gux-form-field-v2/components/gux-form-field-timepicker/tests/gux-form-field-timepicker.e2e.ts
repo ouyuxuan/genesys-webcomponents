@@ -58,29 +58,33 @@ describe('gux-form-field-timepicker-beta', () => {
     });
 
     describe('interval', () => {
-      const html = `
-          <gux-form-field-timepicker-beta>
-            <input slot="input" type="time" interval="30"/>
+      ['interval="15"', 'interval="30"', 'interval="60"'].forEach(
+        (componentAttribute, index) => {
+          const html = `
+          <gux-form-field-timepicker-beta ${componentAttribute}>
+            <input slot="input" type="time"/>
             <label slot="label">Label</label>
-          </gux-form-field-timepicker-beta>
+          </gux-form-field-timepicker>
         `;
 
-      it('should render component as expected', async () => {
-        const page = await newNonrandomE2EPage({ html });
-        const element = await page.find('gux-form-field-timepicker-beta');
-        const elementShadowDom = await element.find(
-          'pierce/.gux-form-field-container'
-        );
+          it(`should render component as expected (${index + 1})`, async () => {
+            const page = await newNonrandomE2EPage({ html });
+            const element = await page.find('gux-form-field-timepicker-beta');
+            const elementShadowDom = await element.find(
+              'pierce/.gux-form-field-container'
+            );
 
-        expect(element.outerHTML).toMatchSnapshot();
-        expect(elementShadowDom).toMatchSnapshot();
-      });
+            expect(element.outerHTML).toMatchSnapshot();
+            expect(elementShadowDom).toMatchSnapshot();
+          });
 
-      it('should be accessible', async () => {
-        const page = await newSparkE2EPage({ html });
+          it(`should be accessible (${index + 1})`, async () => {
+            const page = await newSparkE2EPage({ html });
 
-        await a11yCheck(page, axeExclusions);
-      });
+            await a11yCheck(page, axeExclusions);
+          });
+        }
+      );
     });
   });
 });
