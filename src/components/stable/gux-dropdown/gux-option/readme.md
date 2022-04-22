@@ -33,13 +33,11 @@ Type: `Promise<boolean>`
 ### Used by
 
  - [gux-form-field-timepicker-beta](../../../beta/gux-form-field-v2/components/gux-form-field-timepicker)
- - [gux-input-time](../../gux-form-field/components/gux-input-time)
 
 ### Graph
 ```mermaid
 graph TD;
   gux-form-field-timepicker-beta --> gux-option
-  gux-input-time --> gux-option
   style gux-option fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

@@ -24,8 +24,10 @@ import { GuxFormFieldLabel } from '../../functional-components/gux-form-field-la
 import {
   Gux15MinuteInterval12h,
   Gux30MinuteInterval12h,
+  Gux60MinuteInterval12h,
   Gux15MinuteInterval24h,
-  Gux30MinuteInterval24h
+  Gux30MinuteInterval24h,
+  Gux60MinuteInterval24h
 } from './gux-form-field-timepicker-suggested-times';
 import { GuxInterval } from './gux-form-field-timepicker.types';
 import { GuxFormFieldLabelPosition } from '../../gux-form-field.types';
@@ -57,6 +59,9 @@ export class GuxFormFieldTimepicker {
   private input: HTMLInputElement;
   private label: HTMLLabelElement;
   private disabledObserver: MutationObserver;
+
+  private inputHoursElement: HTMLInputElement;
+  private inputMinutesElement: HTMLInputElement;
 
   @Element()
   private root: HTMLElement;
@@ -104,10 +109,10 @@ export class GuxFormFieldTimepicker {
   minutesValue: string = '00';
 
   /**
-   * Time interval between suggested times in dropdown list - default 15
+   * Time interval between suggested times in dropdown list - default 60
    */
   @Prop()
-  interval: GuxInterval = '15';
+  interval: GuxInterval = '60';
 
   /**
    * True when suggested time option is selected
@@ -254,12 +259,22 @@ export class GuxFormFieldTimepicker {
 
     let timeFormat15MinuteIntervalList = Gux15MinuteInterval12h;
     let timeFormat30MinuteIntervalList = Gux30MinuteInterval12h;
+    let timeFormat60MinuteIntervalList = Gux60MinuteInterval12h;
     if (this.timeFormat === '24h') {
       timeFormat15MinuteIntervalList = Gux15MinuteInterval24h;
       timeFormat30MinuteIntervalList = Gux30MinuteInterval24h;
+      timeFormat60MinuteIntervalList = Gux60MinuteInterval24h;
     }
 
-    if (this.interval != '15') {
+    if (this.interval === '15') {
+      timeFormat15MinuteIntervalList.forEach(time => {
+        arrListItems.push(
+          <gux-option class="gux-time-option" title={time} value={time}>
+            {time}
+          </gux-option>
+        );
+      });
+    } else if (this.interval === '30') {
       timeFormat30MinuteIntervalList.forEach(time => {
         arrListItems.push(
           <gux-option class="gux-time-option" title={time} value={time}>
@@ -268,7 +283,7 @@ export class GuxFormFieldTimepicker {
         );
       });
     } else {
-      timeFormat15MinuteIntervalList.forEach(time => {
+      timeFormat60MinuteIntervalList.forEach(time => {
         arrListItems.push(
           <gux-option class="gux-time-option" title={time} value={time}>
             {time}
@@ -404,9 +419,8 @@ export class GuxFormFieldTimepicker {
     }
   }
 
-  onHoursChanged() {
-    this.input = this.root.querySelector('.gux-input-time-hours');
-    const hoursValue = this.input.value.replace(/\s/g, '');
+  onHoursChanged(inputHoursElement: HTMLInputElement) {
+    const hoursValue = inputHoursElement.value.replace(/\s/g, '');
 
     let timeFormatMaxHours = MAX_HOURS_12H;
     let timeFormatMinHours = MIN_HOURS_12H;
@@ -449,9 +463,8 @@ export class GuxFormFieldTimepicker {
     this.input.value = this.hoursValue;
   }
 
-  onMinutesChanged() {
-    this.input = this.root.querySelector('.gux-input-time-minutes');
-    const minutesValue = this.input.value.replace(/\s/g, '');
+  onMinutesChanged(inputMinutesElement: HTMLInputElement) {
+    const minutesValue = inputMinutesElement.value.replace(/\s/g, '');
 
     if (
       parseInt(minutesValue) > parseInt(MAX_MINUTES) ||
@@ -549,7 +562,8 @@ export class GuxFormFieldTimepicker {
                   }
                   disabled={this.disabled}
                   value={this.hoursValue}
-                  onChange={this.onHoursChanged.bind(this)}
+                  ref={ref => (this.inputHoursElement = ref)}
+                  onChange={() => this.onHoursChanged(this.inputHoursElement)}
                   aria-label={this.i18n('hoursInput')}
                 />
                 <span
@@ -567,7 +581,10 @@ export class GuxFormFieldTimepicker {
                   max={MAX_MINUTES}
                   disabled={this.disabled}
                   value={this.minutesValue}
-                  onChange={this.onMinutesChanged.bind(this)}
+                  ref={ref => (this.inputMinutesElement = ref)}
+                  onChange={() =>
+                    this.onMinutesChanged(this.inputMinutesElement)
+                  }
                   aria-label={this.i18n('minutesInput')}
                 />
                 {this.renderAmPmSelector()}

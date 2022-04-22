@@ -1,1 +1,1 @@
-export type GuxInterval = '15' | '30';
+export type GuxInterval = '15' | '30' | '60';

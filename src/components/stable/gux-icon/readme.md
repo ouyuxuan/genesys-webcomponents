@@ -48,7 +48,6 @@
  - [gux-input-search](../gux-form-field/components/gux-input-search)
  - [gux-input-select](../gux-form-field/components/gux-input-select)
  - [gux-input-text-like](../gux-form-field/components/gux-input-text-like)
- - [gux-input-time](../gux-form-field/components/gux-input-time)
  - [gux-pagination-buttons](../gux-pagination/gux-pagination-buttons)
  - [gux-pagination-cursor](../gux-pagination-cursor)
  - [gux-rating](../gux-rating)
@@ -98,7 +97,6 @@ graph TD;
   gux-input-search --> gux-icon
   gux-input-select --> gux-icon
   gux-input-text-like --> gux-icon
-  gux-input-time --> gux-icon
   gux-pagination-buttons --> gux-icon
   gux-pagination-cursor --> gux-icon
   gux-rating --> gux-icon
