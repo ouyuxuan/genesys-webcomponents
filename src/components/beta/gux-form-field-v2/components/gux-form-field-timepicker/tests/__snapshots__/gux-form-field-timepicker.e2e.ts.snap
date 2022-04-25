@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`gux-form-field-timepicker-beta #render interval should render component as expected (1) 1`] = `"<gux-form-field-timepicker-beta interval=\\"15\\" class=\\"hydrated\\"> <input slot=\\"input\\" type=\\"time\\" id=\\"gux-form-field-input-i\\"> <label slot=\\"label\\" for=\\"gux-form-field-input-i\\">Label</label> </gux-form-field-timepicker-beta>"`;
+exports[`gux-form-field-timepicker-beta #render interval should render component as expected (1) 1`] = `"<gux-form-field-timepicker-beta interval=\\"15\\" hydrated=\\"\\"> <input slot=\\"input\\" type=\\"time\\" id=\\"gux-form-field-input-i\\"> <label slot=\\"label\\" for=\\"gux-form-field-input-i\\">Label</label> </gux-form-field-timepicker-beta>"`;
 
 exports[`gux-form-field-timepicker-beta #render interval should render component as expected (1) 2`] = `
 <div class="gux-beside gux-form-field-container">
@@ -20,12 +20,12 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
             AM
           </button>
           <button aria-label="Toggle suggested times" class="gux-clock-button" type="button">
-            <gux-icon class="hydrated" icon-name="clock-outline"></gux-icon>
+            <gux-icon hydrated="" icon-name="clock-outline"></gux-icon>
           </button>
         </div>
         <div aria-label="Time options open: false" class="gux-time-options">
           <div class="gux-time-options-list">
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="12:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="12:00">
               <!---->
               <div title="12:00">
                 <span style="display: none;">
@@ -34,7 +34,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 12:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="12:15">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="12:15">
               <!---->
               <div title="12:15">
                 <span style="display: none;">
@@ -43,7 +43,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 12:15
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="12:30">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="12:30">
               <!---->
               <div title="12:30">
                 <span style="display: none;">
@@ -52,7 +52,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 12:30
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="12:45">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="12:45">
               <!---->
               <div title="12:45">
                 <span style="display: none;">
@@ -61,7 +61,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 12:45
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="1:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="1:00">
               <!---->
               <div title="1:00">
                 <span style="display: none;">
@@ -70,7 +70,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 1:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="1:15">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="1:15">
               <!---->
               <div title="1:15">
                 <span style="display: none;">
@@ -79,7 +79,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 1:15
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="1:30">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="1:30">
               <!---->
               <div title="1:30">
                 <span style="display: none;">
@@ -88,7 +88,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 1:30
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="1:45">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="1:45">
               <!---->
               <div title="1:45">
                 <span style="display: none;">
@@ -97,7 +97,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 1:45
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="2:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="2:00">
               <!---->
               <div title="2:00">
                 <span style="display: none;">
@@ -106,7 +106,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 2:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="2:15">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="2:15">
               <!---->
               <div title="2:15">
                 <span style="display: none;">
@@ -115,7 +115,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 2:15
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="2:30">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="2:30">
               <!---->
               <div title="2:30">
                 <span style="display: none;">
@@ -124,7 +124,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 2:30
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="2:45">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="2:45">
               <!---->
               <div title="2:45">
                 <span style="display: none;">
@@ -133,7 +133,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 2:45
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="3:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="3:00">
               <!---->
               <div title="3:00">
                 <span style="display: none;">
@@ -142,7 +142,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 3:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="3:15">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="3:15">
               <!---->
               <div title="3:15">
                 <span style="display: none;">
@@ -151,7 +151,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 3:15
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="3:30">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="3:30">
               <!---->
               <div title="3:30">
                 <span style="display: none;">
@@ -160,7 +160,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 3:30
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="3:45">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="3:45">
               <!---->
               <div title="3:45">
                 <span style="display: none;">
@@ -169,7 +169,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 3:45
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="4:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="4:00">
               <!---->
               <div title="4:00">
                 <span style="display: none;">
@@ -178,7 +178,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 4:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="4:15">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="4:15">
               <!---->
               <div title="4:15">
                 <span style="display: none;">
@@ -187,7 +187,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 4:15
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="4:30">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="4:30">
               <!---->
               <div title="4:30">
                 <span style="display: none;">
@@ -196,7 +196,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 4:30
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="4:45">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="4:45">
               <!---->
               <div title="4:45">
                 <span style="display: none;">
@@ -205,7 +205,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 4:45
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="5:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="5:00">
               <!---->
               <div title="5:00">
                 <span style="display: none;">
@@ -214,7 +214,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 5:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="5:15">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="5:15">
               <!---->
               <div title="5:15">
                 <span style="display: none;">
@@ -223,7 +223,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 5:15
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="5:30">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="5:30">
               <!---->
               <div title="5:30">
                 <span style="display: none;">
@@ -232,7 +232,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 5:30
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="5:45">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="5:45">
               <!---->
               <div title="5:45">
                 <span style="display: none;">
@@ -241,7 +241,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 5:45
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="6:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="6:00">
               <!---->
               <div title="6:00">
                 <span style="display: none;">
@@ -250,7 +250,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 6:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="6:15">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="6:15">
               <!---->
               <div title="6:15">
                 <span style="display: none;">
@@ -259,7 +259,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 6:15
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="6:30">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="6:30">
               <!---->
               <div title="6:30">
                 <span style="display: none;">
@@ -268,7 +268,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 6:30
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="6:45">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="6:45">
               <!---->
               <div title="6:45">
                 <span style="display: none;">
@@ -277,7 +277,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 6:45
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="7:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="7:00">
               <!---->
               <div title="7:00">
                 <span style="display: none;">
@@ -286,7 +286,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 7:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="7:15">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="7:15">
               <!---->
               <div title="7:15">
                 <span style="display: none;">
@@ -295,7 +295,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 7:15
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="7:30">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="7:30">
               <!---->
               <div title="7:30">
                 <span style="display: none;">
@@ -304,7 +304,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 7:30
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="7:45">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="7:45">
               <!---->
               <div title="7:45">
                 <span style="display: none;">
@@ -313,7 +313,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 7:45
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="8:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="8:00">
               <!---->
               <div title="8:00">
                 <span style="display: none;">
@@ -322,7 +322,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 8:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="8:15">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="8:15">
               <!---->
               <div title="8:15">
                 <span style="display: none;">
@@ -331,7 +331,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 8:15
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="8:30">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="8:30">
               <!---->
               <div title="8:30">
                 <span style="display: none;">
@@ -340,7 +340,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 8:30
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="8:45">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="8:45">
               <!---->
               <div title="8:45">
                 <span style="display: none;">
@@ -349,7 +349,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 8:45
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="9:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="9:00">
               <!---->
               <div title="9:00">
                 <span style="display: none;">
@@ -358,7 +358,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 9:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="9:15">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="9:15">
               <!---->
               <div title="9:15">
                 <span style="display: none;">
@@ -367,7 +367,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 9:15
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="9:30">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="9:30">
               <!---->
               <div title="9:30">
                 <span style="display: none;">
@@ -376,7 +376,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 9:30
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="9:45">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="9:45">
               <!---->
               <div title="9:45">
                 <span style="display: none;">
@@ -385,7 +385,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 9:45
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="10:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="10:00">
               <!---->
               <div title="10:00">
                 <span style="display: none;">
@@ -394,7 +394,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 10:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="10:15">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="10:15">
               <!---->
               <div title="10:15">
                 <span style="display: none;">
@@ -403,7 +403,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 10:15
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="10:30">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="10:30">
               <!---->
               <div title="10:30">
                 <span style="display: none;">
@@ -412,7 +412,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 10:30
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="10:45">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="10:45">
               <!---->
               <div title="10:45">
                 <span style="display: none;">
@@ -421,7 +421,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 10:45
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="11:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="11:00">
               <!---->
               <div title="11:00">
                 <span style="display: none;">
@@ -430,7 +430,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 11:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="11:15">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="11:15">
               <!---->
               <div title="11:15">
                 <span style="display: none;">
@@ -439,7 +439,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 11:15
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="11:30">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="11:30">
               <!---->
               <div title="11:30">
                 <span style="display: none;">
@@ -448,7 +448,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 11:30
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="11:45">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="11:45">
               <!---->
               <div title="11:45">
                 <span style="display: none;">
@@ -462,7 +462,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
       </div>
     </div>
     <div class="gux-form-field-error">
-      <gux-icon class="hydrated" icon-name="alert-warning-octogon"></gux-icon>
+      <gux-icon hydrated="" icon-name="alert-warning-octogon"></gux-icon>
       <div class="gux-message">
         <slot name="error"></slot>
       </div>
@@ -471,7 +471,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
 </div>
 `;
 
-exports[`gux-form-field-timepicker-beta #render interval should render component as expected (2) 1`] = `"<gux-form-field-timepicker-beta interval=\\"30\\" class=\\"hydrated\\"> <input slot=\\"input\\" type=\\"time\\" id=\\"gux-form-field-input-i\\"> <label slot=\\"label\\" for=\\"gux-form-field-input-i\\">Label</label> </gux-form-field-timepicker-beta>"`;
+exports[`gux-form-field-timepicker-beta #render interval should render component as expected (2) 1`] = `"<gux-form-field-timepicker-beta interval=\\"30\\" hydrated=\\"\\"> <input slot=\\"input\\" type=\\"time\\" id=\\"gux-form-field-input-i\\"> <label slot=\\"label\\" for=\\"gux-form-field-input-i\\">Label</label> </gux-form-field-timepicker-beta>"`;
 
 exports[`gux-form-field-timepicker-beta #render interval should render component as expected (2) 2`] = `
 <div class="gux-beside gux-form-field-container">
@@ -491,12 +491,12 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
             AM
           </button>
           <button aria-label="Toggle suggested times" class="gux-clock-button" type="button">
-            <gux-icon class="hydrated" icon-name="clock-outline"></gux-icon>
+            <gux-icon hydrated="" icon-name="clock-outline"></gux-icon>
           </button>
         </div>
         <div aria-label="Time options open: false" class="gux-time-options">
           <div class="gux-time-options-list">
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="12:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="12:00">
               <!---->
               <div title="12:00">
                 <span style="display: none;">
@@ -505,7 +505,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 12:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="12:30">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="12:30">
               <!---->
               <div title="12:30">
                 <span style="display: none;">
@@ -514,7 +514,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 12:30
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="1:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="1:00">
               <!---->
               <div title="1:00">
                 <span style="display: none;">
@@ -523,7 +523,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 1:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="1:30">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="1:30">
               <!---->
               <div title="1:30">
                 <span style="display: none;">
@@ -532,7 +532,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 1:30
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="2:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="2:00">
               <!---->
               <div title="2:00">
                 <span style="display: none;">
@@ -541,7 +541,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 2:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="2:30">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="2:30">
               <!---->
               <div title="2:30">
                 <span style="display: none;">
@@ -550,7 +550,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 2:30
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="3:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="3:00">
               <!---->
               <div title="3:00">
                 <span style="display: none;">
@@ -559,7 +559,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 3:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="3:30">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="3:30">
               <!---->
               <div title="3:30">
                 <span style="display: none;">
@@ -568,7 +568,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 3:30
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="4:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="4:00">
               <!---->
               <div title="4:00">
                 <span style="display: none;">
@@ -577,7 +577,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 4:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="4:30">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="4:30">
               <!---->
               <div title="4:30">
                 <span style="display: none;">
@@ -586,7 +586,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 4:30
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="5:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="5:00">
               <!---->
               <div title="5:00">
                 <span style="display: none;">
@@ -595,7 +595,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 5:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="5:30">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="5:30">
               <!---->
               <div title="5:30">
                 <span style="display: none;">
@@ -604,7 +604,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 5:30
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="6:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="6:00">
               <!---->
               <div title="6:00">
                 <span style="display: none;">
@@ -613,7 +613,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 6:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="6:30">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="6:30">
               <!---->
               <div title="6:30">
                 <span style="display: none;">
@@ -622,7 +622,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 6:30
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="7:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="7:00">
               <!---->
               <div title="7:00">
                 <span style="display: none;">
@@ -631,7 +631,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 7:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="7:30">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="7:30">
               <!---->
               <div title="7:30">
                 <span style="display: none;">
@@ -640,7 +640,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 7:30
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="8:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="8:00">
               <!---->
               <div title="8:00">
                 <span style="display: none;">
@@ -649,7 +649,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 8:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="8:30">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="8:30">
               <!---->
               <div title="8:30">
                 <span style="display: none;">
@@ -658,7 +658,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 8:30
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="9:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="9:00">
               <!---->
               <div title="9:00">
                 <span style="display: none;">
@@ -667,7 +667,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 9:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="9:30">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="9:30">
               <!---->
               <div title="9:30">
                 <span style="display: none;">
@@ -676,7 +676,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 9:30
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="10:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="10:00">
               <!---->
               <div title="10:00">
                 <span style="display: none;">
@@ -685,7 +685,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 10:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="10:30">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="10:30">
               <!---->
               <div title="10:30">
                 <span style="display: none;">
@@ -694,7 +694,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 10:30
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="11:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="11:00">
               <!---->
               <div title="11:00">
                 <span style="display: none;">
@@ -703,7 +703,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 11:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="11:30">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="11:30">
               <!---->
               <div title="11:30">
                 <span style="display: none;">
@@ -717,7 +717,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
       </div>
     </div>
     <div class="gux-form-field-error">
-      <gux-icon class="hydrated" icon-name="alert-warning-octogon"></gux-icon>
+      <gux-icon hydrated="" icon-name="alert-warning-octogon"></gux-icon>
       <div class="gux-message">
         <slot name="error"></slot>
       </div>
@@ -726,7 +726,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
 </div>
 `;
 
-exports[`gux-form-field-timepicker-beta #render interval should render component as expected (3) 1`] = `"<gux-form-field-timepicker-beta interval=\\"60\\" class=\\"hydrated\\"> <input slot=\\"input\\" type=\\"time\\" id=\\"gux-form-field-input-i\\"> <label slot=\\"label\\" for=\\"gux-form-field-input-i\\">Label</label> </gux-form-field-timepicker-beta>"`;
+exports[`gux-form-field-timepicker-beta #render interval should render component as expected (3) 1`] = `"<gux-form-field-timepicker-beta interval=\\"60\\" hydrated=\\"\\"> <input slot=\\"input\\" type=\\"time\\" id=\\"gux-form-field-input-i\\"> <label slot=\\"label\\" for=\\"gux-form-field-input-i\\">Label</label> </gux-form-field-timepicker-beta>"`;
 
 exports[`gux-form-field-timepicker-beta #render interval should render component as expected (3) 2`] = `
 <div class="gux-beside gux-form-field-container">
@@ -746,12 +746,12 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
             AM
           </button>
           <button aria-label="Toggle suggested times" class="gux-clock-button" type="button">
-            <gux-icon class="hydrated" icon-name="clock-outline"></gux-icon>
+            <gux-icon hydrated="" icon-name="clock-outline"></gux-icon>
           </button>
         </div>
         <div aria-label="Time options open: false" class="gux-time-options">
           <div class="gux-time-options-list">
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="12:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="12:00">
               <!---->
               <div title="12:00">
                 <span style="display: none;">
@@ -760,7 +760,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 12:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="1:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="1:00">
               <!---->
               <div title="1:00">
                 <span style="display: none;">
@@ -769,7 +769,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 1:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="2:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="2:00">
               <!---->
               <div title="2:00">
                 <span style="display: none;">
@@ -778,7 +778,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 2:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="3:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="3:00">
               <!---->
               <div title="3:00">
                 <span style="display: none;">
@@ -787,7 +787,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 3:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="4:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="4:00">
               <!---->
               <div title="4:00">
                 <span style="display: none;">
@@ -796,7 +796,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 4:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="5:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="5:00">
               <!---->
               <div title="5:00">
                 <span style="display: none;">
@@ -805,7 +805,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 5:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="6:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="6:00">
               <!---->
               <div title="6:00">
                 <span style="display: none;">
@@ -814,7 +814,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 6:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="7:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="7:00">
               <!---->
               <div title="7:00">
                 <span style="display: none;">
@@ -823,7 +823,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 7:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="8:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="8:00">
               <!---->
               <div title="8:00">
                 <span style="display: none;">
@@ -832,7 +832,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 8:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="9:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="9:00">
               <!---->
               <div title="9:00">
                 <span style="display: none;">
@@ -841,7 +841,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 9:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="10:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="10:00">
               <!---->
               <div title="10:00">
                 <span style="display: none;">
@@ -850,7 +850,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
                 10:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="11:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="11:00">
               <!---->
               <div title="11:00">
                 <span style="display: none;">
@@ -864,7 +864,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
       </div>
     </div>
     <div class="gux-form-field-error">
-      <gux-icon class="hydrated" icon-name="alert-warning-octogon"></gux-icon>
+      <gux-icon hydrated="" icon-name="alert-warning-octogon"></gux-icon>
       <div class="gux-message">
         <slot name="error"></slot>
       </div>
@@ -873,7 +873,7 @@ exports[`gux-form-field-timepicker-beta #render interval should render component
 </div>
 `;
 
-exports[`gux-form-field-timepicker-beta #render label-position should render component as expected (1) 1`] = `"<gux-form-field-timepicker-beta class=\\"hydrated\\"> <input slot=\\"input\\" type=\\"time\\" id=\\"gux-form-field-input-i\\"> <label slot=\\"label\\" for=\\"gux-form-field-input-i\\">Label</label> </gux-form-field-timepicker-beta>"`;
+exports[`gux-form-field-timepicker-beta #render label-position should render component as expected (1) 1`] = `"<gux-form-field-timepicker-beta hydrated=\\"\\"> <input slot=\\"input\\" type=\\"time\\" id=\\"gux-form-field-input-i\\"> <label slot=\\"label\\" for=\\"gux-form-field-input-i\\">Label</label> </gux-form-field-timepicker-beta>"`;
 
 exports[`gux-form-field-timepicker-beta #render label-position should render component as expected (1) 2`] = `
 <div class="gux-beside gux-form-field-container">
@@ -893,12 +893,12 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
             AM
           </button>
           <button aria-label="Toggle suggested times" class="gux-clock-button" type="button">
-            <gux-icon class="hydrated" icon-name="clock-outline"></gux-icon>
+            <gux-icon hydrated="" icon-name="clock-outline"></gux-icon>
           </button>
         </div>
         <div aria-label="Time options open: false" class="gux-time-options">
           <div class="gux-time-options-list">
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="12:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="12:00">
               <!---->
               <div title="12:00">
                 <span style="display: none;">
@@ -907,7 +907,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 12:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="1:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="1:00">
               <!---->
               <div title="1:00">
                 <span style="display: none;">
@@ -916,7 +916,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 1:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="2:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="2:00">
               <!---->
               <div title="2:00">
                 <span style="display: none;">
@@ -925,7 +925,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 2:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="3:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="3:00">
               <!---->
               <div title="3:00">
                 <span style="display: none;">
@@ -934,7 +934,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 3:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="4:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="4:00">
               <!---->
               <div title="4:00">
                 <span style="display: none;">
@@ -943,7 +943,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 4:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="5:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="5:00">
               <!---->
               <div title="5:00">
                 <span style="display: none;">
@@ -952,7 +952,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 5:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="6:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="6:00">
               <!---->
               <div title="6:00">
                 <span style="display: none;">
@@ -961,7 +961,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 6:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="7:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="7:00">
               <!---->
               <div title="7:00">
                 <span style="display: none;">
@@ -970,7 +970,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 7:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="8:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="8:00">
               <!---->
               <div title="8:00">
                 <span style="display: none;">
@@ -979,7 +979,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 8:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="9:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="9:00">
               <!---->
               <div title="9:00">
                 <span style="display: none;">
@@ -988,7 +988,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 9:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="10:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="10:00">
               <!---->
               <div title="10:00">
                 <span style="display: none;">
@@ -997,7 +997,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 10:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="11:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="11:00">
               <!---->
               <div title="11:00">
                 <span style="display: none;">
@@ -1011,7 +1011,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
       </div>
     </div>
     <div class="gux-form-field-error">
-      <gux-icon class="hydrated" icon-name="alert-warning-octogon"></gux-icon>
+      <gux-icon hydrated="" icon-name="alert-warning-octogon"></gux-icon>
       <div class="gux-message">
         <slot name="error"></slot>
       </div>
@@ -1020,7 +1020,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
 </div>
 `;
 
-exports[`gux-form-field-timepicker-beta #render label-position should render component as expected (2) 1`] = `"<gux-form-field-timepicker-beta label-position=\\"above\\" class=\\"hydrated\\"> <input slot=\\"input\\" type=\\"time\\" id=\\"gux-form-field-input-i\\"> <label slot=\\"label\\" for=\\"gux-form-field-input-i\\">Label</label> </gux-form-field-timepicker-beta>"`;
+exports[`gux-form-field-timepicker-beta #render label-position should render component as expected (2) 1`] = `"<gux-form-field-timepicker-beta label-position=\\"above\\" hydrated=\\"\\"> <input slot=\\"input\\" type=\\"time\\" id=\\"gux-form-field-input-i\\"> <label slot=\\"label\\" for=\\"gux-form-field-input-i\\">Label</label> </gux-form-field-timepicker-beta>"`;
 
 exports[`gux-form-field-timepicker-beta #render label-position should render component as expected (2) 2`] = `
 <div class="gux-above gux-form-field-container">
@@ -1040,12 +1040,12 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
             AM
           </button>
           <button aria-label="Toggle suggested times" class="gux-clock-button" type="button">
-            <gux-icon class="hydrated" icon-name="clock-outline"></gux-icon>
+            <gux-icon hydrated="" icon-name="clock-outline"></gux-icon>
           </button>
         </div>
         <div aria-label="Time options open: false" class="gux-time-options">
           <div class="gux-time-options-list">
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="12:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="12:00">
               <!---->
               <div title="12:00">
                 <span style="display: none;">
@@ -1054,7 +1054,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 12:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="1:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="1:00">
               <!---->
               <div title="1:00">
                 <span style="display: none;">
@@ -1063,7 +1063,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 1:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="2:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="2:00">
               <!---->
               <div title="2:00">
                 <span style="display: none;">
@@ -1072,7 +1072,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 2:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="3:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="3:00">
               <!---->
               <div title="3:00">
                 <span style="display: none;">
@@ -1081,7 +1081,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 3:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="4:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="4:00">
               <!---->
               <div title="4:00">
                 <span style="display: none;">
@@ -1090,7 +1090,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 4:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="5:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="5:00">
               <!---->
               <div title="5:00">
                 <span style="display: none;">
@@ -1099,7 +1099,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 5:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="6:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="6:00">
               <!---->
               <div title="6:00">
                 <span style="display: none;">
@@ -1108,7 +1108,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 6:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="7:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="7:00">
               <!---->
               <div title="7:00">
                 <span style="display: none;">
@@ -1117,7 +1117,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 7:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="8:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="8:00">
               <!---->
               <div title="8:00">
                 <span style="display: none;">
@@ -1126,7 +1126,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 8:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="9:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="9:00">
               <!---->
               <div title="9:00">
                 <span style="display: none;">
@@ -1135,7 +1135,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 9:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="10:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="10:00">
               <!---->
               <div title="10:00">
                 <span style="display: none;">
@@ -1144,7 +1144,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 10:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="11:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="11:00">
               <!---->
               <div title="11:00">
                 <span style="display: none;">
@@ -1158,7 +1158,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
       </div>
     </div>
     <div class="gux-form-field-error">
-      <gux-icon class="hydrated" icon-name="alert-warning-octogon"></gux-icon>
+      <gux-icon hydrated="" icon-name="alert-warning-octogon"></gux-icon>
       <div class="gux-message">
         <slot name="error"></slot>
       </div>
@@ -1167,7 +1167,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
 </div>
 `;
 
-exports[`gux-form-field-timepicker-beta #render label-position should render component as expected (3) 1`] = `"<gux-form-field-timepicker-beta label-position=\\"beside\\" class=\\"hydrated\\"> <input slot=\\"input\\" type=\\"time\\" id=\\"gux-form-field-input-i\\"> <label slot=\\"label\\" for=\\"gux-form-field-input-i\\">Label</label> </gux-form-field-timepicker-beta>"`;
+exports[`gux-form-field-timepicker-beta #render label-position should render component as expected (3) 1`] = `"<gux-form-field-timepicker-beta label-position=\\"beside\\" hydrated=\\"\\"> <input slot=\\"input\\" type=\\"time\\" id=\\"gux-form-field-input-i\\"> <label slot=\\"label\\" for=\\"gux-form-field-input-i\\">Label</label> </gux-form-field-timepicker-beta>"`;
 
 exports[`gux-form-field-timepicker-beta #render label-position should render component as expected (3) 2`] = `
 <div class="gux-beside gux-form-field-container">
@@ -1187,12 +1187,12 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
             AM
           </button>
           <button aria-label="Toggle suggested times" class="gux-clock-button" type="button">
-            <gux-icon class="hydrated" icon-name="clock-outline"></gux-icon>
+            <gux-icon hydrated="" icon-name="clock-outline"></gux-icon>
           </button>
         </div>
         <div aria-label="Time options open: false" class="gux-time-options">
           <div class="gux-time-options-list">
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="12:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="12:00">
               <!---->
               <div title="12:00">
                 <span style="display: none;">
@@ -1201,7 +1201,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 12:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="1:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="1:00">
               <!---->
               <div title="1:00">
                 <span style="display: none;">
@@ -1210,7 +1210,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 1:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="2:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="2:00">
               <!---->
               <div title="2:00">
                 <span style="display: none;">
@@ -1219,7 +1219,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 2:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="3:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="3:00">
               <!---->
               <div title="3:00">
                 <span style="display: none;">
@@ -1228,7 +1228,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 3:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="4:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="4:00">
               <!---->
               <div title="4:00">
                 <span style="display: none;">
@@ -1237,7 +1237,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 4:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="5:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="5:00">
               <!---->
               <div title="5:00">
                 <span style="display: none;">
@@ -1246,7 +1246,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 5:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="6:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="6:00">
               <!---->
               <div title="6:00">
                 <span style="display: none;">
@@ -1255,7 +1255,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 6:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="7:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="7:00">
               <!---->
               <div title="7:00">
                 <span style="display: none;">
@@ -1264,7 +1264,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 7:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="8:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="8:00">
               <!---->
               <div title="8:00">
                 <span style="display: none;">
@@ -1273,7 +1273,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 8:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="9:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="9:00">
               <!---->
               <div title="9:00">
                 <span style="display: none;">
@@ -1282,7 +1282,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 9:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="10:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="10:00">
               <!---->
               <div title="10:00">
                 <span style="display: none;">
@@ -1291,7 +1291,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 10:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="11:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="11:00">
               <!---->
               <div title="11:00">
                 <span style="display: none;">
@@ -1305,7 +1305,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
       </div>
     </div>
     <div class="gux-form-field-error">
-      <gux-icon class="hydrated" icon-name="alert-warning-octogon"></gux-icon>
+      <gux-icon hydrated="" icon-name="alert-warning-octogon"></gux-icon>
       <div class="gux-message">
         <slot name="error"></slot>
       </div>
@@ -1314,7 +1314,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
 </div>
 `;
 
-exports[`gux-form-field-timepicker-beta #render label-position should render component as expected (4) 1`] = `"<gux-form-field-timepicker-beta label-position=\\"screenreader\\" class=\\"hydrated\\"> <input slot=\\"input\\" type=\\"time\\" id=\\"gux-form-field-input-i\\"> <label slot=\\"label\\" for=\\"gux-form-field-input-i\\">Label</label> </gux-form-field-timepicker-beta>"`;
+exports[`gux-form-field-timepicker-beta #render label-position should render component as expected (4) 1`] = `"<gux-form-field-timepicker-beta label-position=\\"screenreader\\" hydrated=\\"\\"> <input slot=\\"input\\" type=\\"time\\" id=\\"gux-form-field-input-i\\"> <label slot=\\"label\\" for=\\"gux-form-field-input-i\\">Label</label> </gux-form-field-timepicker-beta>"`;
 
 exports[`gux-form-field-timepicker-beta #render label-position should render component as expected (4) 2`] = `
 <div class="gux-form-field-container gux-screenreader">
@@ -1334,12 +1334,12 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
             AM
           </button>
           <button aria-label="Toggle suggested times" class="gux-clock-button" type="button">
-            <gux-icon class="hydrated" icon-name="clock-outline"></gux-icon>
+            <gux-icon hydrated="" icon-name="clock-outline"></gux-icon>
           </button>
         </div>
         <div aria-label="Time options open: false" class="gux-time-options">
           <div class="gux-time-options-list">
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="12:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="12:00">
               <!---->
               <div title="12:00">
                 <span style="display: none;">
@@ -1348,7 +1348,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 12:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="1:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="1:00">
               <!---->
               <div title="1:00">
                 <span style="display: none;">
@@ -1357,7 +1357,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 1:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="2:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="2:00">
               <!---->
               <div title="2:00">
                 <span style="display: none;">
@@ -1366,7 +1366,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 2:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="3:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="3:00">
               <!---->
               <div title="3:00">
                 <span style="display: none;">
@@ -1375,7 +1375,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 3:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="4:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="4:00">
               <!---->
               <div title="4:00">
                 <span style="display: none;">
@@ -1384,7 +1384,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 4:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="5:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="5:00">
               <!---->
               <div title="5:00">
                 <span style="display: none;">
@@ -1393,7 +1393,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 5:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="6:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="6:00">
               <!---->
               <div title="6:00">
                 <span style="display: none;">
@@ -1402,7 +1402,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 6:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="7:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="7:00">
               <!---->
               <div title="7:00">
                 <span style="display: none;">
@@ -1411,7 +1411,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 7:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="8:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="8:00">
               <!---->
               <div title="8:00">
                 <span style="display: none;">
@@ -1420,7 +1420,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 8:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="9:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="9:00">
               <!---->
               <div title="9:00">
                 <span style="display: none;">
@@ -1429,7 +1429,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 9:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="10:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="10:00">
               <!---->
               <div title="10:00">
                 <span style="display: none;">
@@ -1438,7 +1438,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
                 10:00
               </div>
             </gux-option>
-            <gux-option class="gux-time-option hydrated" tabindex="0" title="11:00">
+            <gux-option class="gux-time-option" hydrated="" tabindex="0" title="11:00">
               <!---->
               <div title="11:00">
                 <span style="display: none;">
@@ -1452,7 +1452,7 @@ exports[`gux-form-field-timepicker-beta #render label-position should render com
       </div>
     </div>
     <div class="gux-form-field-error">
-      <gux-icon class="hydrated" icon-name="alert-warning-octogon"></gux-icon>
+      <gux-icon hydrated="" icon-name="alert-warning-octogon"></gux-icon>
       <div class="gux-message">
         <slot name="error"></slot>
       </div>

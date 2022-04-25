@@ -64,7 +64,7 @@ describe('gux-form-field-timepicker-beta', () => {
           <gux-form-field-timepicker-beta ${componentAttribute}>
             <input slot="input" type="time"/>
             <label slot="label">Label</label>
-          </gux-form-field-timepicker>
+          </gux-form-field-timepicker-beta>
         `;
 
           it(`should render component as expected (${index + 1})`, async () => {
