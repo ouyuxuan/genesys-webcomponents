@@ -2,6 +2,90 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [3.0.0-alpha.61](https://inindca///compare/v3.0.0-alpha.60...v3.0.0-alpha.61) (2022-04-21)
+
+
+### Features
+
+* **gux-card:** addition of card component ([e5482a8](https://inindca///commit/e5482a816ac5fb88f3aad67cf7687f4cc9f47f20))
+
+## [3.0.0-alpha.60](https://inindca///compare/v3.0.0-alpha.59...v3.0.0-alpha.60) (2022-04-19)
+
+
+### Features
+
+* **gux-tag:** addition of default-subtle styling, updating tests ([ea0d5ae](https://inindca///commit/ea0d5ae1b8fdc98871b7ac096b4d19880633e642))
+* **gux-tag:** addition of subtle styling, updating e2e tests ([348b620](https://inindca///commit/348b6203790a1c6e404608b5b2307d1f7634a5c6))
+
+
+### Bug Fixes
+
+* **datepicker:** toggle focus is now working ([5ffa2c0](https://inindca///commit/5ffa2c007c7cebf0f74d6526fe0885323a406576))
+* **snapshot:** updated snapshot ([01f2bbf](https://inindca///commit/01f2bbf598046a0b503f79374d24ebd5608cdfe2))
+* **stencil:** use attribute for component hydration instead of class ([6a31389](https://inindca///commit/6a3138970b01c3c1c59050be40fb26a5c0866c10))
+
+## [3.0.0-alpha.59](https://inindca///compare/v3.0.0-alpha.58...v3.0.0-alpha.59) (2022-04-11)
+
+## [3.0.0-alpha.58](https://inindca///compare/v3.0.0-alpha.57...v3.0.0-alpha.58) (2022-04-07)
+
+
+### Features
+
+* **popup:** moved gux-popup to stable ([46dfb23](https://inindca///commit/46dfb23c70f38d9dd9f59dedd1a0dc9ceea7af6a))
+
+## [3.0.0-alpha.57](https://inindca///compare/v3.0.0-alpha.56...v3.0.0-alpha.57) (2022-04-06)
+
+
+### Features
+
+* **gux-tooltip:** add methods to hide and show tooltip, show/hide tooltip on focus to tabs ([db9d7d0](https://inindca///commit/db9d7d059e5b26edbaadd215dbd254631d1c68a5))
+
+## [3.0.0-alpha.56](https://inindca///compare/v3.0.0-alpha.55...v3.0.0-alpha.56) (2022-04-05)
+
+
+### Features
+
+* **color-palette:** checked beta/stable components for discrepancies in styling ([c5eb212](https://inindca///commit/c5eb212a7cc330433c5179519b2cc147144a17d1))
+* **color-palette:** updating black and grey palettes for consistency ([4efe4ac](https://inindca///commit/4efe4acf38ee18191ba6bc1f9ef9606553c8ddf5))
+* **gux-tag:** aqua-green not passing accesibility checks changed text color to gux-black-30 ([47bc416](https://inindca///commit/47bc41658953d9523f08dcf387e83211440cef3a))
+
+## [3.0.0-alpha.55](https://inindca///compare/v3.0.0-alpha.54...v3.0.0-alpha.55) (2022-04-04)
+
+
+### Bug Fixes
+
+* **gux-tooltip-title:** gux-advanced tabs tooltip sort issue ([61ea65d](https://inindca///commit/61ea65d679e667f5d36b2b10493c37ce65ed3bfb))
+
+## [3.0.0-alpha.54](https://inindca///compare/v3.0.0-alpha.53...v3.0.0-alpha.54) (2022-03-31)
+
+
+### Features
+
+* **gux-dropdown:** explicitly set shadowDOM to false ([6d22c6f](https://inindca///commit/6d22c6f1d932da7daf120b8839a426b1c8c9c54e))
+
+## [3.0.0-alpha.53](https://inindca///compare/v3.0.0-alpha.52...v3.0.0-alpha.53) (2022-03-30)
+
+
+### Bug Fixes
+
+* **gux-tooltip-title:** fix dynamic tooltip text bug ([c5bd4cb](https://inindca///commit/c5bd4cbe6c58b5bf89df1691b168d1d5175999a3))
+* **gux-tooltip-title:** remove need for hard coding tab width, update title slot API for adv. tabs ([00a49dd](https://inindca///commit/00a49dd5039aefa9fe2d355674535c55fdea465b))
+
+## [3.0.0-alpha.52](https://inindca///compare/v3.0.0-alpha.51...v3.0.0-alpha.52) (2022-03-28)
+
+## [3.0.0-alpha.51](https://inindca///compare/v3.0.0-alpha.50...v3.0.0-alpha.51) (2022-03-24)
+
+
+### Features
+
+* **popup:** enabled shadowDOM ([4417291](https://inindca///commit/44172917a681874aca74910a95d774932d533534))
+
+
+### Bug Fixes
+
+* **gux-tabs-advanced:** addressed a few style issues that still needed attention after redesign ([e02e46a](https://inindca///commit/e02e46ad4e2578113fc4a599a9ad4a373b3aa1ca))
+* **pr-comment:** addressd PR comment ([8e8fb99](https://inindca///commit/8e8fb99714ce820bd5ed0bafe28f2a5442065e08))
+
 ## [3.0.0-alpha.50](https://inindca///compare/v3.0.0-alpha.49...v3.0.0-alpha.50) (2022-03-23)
 
 
