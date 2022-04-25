@@ -1,13 +1,4 @@
-import {
-  Component,
-  Element,
-  Event,
-  h,
-  JSX,
-  Listen,
-  Prop,
-  State
-} from '@stencil/core';
+import { Component, Element, h, JSX, Listen, Prop, State } from '@stencil/core';
 import { buildI18nForComponent, GetI18nValue } from '../../../../../i18n';
 import componentResources from './i18n/en.json';
 import { onDisabledChange } from '../../../../../utils/dom/on-attribute-change';
