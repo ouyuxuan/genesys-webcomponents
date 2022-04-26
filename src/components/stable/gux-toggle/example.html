@@ -1,58 +1,45 @@
-<div class="container">
-  <h1>gux-toggle</h1>
-  <gux-toggle checked-label="On" unchecked-label="Off"></gux-toggle>
+<h1>COMUI-1002</h1>
 
-  <gux-toggle checked-label="On" unchecked-label="Off" checked></gux-toggle>
+<h2>Successful after loading</h2>
+<gux-toggle
+  id="toggle-success"
+  class="toggle"
+  checked-label="On Queue"
+  unchecked-label="Off Queue"
+></gux-toggle>
 
-  <gux-toggle
-    checked-label="Active"
-    unchecked-label="Inactive"
-    label-position="left"
-  ></gux-toggle>
+<h2>Fail after loading</h2>
+<gux-toggle
+  id="toggle-fail"
+  class="toggle"
+  checked-label="On Queue"
+  unchecked-label="Off Queue"
+></gux-toggle>
 
-  <gux-toggle checked-label="On" unchecked-label="Off" disabled></gux-toggle>
+<style
+  onload="(function () {
+    const toggles = Array.from(document.getElementsByClassName('toggle'));
 
-  <gux-toggle
-    checked-label="Active"
-    unchecked-label="Inactive"
-    loading
-  ></gux-toggle>
+    toggles.forEach((toggle) => {
+      toggle.addEventListener('check', function(event) {
+        const { target } = event;
 
-  <gux-toggle
-    checked-label="Active"
-    unchecked-label="Inactive"
-    checked
-    loading
-  ></gux-toggle>
+        if (target.checked) {
+          target.loading = true;
 
-  <gux-toggle
-    checked-label="This is another long label for the toggle to show how it works"
-    unchecked-label="This is a long label for the toggle to show how it works"
-  ></gux-toggle>
+          setTimeout(() => {
+            if (target.id !== 'toggle-success') {
+              target.checked = false;
+            }
 
-  <gux-toggle
-    checked-label="On"
-    unchecked-label="Off"
-    error-message="This is an error message"
-  ></gux-toggle>
-
-  <gux-toggle
-    checked-label="On"
-    unchecked-label="Off"
-    label-position="left"
-    error-message="This is another error message"
-  ></gux-toggle>
-</div>
-
-<style>
-  .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    width: 250px;
-  }
-
-  gux-toggle {
-    margin-bottom: 20px;
+            target.loading = false;
+          }, 5000);
+        }
+      })
+    });
+  })()"
+>
+  .not-used {
+    -custom-noop: noop;
   }
 </style>
