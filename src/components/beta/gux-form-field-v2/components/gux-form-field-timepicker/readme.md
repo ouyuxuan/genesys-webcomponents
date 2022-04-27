@@ -13,7 +13,6 @@
 | `hoursValue`      | `hours-value`         | Hours input value                                                   | `string`                                | `'12'`      |
 | `interval`        | `interval`            | Time interval between suggested times in dropdown list - default 60 | `"15" \| "30" \| "60"`                  | `'60'`      |
 | `labelPosition`   | `label-position`      |                                                                     | `"above" \| "beside" \| "screenreader"` | `undefined` |
-| `lang`            | `lang`                | User's locale language                                              | `string`                                | `undefined` |
 | `minutesValue`    | `minutes-value`       | Minutes input value                                                 | `string`                                | `'00'`      |
 | `opened`          | `opened`              | Suggested times dropdown list state - opened/closed                 | `boolean`                               | `false`     |
 | `optionSelected`  | `option-selected`     | True when suggested time option is selected                         | `boolean`                               | `false`     |
