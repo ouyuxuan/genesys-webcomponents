@@ -143,7 +143,13 @@ export class GuxFormFieldTimepicker {
     this.hasError = hasErrorSlot(this.root);
 
     const lang = this.root.lang;
-    const userCurrentTime = new Date().toLocaleTimeString(lang);
+    let userCurrentTime = '';
+    if (lang) {
+      userCurrentTime = new Date().toLocaleTimeString(lang);
+    } else {
+      userCurrentTime = new Date().toLocaleTimeString();
+    }
+
     if (
       !userCurrentTime.includes(this.i18n('am')) &&
       !userCurrentTime.includes(this.i18n('pm'))
