@@ -23,6 +23,7 @@
  - [gux-action-button](../gux-action-button)
  - [gux-action-button-legacy](../../legacy/gux-action-button-legacy)
  - [gux-advanced-dropdown](../gux-advanced-dropdown)
+ - [gux-anchor-beta](../../beta/gux-anchor)
  - [gux-breadcrumb-item](../gux-breadcrumbs/breadcrumb-item)
  - [gux-button-multi](../gux-button-multi)
  - [gux-button-multi-legacy](../../legacy/gux-button-multi-legacy)
@@ -72,6 +73,7 @@ graph TD;
   gux-action-button --> gux-icon
   gux-action-button-legacy --> gux-icon
   gux-advanced-dropdown --> gux-icon
+  gux-anchor-beta --> gux-icon
   gux-breadcrumb-item --> gux-icon
   gux-button-multi --> gux-icon
   gux-button-multi-legacy --> gux-icon
