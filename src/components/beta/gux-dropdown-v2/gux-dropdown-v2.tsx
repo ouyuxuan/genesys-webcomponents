@@ -183,7 +183,13 @@ export class GuxDropdownV2Beta {
   }
 
   private getOptionElementByValue(value: string): HTMLGuxOptionV2Element {
-    const listboxOptionElements = this.root.querySelectorAll('gux-option-v2');
+    const timeZoneOptionElements = this.root.querySelectorAll(
+      'gux-time-zone-option-beta'
+    );
+    let listboxOptionElements = this.root.querySelectorAll('gux-option-v2');
+    if (listboxOptionElements.length === 0) {
+      listboxOptionElements = timeZoneOptionElements;
+    }
 
     return Array.from(listboxOptionElements).find(
       listboxOptionElement => listboxOptionElement.value === value

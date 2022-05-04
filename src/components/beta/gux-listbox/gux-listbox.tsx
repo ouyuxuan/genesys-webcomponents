@@ -35,7 +35,7 @@ import { logError } from '../../../utils/error/log-error';
 import translationResources from './i18n/en.json';
 
 /**
- * @slot - collection of gux-option-v2s
+ * @slot - collection of gux-option-v2s or gux-time-zone-option-beta
  */
 @Component({
   styleUrl: 'gux-listbox.less',
@@ -142,13 +142,22 @@ export class GuxListbox {
 
   @Listen('click')
   onClick(event: MouseEvent): void {
-    whenEventIsFrom(
-      'gux-option-v2',
-      event,
-      (option: HTMLGuxOptionV2Element) => {
-        onClickedOption(option, value => this.updateValue(value));
-      }
+    const guxTimeZoneOptions = this.root.querySelector(
+      'gux-time-zone-option-beta'
     );
+    let eventIsFrom = 'gux-option-v2';
+    if (guxTimeZoneOptions) {
+      if (
+        (event.target as HTMLGuxTimeZoneOptionBetaElement).localName ===
+        guxTimeZoneOptions.localName
+      ) {
+        eventIsFrom = 'gux-time-zone-option-beta';
+      }
+    }
+
+    whenEventIsFrom(eventIsFrom, event, (option: HTMLGuxOptionV2Element) => {
+      onClickedOption(option, value => this.updateValue(value));
+    });
   }
 
   // eslint-disable-next-line @typescript-eslint/require-await

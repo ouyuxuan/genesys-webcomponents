@@ -56,9 +56,9 @@ Type: `Promise<void>`
 
 ## Slots
 
-| Slot | Description                  |
-| ---- | ---------------------------- |
-|      | collection of gux-option-v2s |
+| Slot | Description                                               |
+| ---- | --------------------------------------------------------- |
+|      | collection of gux-option-v2s or gux-time-zone-option-beta |
 
 
 ## Dependencies
