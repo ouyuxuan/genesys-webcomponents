@@ -33,9 +33,12 @@
  - [gux-dismiss-button](../gux-dismiss-button)
  - [gux-dropdown](../gux-dropdown)
  - [gux-dropdown-legacy](../../legacy/gux-dropdown-legacy)
+ - [gux-dropdown-multi](../../beta/gux-dropdown-multi)
+ - [gux-dropdown-multi-tag](../../beta/gux-dropdown-multi/gux-dropdown-multi-tag)
  - [gux-error-message-beta](../../beta/gux-error-message-beta)
  - [gux-form-field-checkbox](../gux-form-field/components/gux-form-field-checkbox)
  - [gux-form-field-color](../gux-form-field/components/gux-form-field-color)
+ - [gux-form-field-dropdown](../gux-form-field/components/gux-form-field-dropdown)
  - [gux-form-field-input-clear-button](../gux-form-field/helper-components/gux-form-field-input-clear-button)
  - [gux-form-field-number](../gux-form-field/components/gux-form-field-number)
  - [gux-form-field-radio](../gux-form-field/components/gux-form-field-radio)
@@ -82,9 +85,12 @@ graph TD;
   gux-dismiss-button --> gux-icon
   gux-dropdown --> gux-icon
   gux-dropdown-legacy --> gux-icon
+  gux-dropdown-multi --> gux-icon
+  gux-dropdown-multi-tag --> gux-icon
   gux-error-message-beta --> gux-icon
   gux-form-field-checkbox --> gux-icon
   gux-form-field-color --> gux-icon
+  gux-form-field-dropdown --> gux-icon
   gux-form-field-input-clear-button --> gux-icon
   gux-form-field-number --> gux-icon
   gux-form-field-radio --> gux-icon
