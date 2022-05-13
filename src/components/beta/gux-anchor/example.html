@@ -1,56 +1,145 @@
 <h1>gux-anchor-beta</h1>
 
-<h2>Default</h2>
-<gux-anchor-beta>
-  <a href="#">Link</a>
-</gux-anchor-beta>
+<h2>General</h2>
+<div>
+  <a href="#">Native link</a>
+</div>
+<div>
+  <gux-anchor-beta>
+    <a href="#">Default gux-anchor link</a>
+  </gux-anchor-beta>
+</div>
+<div>
+  <gux-anchor-beta>
+    <gux-icon icon-name="add" decorative></gux-icon>
+    <a href="#">gux-anchor link with an icon</a>
+  </gux-anchor-beta>
+</div>
+<div>
+  <gux-anchor-beta>
+    <a href="https://spark.genesys.com/" target="_blank"
+      >gux-anchor with an external href</a
+    >
+  </gux-anchor-beta>
+</div>
 
-<h2>Icon</h2>
-<gux-anchor-beta>
-  <gux-icon icon-name="message-email" decorative></gux-icon>
-  <a href="#">Link Example</a>
-</gux-anchor-beta>
+<h2>In text</h2>
+<p>
+  Maecenas accumsan nulla et maximus tempor. Morbi consectetur accumsan
+  lobortis. Duis bibendum fermentum lorem. Proin at facilisis dolor.
+  <a href="#">Native link</a>
+  Proin non sem tempor ex elementum porttitor at non elit. Nulla faucibus,
+  libero sed porta eleifend, nisl mauris ultrices augue, ut interdum massa dui
+  eu metus. Sed porta blandit dolor non eleifend.
+</p>
 
-<h2>Target</h2>
-<gux-anchor-beta>
-  <a href="#">Open in current window</a>
-</gux-anchor-beta>
+<p>
+  Maecenas accumsan nulla et maximus tempor. Morbi consectetur accumsan
+  lobortis. Duis bibendum fermentum lorem. Proin at facilisis dolor.
+  <gux-anchor-beta>
+    <a href="#">Default gux-anchor link</a>
+  </gux-anchor-beta>
+  Proin non sem tempor ex elementum porttitor at non elit. Nulla faucibus,
+  libero sed porta eleifend, nisl mauris ultrices augue, ut interdum massa dui
+  eu metus. Sed porta blandit dolor non eleifend.
+</p>
 
-<gux-anchor-beta>
-  <a href="#" target="_blank">Open in new tab</a>
-</gux-anchor-beta>
+<p>
+  Maecenas accumsan nulla et maximus tempor. Morbi consectetur accumsan
+  lobortis. Duis bibendum fermentum lorem. Proin at facilisis dolor.
+  <gux-anchor-beta>
+    <gux-icon icon-name="add" decorative></gux-icon>
+    <a href="#">gux-anchor link with an icon</a>
+  </gux-anchor-beta>
+  Proin non sem tempor ex elementum porttitor at non elit. Nulla faucibus,
+  libero sed porta eleifend, nisl mauris ultrices augue, ut interdum massa dui
+  eu metus. Sed porta blandit dolor non eleifend.
+</p>
 
-<h2>External Link (Icon)</h2>
-<gux-anchor-beta>
-  <a href="https://spark.genesys.com/" target="_blank">External Link - Spark</a>
-</gux-anchor-beta>
+<p>
+  Maecenas accumsan nulla et maximus tempor. Morbi consectetur accumsan
+  lobortis. Duis bibendum fermentum lorem. Proin at facilisis dolor.
+  <gux-anchor-beta>
+    <a href="https://spark.genesys.com/" target="_blank"
+      >gux-anchor with an external href</a
+    >
+  </gux-anchor-beta>
+  Proin non sem tempor ex elementum porttitor at non elit. Nulla faucibus,
+  libero sed porta eleifend, nisl mauris ultrices augue, ut interdum massa dui
+  eu metus. Sed porta blandit dolor non eleifend.
+</p>
 
-<h2>In Table Cell Link</h2>
+<h2>In Table</h2>
 <gux-table-beta>
   <table slot="data">
-    <thead>
-      <tr>
-        <th data-column-name="first-name">First and Last Name</th>
-        <th data-column-name="last-name">Other</th>
-      </tr>
-    </thead>
     <tbody>
       <tr>
-        <td>John Doe</td>
+        <td><a href="#">Native link</a></td>
+      </tr>
+      <tr>
         <td>
-          <gux-anchor-beta table="true">
-            <a href="#">John Doe Information</a>
+          <gux-anchor-beta>
+            <a href="#">Default gux-anchor link</a>
           </gux-anchor-beta>
         </td>
       </tr>
       <tr>
-        <td>Jane Doe</td>
         <td>
-          <gux-anchor-beta table="true">
-            <a href="#">Jane Doe Information</a>
+          <gux-anchor-beta>
+            <gux-icon icon-name="add" decorative></gux-icon>
+            <a href="#">gux-anchor link with an icon</a>
+          </gux-anchor-beta>
+        </td>
+      </tr>
+      <tr>
+        <td>
+          <gux-anchor-beta>
+            <a href="https://spark.genesys.com/" target="_blank"
+              >gux-anchor with an external href</a
+            >
           </gux-anchor-beta>
         </td>
       </tr>
     </tbody>
   </table>
 </gux-table-beta>
+
+<h2>In Table Like context</h2>
+<div class="table">
+  <div class="tr">
+    <div class="td"><a class="gux-anchor-table" href="#">Native link</a></div>
+  </div>
+  <div class="tr">
+    <div class="td">
+      <gux-anchor-beta table>
+        <a href="#">Default gux-anchor link</a>
+      </gux-anchor-beta>
+    </div>
+  </div>
+  <div class="tr">
+    <div class="td">
+      <gux-anchor-beta table>
+        <gux-icon icon-name="add" decorative></gux-icon>
+        <a href="#">gux-anchor link with an icon</a>
+      </gux-anchor-beta>
+    </div>
+  </div>
+  <div class="tr">
+    <div class="td">
+      <gux-anchor-beta table>
+        <a href="https://spark.genesys.com/" target="_blank"
+          >gux-anchor with an external href</a
+        >
+      </gux-anchor-beta>
+    </div>
+  </div>
+
+  <style>
+    .table,
+    .tr,
+    .td {
+      padding: 5px;
+      border: 1px solid black;
+    }
+  </style>
+</div>

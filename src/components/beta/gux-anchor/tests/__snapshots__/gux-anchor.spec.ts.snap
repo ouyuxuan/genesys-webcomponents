@@ -1,11 +1,12 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`gux-anchor-beta #render should render component as expected (1) 1`] = `
-<gux-anchor-beta table="false">
+<gux-anchor-beta>
   <mock:shadow-root>
-    <gux-icon decorative="" icon-name="external-link"></gux-icon>
-    <slot></slot>
-    <slot></slot>
+    <span class="gux-anchor">
+      <gux-icon decorative="" icon-name="external-link"></gux-icon>
+      <slot></slot>
+    </span>
   </mock:shadow-root>
   <a href="#">
     Default Link
@@ -14,11 +15,12 @@ exports[`gux-anchor-beta #render should render component as expected (1) 1`] = `
 `;
 
 exports[`gux-anchor-beta #render should render component as expected (2) 1`] = `
-<gux-anchor-beta table="false">
+<gux-anchor-beta>
   <mock:shadow-root>
-    <gux-icon decorative="" icon-name="external-link"></gux-icon>
-    <slot></slot>
-    <slot></slot>
+    <span class="gux-anchor">
+      <gux-icon decorative="" icon-name="external-link"></gux-icon>
+      <slot></slot>
+    </span>
   </mock:shadow-root>
   <a href="#" target="_blank">
     Open in new tab
@@ -27,11 +29,12 @@ exports[`gux-anchor-beta #render should render component as expected (2) 1`] = `
 `;
 
 exports[`gux-anchor-beta #render should render component as expected (3) 1`] = `
-<gux-anchor-beta table="false">
+<gux-anchor-beta>
   <mock:shadow-root>
-    <gux-icon decorative="" icon-name="external-link"></gux-icon>
-    <slot></slot>
-    <slot></slot>
+    <span class="gux-anchor">
+      <gux-icon decorative="" icon-name="external-link"></gux-icon>
+      <slot></slot>
+    </span>
   </mock:shadow-root>
   <a href="https://spark.genesys.com/" target="_blank">
     External Link
@@ -42,9 +45,10 @@ exports[`gux-anchor-beta #render should render component as expected (3) 1`] = `
 exports[`gux-anchor-beta #render should render component as expected (4) 1`] = `
 <gux-anchor-beta table="true">
   <mock:shadow-root>
-    <gux-icon decorative="" icon-name="external-link"></gux-icon>
-    <slot></slot>
-    <slot></slot>
+    <span class="gux-anchor gux-in-table">
+      <gux-icon decorative="" icon-name="external-link"></gux-icon>
+      <slot></slot>
+    </span>
   </mock:shadow-root>
   <a href="#">
     Tabel Cell Link

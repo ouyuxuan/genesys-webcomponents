@@ -1,4 +1,4 @@
-import { Component, Element, Host, h, JSX, Prop } from '@stencil/core';
+import { Component, Element, h, JSX, Prop } from '@stencil/core';
 import { trackComponent } from '../../../usage-tracking';
 
 /**
@@ -33,11 +33,15 @@ export class GuxAnchor {
 
   render(): JSX.Element {
     return (
-      <Host table={this.table.toString()}>
+      <span
+        class={{
+          'gux-anchor': true,
+          'gux-in-table': this.table
+        }}
+      >
         {this.renderExternalLinkIcon()}
         <slot />
-        <slot />
-      </Host>
+      </span>
     ) as JSX.Element;
   }
 }

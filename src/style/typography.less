@@ -61,6 +61,14 @@ h6,
   line-height: 20px;
 }
 
+a {
+  .gux-anchor();
+}
+
+table a {
+  .gux-anchor-table();
+}
+
 /* Custom Styles */
 
 .gux-large-text {
@@ -108,23 +116,24 @@ h6,
 .gux-anchor {
   color: @gux-blue-60;
   text-decoration: underline;
-}
-
-.gux-anchor-hover {
-  color: @gux-blue-50;
-}
-
-.gux-anchor-active {
-  color: @gux-blue-40;
-}
-
-.gux-anchor-focus {
-  .focus-ring();
-
   border-radius: 2px;
+
+  &:hover {
+    color: @gux-blue-50;
+  }
+
+  &:active {
+    color: @gux-blue-40;
+  }
+
+  &:focus {
+    .focus-ring();
+  }
 }
 
 .gux-anchor-table {
+  .gux-anchor();
+
   text-decoration: none;
 }
 

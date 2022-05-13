@@ -4,39 +4,32 @@
 @import (reference) '../../../style/spacing.less';
 
 :host {
-  display: flex;
+  display: inline-block;
+}
+
+::slotted(a) {
+  .gux-anchor();
+
+  box-shadow: none !important;
+}
+
+.gux-anchor {
+  display: inline-flex;
   align-items: center;
+  border-radius: 2px;
 
-  ::slotted(gux-icon) {
-    padding-right: @spacing-xs;
-    color: @gux-blue-60;
+  &:focus-within {
+    .focus-ring();
   }
 }
 
-:host([table='true']) {
+.gux-in-table {
   ::slotted(a) {
-    .gux-anchor-table();
+    text-decoration: none !important;
   }
 }
 
-:host {
-  ::slotted(a) {
-    .gux-anchor();
-  }
-
-  ::slotted(a:hover) {
-    .gux-anchor-hover();
-  }
-
-  ::slotted(a:active) {
-    .gux-anchor-active();
-  }
-
-  ::slotted(a:focus) {
-    .gux-anchor-focus();
-  }
-}
-
+::slotted(gux-icon),
 gux-icon {
   padding-right: @spacing-xs;
   color: @gux-blue-60;
