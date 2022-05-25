@@ -491,10 +491,10 @@ export class GuxTable {
             switch (sortDirection) {
               case '':
               case 'desc':
-                newSortDirection = 'asc';
+                newSortDirection = 'ascending';
                 break;
               case 'asc':
-                newSortDirection = 'desc';
+                newSortDirection = 'descending';
                 break;
             }
 

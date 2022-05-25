@@ -1,16 +1,13 @@
 import { Component, h, JSX, Prop, State, Host } from '@stencil/core';
 import { buildI18nForComponent, GetI18nValue } from '../../../../i18n';
-import { trackComponent } from '../../../../usage-tracking';
-import translationResources from './i18n/en.json';
+import tableResources from '../i18n/en.json';
 
 @Component({
   styleUrl: 'gux-th.less',
-  tag: 'gux-th',
-  shadow: true
+  tag: 'gux-th'
 })
-export class GuxTh {
+export class GuxTh extends HTMLTableCellElement {
   private i18n: GetI18nValue;
-
   /* Reference Host Element */
   root: HTMLElement;
 
@@ -75,9 +72,7 @@ export class GuxTh {
   }
 
   async componentWillRender(): Promise<void> {
-    trackComponent(this.root);
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-argument
-    this.i18n = await buildI18nForComponent(this.root, translationResources);
+    this.i18n = await buildI18nForComponent(this.root, tableResources);
   }
 
   render(): JSX.Element {
@@ -89,3 +84,5 @@ export class GuxTh {
     ) as JSX.Element;
   }
 }
+
+customElements.define('gux-th', GuxTh, { extends: 'th' });
