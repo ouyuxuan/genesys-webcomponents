@@ -6,7 +6,7 @@ import tableResources from '../i18n/en.json';
   styleUrl: 'gux-th.less',
   tag: 'gux-th'
 })
-export class GuxTh extends HTMLTableCellElement {
+export class GuxTh {
   private i18n: GetI18nValue;
   /* Reference Host Element */
   root: HTMLElement;
@@ -84,5 +84,3 @@ export class GuxTh extends HTMLTableCellElement {
     ) as JSX.Element;
   }
 }
-
-customElements.define('gux-th', GuxTh, { extends: 'th' });
