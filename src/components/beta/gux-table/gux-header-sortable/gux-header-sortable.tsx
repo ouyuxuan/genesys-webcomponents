@@ -11,10 +11,6 @@ export class GuxHeaderSortable {
   /* Reference Host Element */
   root: HTMLElement;
 
-  /* Indicate if th element is sortable */
-  @Prop()
-  sortable: boolean = false;
-
   /* Indicate the direction of the sort */
   @Prop()
   sortDirection: string;
@@ -46,17 +42,13 @@ export class GuxHeaderSortable {
     ) as JSX.Element;
   }
 
-  private renderTh(): JSX.Element {
-    return (
-      <th role="columnheader" scope="col" data-column-name={this.dataColName}>
-        <slot onSlotchange={this.onSlotChange.bind(this)} />
-      </th>
-    ) as JSX.Element;
+  async componentWillRender(): Promise<void> {
+    this.i18n = await buildI18nForComponent(this.root, tableResources);
   }
 
-  private renderSortableTh(): JSX.Element {
+  render(): JSX.Element {
     return (
-      <th
+      <Host
         role="columnheader"
         aria-sort={this.sortDirection}
         scope="col"
@@ -67,18 +59,6 @@ export class GuxHeaderSortable {
         <button type="button">
           <slot onSlotchange={this.onSlotChange.bind(this)} />
         </button>
-      </th>
-    ) as JSX.Element;
-  }
-
-  async componentWillRender(): Promise<void> {
-    this.i18n = await buildI18nForComponent(this.root, tableResources);
-  }
-
-  render(): JSX.Element {
-    return (
-      <Host>
-        {this.sortable ? this.renderSortableTh() : this.renderTh()}
         {this.renderSrText()}
       </Host>
     ) as JSX.Element;

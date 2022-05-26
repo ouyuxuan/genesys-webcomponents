@@ -7,11 +7,10 @@
 
 ## Properties
 
-| Property        | Attribute        | Description | Type      | Default     |
-| --------------- | ---------------- | ----------- | --------- | ----------- |
-| `dataColName`   | `data-col-name`  |             | `string`  | `undefined` |
-| `sortDirection` | `sort-direction` |             | `string`  | `undefined` |
-| `sortable`      | `sortable`       |             | `boolean` | `false`     |
+| Property        | Attribute        | Description | Type     | Default     |
+| --------------- | ---------------- | ----------- | -------- | ----------- |
+| `dataColName`   | `data-col-name`  |             | `string` | `undefined` |
+| `sortDirection` | `sort-direction` |             | `string` | `undefined` |
 
 
 ----------------------------------------------

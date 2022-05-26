@@ -372,7 +372,13 @@
   <table slot="data">
     <thead>
       <tr>
-        <th>test</th>
+        <th>
+          <gux-header-sortable
+            data-col-name="first-name"
+            sort-direction="ascending"
+            >testing</gux-header-sortable
+          >
+        </th>
         <th data-column-name="last-name">Last name</th>
         <th data-column-name="age" data-cell-numeric>Age</th>
         <th data-column-name="action" data-cell-action>Action</th>
