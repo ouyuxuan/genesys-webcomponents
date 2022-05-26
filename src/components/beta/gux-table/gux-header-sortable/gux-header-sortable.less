@@ -1,17 +1,26 @@
 @import (reference) '../../../../style/typography.less';
 @import (reference) '../../../../style/color-mixins.less';
+@import (reference) '../../../../style/spacing.less';
 
 :host([aria-sort='descending']) span::after {
-  top: 0;
-  font-size: 100%;
-  color: black;
+  position: absolute;
+  top: 13px;
+  right: 6px;
+  z-index: -1;
+  display: block;
+  width: 14px;
+  color: @gux-black-50;
   content: '▼';
 }
 
 :host([aria-sort='ascending']) span::after {
-  top: 0;
-  font-size: 100%;
-  color: black;
+  position: absolute;
+  top: 13px;
+  right: 6px;
+  z-index: -1;
+  display: block;
+  width: 14px;
+  color: @gux-black-50;
   content: '▲';
 }
 
@@ -21,12 +30,14 @@ button {
   right: 0;
   bottom: 0;
   left: 0;
+  z-index: 1;
   display: inline;
   width: 100%;
-  padding: 4px;
+  padding: @spacing-2xs;
   margin: 1px;
   font-size: 100%;
   font-weight: bold;
+  color: @gux-black-50;
   text-align: left;
   cursor: pointer;
   background: transparent;
