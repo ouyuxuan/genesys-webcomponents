@@ -355,6 +355,7 @@
       const {columnName, sortDirection} = event.detail;
       const column = table.querySelector(`thead tr th gux-header-sortable[data-col-name='` + columnName + `']`);
       column.setAttribute('data-sort', sortDirection);
+      column.setAttribute('aria-sort', sortDirection);
 
       var tableBody = table.querySelector('tbody');
       [...tableBody.children]
