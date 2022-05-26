@@ -57,8 +57,8 @@ gux-table-beta {
       }
 
       th[data-sortable]:hover::after,
-      th[data-sort='asc']::after,
-      th[data-sort='desc']::after {
+      th[data-sort='ascending']::after,
+      th[data-sort='descending']::after {
         position: absolute;
         top: 13px;
         right: 6px;
@@ -69,10 +69,10 @@ gux-table-beta {
 
       th[data-cell-action][data-sortable]:hover::after,
       th[data-cell-numeric][data-sortable]:hover::after,
-      th[data-cell-action][data-sort='asc']::after,
-      th[data-cell-numeric][data-sort='asc']::after,
-      th[data-cell-action][data-sort='desc']::after,
-      th[data-cell-numeric][data-sort='desc']::after {
+      th[data-cell-action][data-sort='ascending']::after,
+      th[data-cell-numeric][data-sort='ascending']::after,
+      th[data-cell-action][data-sort='descending']::after,
+      th[data-cell-numeric][data-sort='descending']::after {
         left: 6px;
       }
     }
