@@ -3,10 +3,10 @@ import { buildI18nForComponent, GetI18nValue } from '../../../../i18n';
 import tableResources from '../i18n/en.json';
 
 @Component({
-  styleUrl: 'gux-th.less',
-  tag: 'gux-th'
+  styleUrl: 'gux-header-sortable.less',
+  tag: 'gux-header-sortable'
 })
-export class GuxTh {
+export class GuxHeaderSortable {
   private i18n: GetI18nValue;
   /* Reference Host Element */
   root: HTMLElement;
