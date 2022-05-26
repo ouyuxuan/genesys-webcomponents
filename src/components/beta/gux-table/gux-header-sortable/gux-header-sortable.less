@@ -1,8 +1,18 @@
 @import (reference) '../../../../style/typography.less';
 @import (reference) '../../../../style/color-mixins.less';
 
-:host {
-  width: 100%;
+:host([aria-sort='descending']) span::after {
+  top: 0;
+  font-size: 100%;
+  color: black;
+  content: '▼';
+}
+
+:host([aria-sort='ascending']) span::after {
+  top: 0;
+  font-size: 100%;
+  color: black;
+  content: '▲';
 }
 
 button {
@@ -21,8 +31,8 @@ button {
   cursor: pointer;
   background: transparent;
   border: none;
+  border-bottom: 3px solid @gux-blue-80;
   outline: none;
-  box-shadow: inset 0 4px 0 0 @gux-blue-80;
 }
 
 .gux-sr-only {

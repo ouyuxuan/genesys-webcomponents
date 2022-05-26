@@ -4,7 +4,8 @@ import tableResources from '../i18n/en.json';
 
 @Component({
   styleUrl: 'gux-header-sortable.less',
-  tag: 'gux-header-sortable'
+  tag: 'gux-header-sortable',
+  shadow: true
 })
 export class GuxHeaderSortable {
   private i18n: GetI18nValue;
@@ -59,6 +60,7 @@ export class GuxHeaderSortable {
         <button type="button">
           <slot onSlotchange={this.onSlotChange.bind(this)} />
         </button>
+        <span aria-hidden="true"></span>
         {this.renderSrText()}
       </Host>
     ) as JSX.Element;
