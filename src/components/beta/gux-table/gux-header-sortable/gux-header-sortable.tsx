@@ -48,7 +48,7 @@ export class GuxHeaderSortable {
 
   render(): JSX.Element {
     return (
-      <Host
+      <th
         role="columnheader"
         aria-sort={this.sortDirection}
         scope="col"
@@ -60,7 +60,7 @@ export class GuxHeaderSortable {
           <slot onSlotchange={this.onSlotChange.bind(this)} />
         </button>
         {this.renderSrText()}
-      </Host>
+      </th>
     ) as JSX.Element;
   }
 }
