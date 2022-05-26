@@ -490,7 +490,6 @@ export class GuxTable {
       if (Object.prototype.hasOwnProperty.call(column.dataset, 'sortable')) {
         column.onclick = (event: MouseEvent) => {
           if (!this.columnResizeHover) {
-            console.log('button clicked');
             const columnElement = event.target as HTMLElement;
             const sortDirection = columnElement.dataset.sort || '';
             let newSortDirection = null;
