@@ -219,6 +219,12 @@ export class GuxTable {
     return Array.from(this.slottedTable.querySelectorAll('thead th'));
   }
 
+  private get sortableTableColumn(): Array<HTMLElement> {
+    return Array.from(
+      this.slottedTable.querySelectorAll('thead th gux-header-sortable')
+    );
+  }
+
   private get rowCheckboxes(): Array<HTMLGuxRowSelectElement> {
     return Array.from(
       this.slottedTable.querySelectorAll('tbody tr td gux-row-select')
@@ -477,23 +483,24 @@ export class GuxTable {
   /******************************* Sortable Columns *******************************/
 
   private prepareSortableColumns(): void {
-    const columnsElements = this.tableColumns;
+    const columnsElements = this.sortableTableColumn;
     this.prepareSortableColumnsStyles();
 
     columnsElements.forEach((column: HTMLElement) => {
       if (Object.prototype.hasOwnProperty.call(column.dataset, 'sortable')) {
         column.onclick = (event: MouseEvent) => {
           if (!this.columnResizeHover) {
+            console.log('button clicked');
             const columnElement = event.target as HTMLElement;
             const sortDirection = columnElement.dataset.sort || '';
             let newSortDirection = null;
 
             switch (sortDirection) {
               case '':
-              case 'desc':
+              case 'descending':
                 newSortDirection = 'ascending';
                 break;
-              case 'asc':
+              case 'ascending':
                 newSortDirection = 'descending';
                 break;
             }
