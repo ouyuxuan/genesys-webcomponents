@@ -1,4 +1,4 @@
-import { Component, h, JSX, State, Host, Prop } from '@stencil/core';
+import { Component, h, JSX, State, Host } from '@stencil/core';
 import { buildI18nForComponent, GetI18nValue } from '../../../../i18n';
 import tableResources from '../i18n/en.json';
 
