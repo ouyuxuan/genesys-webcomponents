@@ -1,4 +1,4 @@
-import { Component, h, JSX, Prop, State, Host } from '@stencil/core';
+import { Component, h, JSX, State, Host } from '@stencil/core';
 import { buildI18nForComponent, GetI18nValue } from '../../../../i18n';
 import tableResources from '../i18n/en.json';
 
@@ -11,14 +11,6 @@ export class GuxHeaderSortable {
   private i18n: GetI18nValue;
   /* Reference Host Element */
   root: HTMLElement;
-
-  /* Indicate the direction of the sort */
-  @Prop()
-  sortDirection: string;
-
-  /* Indicate data column name */
-  @Prop()
-  dataColName: string;
 
   /* Label to indicate column text content */
   @State()
@@ -49,14 +41,7 @@ export class GuxHeaderSortable {
 
   render(): JSX.Element {
     return (
-      <Host
-        role="columnheader"
-        aria-sort={this.sortDirection}
-        scope="col"
-        data-column-name={this.dataColName}
-        data-sortable
-        data-sort={this.sortDirection}
-      >
+      <Host>
         <button type="button">
           <slot onSlotchange={this.onSlotChange.bind(this)} />
         </button>

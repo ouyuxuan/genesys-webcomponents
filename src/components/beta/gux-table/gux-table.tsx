@@ -487,30 +487,29 @@ export class GuxTable {
     this.prepareSortableColumnsStyles();
 
     columnsElements.forEach((column: HTMLElement) => {
-      if (Object.prototype.hasOwnProperty.call(column.dataset, 'sortable')) {
-        column.onclick = (event: MouseEvent) => {
-          if (!this.columnResizeHover) {
-            const columnElement = event.target as HTMLElement;
-            const sortDirection = columnElement.dataset.sort || '';
-            let newSortDirection = null;
+      column.onclick = (event: MouseEvent) => {
+        if (!this.columnResizeHover) {
+          const button = event.target as HTMLElement;
+          const columnElement = button.parentElement;
+          const sortDirection = columnElement.dataset.sort || '';
+          let newSortDirection = null;
 
-            switch (sortDirection) {
-              case '':
-              case 'descending':
-                newSortDirection = 'ascending';
-                break;
-              case 'ascending':
-                newSortDirection = 'descending';
-                break;
-            }
-
-            this.guxsortchanged.emit({
-              columnName: columnElement.dataset.columnName,
-              sortDirection: newSortDirection
-            });
+          switch (sortDirection) {
+            case '':
+            case 'descending':
+              newSortDirection = 'ascending';
+              break;
+            case 'ascending':
+              newSortDirection = 'descending';
+              break;
           }
-        };
-      }
+
+          this.guxsortchanged.emit({
+            columnName: columnElement.dataset.columnName,
+            sortDirection: newSortDirection
+          });
+        }
+      };
     });
   }
 

@@ -352,8 +352,9 @@
 
     table.addEventListener('guxsortchanged',
     (event) => {
+      debugger;
       const {columnName, sortDirection} = event.detail;
-      const column = table.querySelector(`thead tr th gux-header-sortable[data-col-name='` + columnName + `']`);
+      const column = table.querySelector(`thead tr th[data-column-name='` + columnName + `']`);
       column.setAttribute('data-sort', sortDirection);
       column.setAttribute('aria-sort', sortDirection);
 
@@ -373,12 +374,13 @@
   <table slot="data">
     <thead>
       <tr>
-        <th>
-          <gux-header-sortable
-            data-col-name="first-name"
-            sort-direction="ascending"
-            >testing</gux-header-sortable
-          >
+        <th
+          data-column-name="first-name"
+          aria-sort="ascending"
+          data-sortable
+          data-sort="ascending"
+        >
+          <gux-header-sortable>testing</gux-header-sortable>
         </th>
         <th data-column-name="last-name">Last name</th>
         <th data-column-name="age" data-cell-numeric>Age</th>

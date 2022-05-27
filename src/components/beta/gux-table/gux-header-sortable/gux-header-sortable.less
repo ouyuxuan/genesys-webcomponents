@@ -2,28 +2,6 @@
 @import (reference) '../../../../style/color-mixins.less';
 @import (reference) '../../../../style/spacing.less';
 
-:host([aria-sort='descending']) span::after {
-  position: absolute;
-  top: 13px;
-  right: 6px;
-  z-index: -1;
-  display: block;
-  width: 14px;
-  color: @gux-black-50;
-  content: '▼';
-}
-
-:host([aria-sort='ascending']) span::after {
-  position: absolute;
-  top: 13px;
-  right: 6px;
-  z-index: -1;
-  display: block;
-  width: 14px;
-  color: @gux-black-50;
-  content: '▲';
-}
-
 button {
   position: absolute;
   top: 0;
