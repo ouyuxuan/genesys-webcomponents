@@ -52,8 +52,28 @@ gux-table-beta {
       th {
         position: sticky;
         top: 0;
-        z-index: -1;
+        z-index: 1;
         background: @gux-grey-100;
+      }
+
+      th[data-sortable]:hover::after,
+      th[aria-sort='ascending']::after,
+      th[aria-sort='descending']::after {
+        position: absolute;
+        top: 13px;
+        right: 6px;
+        display: block;
+        width: 14px;
+        color: transparent;
+      }
+
+      th[data-cell-action][data-sortable]:hover::after,
+      th[data-cell-numeric][data-sortable]:hover::after,
+      th[data-cell-action][aria-sort='ascending']::after,
+      th[data-cell-numeric][aria-sort='ascending']::after,
+      th[data-cell-action][aria-sort='descending']::after,
+      th[data-cell-numeric][aria-sort='descending']::after {
+        left: 6px;
       }
     }
 

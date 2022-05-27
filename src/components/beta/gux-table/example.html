@@ -352,7 +352,6 @@
 
     table.addEventListener('guxsortchanged',
     (event) => {
-      debugger;
       const {columnName, sortDirection} = event.detail;
       const column = table.querySelector(`thead tr th[data-column-name='` + columnName + `']`);
       column.setAttribute('data-sort', sortDirection);
