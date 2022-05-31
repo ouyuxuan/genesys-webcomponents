@@ -370,7 +370,10 @@
 </style>
 
 <gux-table-beta id="sortable-table">
-  <table slot="data">
+  <table slot="data" aria-readonly="true">
+    <caption>
+      First Name, Last Name, Age table sorted by "First Name" ascending
+    </caption>
     <thead>
       <tr>
         <th
@@ -379,7 +382,7 @@
           data-sortable
           data-sort="ascending"
         >
-          <gux-header-sortable>testing</gux-header-sortable>
+          <gux-header-sortable>First Name</gux-header-sortable>
         </th>
         <th data-column-name="last-name">Last name</th>
         <th data-column-name="age" data-cell-numeric>Age</th>
