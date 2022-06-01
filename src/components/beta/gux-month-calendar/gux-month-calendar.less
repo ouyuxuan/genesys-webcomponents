@@ -1,0 +1,148 @@
+@import (reference) '../../../style/color.less';
+@import (reference) '../../../style/shadows.less';
+@import (reference) '../../../style/typography.less';
+
+// Style
+:host {
+  display: inline-block;
+}
+
+.gux-month-calendar {
+  position: absolute;
+  margin-top: 2px;
+  border: 1px solid @gux-grey-30;
+  .gux-shadow-20();
+
+  border-radius: 4px;
+
+  .gux-header {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 16px;
+    padding: 16px;
+    color: @gux-grey-100;
+    background-color: @gux-blue-60;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+
+    button {
+      position: absolute;
+      padding: 5px;
+      color: @gux-grey-100;
+      cursor: pointer;
+      background: none;
+      border: none;
+      outline: none;
+
+      &:focus {
+        outline: @gux-blue-80 auto 5px;
+      }
+
+      &.gux-left {
+        left: 18px;
+
+        &:disabled {
+          cursor: default;
+          opacity: 0.5;
+        }
+      }
+
+      &.gux-right {
+        right: 18px;
+
+        &:disabled {
+          cursor: default;
+          opacity: 0.5;
+        }
+      }
+
+      gux-icon {
+        width: 16px;
+        height: 16px;
+        pointer-events: none;
+      }
+    }
+
+    .gux-year-list {
+      display: flex;
+      justify-content: space-between;
+      width: 100%;
+
+      label {
+        width: 100%;
+        text-align: center;
+        .body-font();
+        .bold-font();
+      }
+    }
+  }
+
+  .gux-content {
+    display: flex;
+    padding: 20px 24px;
+    color: @gux-black-50;
+    background-color: @gux-grey-100;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+
+    table {
+      width: 168px;
+      text-align: left;
+      table-layout: fixed;
+      border-spacing: 0;
+      -ms-user-select: none;
+      user-select: none;
+
+      &:not(:last-child) {
+        padding-right: 24px;
+      }
+
+      tr {
+        height: 28px;
+
+        &:empty {
+          display: none;
+        }
+
+        th {
+          .bold-font();
+        }
+
+        td {
+          &:focus {
+            background-color: @gux-grey-100;
+            border-color: @gux-blue-60;
+            border-radius: 4px;
+          }
+
+          width: 66px;
+          height: 49px;
+          padding: 0;
+          margin: 0;
+          text-align: center;
+          cursor: pointer;
+          .body-font();
+
+          &.gux-selected,
+          &:hover {
+            color: @gux-grey-100;
+            background-color: @gux-blue-60;
+            border-radius: 4px;
+          }
+
+          &.gux-disabled {
+            color: @gux-black-90;
+            pointer-events: none;
+            background-color: @gux-grey-100;
+          }
+        }
+      }
+    }
+  }
+}
+
+.gux-sr-only {
+  .gux-sr-only();
+}

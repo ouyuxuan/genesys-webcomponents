@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`gux-month-picker-beta #render should render component as expected (1) 1`] = `
+<gux-month-picker-beta value="January 2022">
+  <mock:shadow-root>
+    <div class="gux-month-picker-beta">
+      <div class="gux-month-picker">
+        <span aria-label="January 2022" class="gux-month-display">
+          January 2022
+        </span>
+        <button aria-label="Toggle month calendar view" class="gux-calendar-toggle-button" type="button">
+          <gux-icon decorative="" icon-name="calendar"></gux-icon>
+        </button>
+      </div>
+      <gux-month-calendar-beta maxmonth="" maxyear="" minmonth="" minyear="" value="January 2022"></gux-month-calendar-beta>
+    </div>
+  </mock:shadow-root>
+</gux-month-picker-beta>
+`;

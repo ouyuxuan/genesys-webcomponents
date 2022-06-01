@@ -1,0 +1,77 @@
+@import (reference) '../../../style/mixins.less';
+@import (reference) '../../../style/spacing.less';
+
+.gux-month-picker-beta {
+  &.gux-disabled {
+    pointer-events: none;
+    cursor: default;
+
+    .gux-month-picker {
+      opacity: 0.5;
+    }
+  }
+
+  .gux-month-picker {
+    display: flex;
+    padding: @spacing-2xs @spacing-xs @spacing-2xs @spacing-xs;
+    line-height: 1.6667;
+    cursor: pointer;
+    background-color: @gux-grey-90;
+    .form-field-border();
+
+    .gux-month-display {
+      flex: 1 1 auto;
+      align-self: auto;
+      order: 0;
+      width: 100px;
+      padding-right: @spacing-xs;
+      font-family: inherit;
+      font-size: 12px;
+      color: @gux-black-50;
+      text-align: left;
+    }
+
+    .gux-calendar-toggle-button {
+      flex: 0 1 auto;
+      align-self: auto;
+      order: 0;
+      padding: 2px;
+      color: @gux-black-90;
+      background: transparent;
+      border: none;
+
+      &:not(:disabled):focus,
+      &:not(:disabled):hover {
+        color: @gux-black-50;
+        cursor: pointer;
+      }
+
+      gux-icon {
+        width: 16px;
+        height: 16px;
+      }
+    }
+  }
+
+  gux-month-calendar-beta {
+    z-index: 1;
+    display: none;
+  }
+
+  &.gux-active {
+    .gux-month-picker {
+      .gux-calendar-toggle-button {
+        color: @gux-blue-60;
+
+        &:not(:disabled):focus,
+        &:not(:disabled):hover {
+          color: @gux-blue-60;
+        }
+      }
+    }
+
+    gux-month-calendar-beta {
+      display: flex;
+    }
+  }
+}
