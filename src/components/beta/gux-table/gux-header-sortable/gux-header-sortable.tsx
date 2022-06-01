@@ -1,5 +1,6 @@
-import { Component, h, JSX, State, Host } from '@stencil/core';
+import { Component, h, Host, JSX, State, Listen } from '@stencil/core';
 import { buildI18nForComponent, GetI18nValue } from '../../../../i18n';
+import { GuxTableSortState } from '../gux-table.types';
 import tableResources from '../i18n/en.json';
 
 @Component({
@@ -14,13 +15,23 @@ export class GuxHeaderSortable {
 
   /* Label to indicate column text content */
   @State()
-  label: string;
+  colLabel: string;
+
+  /* State to store direction of sort */
+  @State()
+  colSortDirection: string;
+
+  /* Listen to guxsortchanged event to retrieve sort direction */
+  @Listen('guxsortchanged', { target: 'body' })
+  sortDirectionEvent(event: CustomEvent<GuxTableSortState>) {
+    this.colSortDirection = event.detail.sortDirection;
+  }
 
   private onSlotChange(event: Event) {
     const slotAssignedNodes = (
       event.composedPath()[0] as HTMLSlotElement
     ).assignedNodes();
-    this.label = slotAssignedNodes
+    this.colLabel = slotAssignedNodes
       .map(nodeItem => nodeItem.textContent)
       .join('');
   }
@@ -29,7 +40,8 @@ export class GuxHeaderSortable {
     return (
       <div class="gux-sr-only">
         {this.i18n('colSortDirection', {
-          label: this.label
+          colLabel: this.colLabel,
+          colSortDirection: this.colSortDirection
         })}
       </div>
     ) as JSX.Element;
