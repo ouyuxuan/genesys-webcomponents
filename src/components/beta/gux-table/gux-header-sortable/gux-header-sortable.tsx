@@ -1,6 +1,5 @@
 import { Component, h, JSX, State, Host } from '@stencil/core';
 import { buildI18nForComponent, GetI18nValue } from '../../../../i18n';
-import { getRootIconName } from '../../../stable/gux-icon/gux-icon.service';
 import tableResources from '../i18n/en.json';
 
 @Component({
