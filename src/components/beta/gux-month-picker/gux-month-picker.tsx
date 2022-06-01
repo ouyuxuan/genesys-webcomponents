@@ -116,9 +116,9 @@ export class GuxMonthPicker {
   onMonthCalendarSelect(inputEvent: Event) {
     const monthCalendar = inputEvent.target as HTMLGuxMonthCalendarBetaElement;
     const value = monthCalendar.value.split(' ');
-    // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
     this.value = monthCalendar.monthsObject[value[0]]
-      ? `${monthCalendar.monthsObject[value[0]].name} ${value[1]}`
+      ? // eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+        `${monthCalendar.monthsObject[value[0]].name} ${value[1]}`
       : this.value;
     inputEvent.stopPropagation(); // Don't let both events bubble.
     this.input.emit(this.value);
