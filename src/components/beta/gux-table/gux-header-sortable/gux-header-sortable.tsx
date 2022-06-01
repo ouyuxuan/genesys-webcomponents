@@ -1,5 +1,6 @@
 import { Component, h, JSX, State, Host } from '@stencil/core';
 import { buildI18nForComponent, GetI18nValue } from '../../../../i18n';
+import { getRootIconName } from '../../../stable/gux-icon/gux-icon.service';
 import tableResources from '../i18n/en.json';
 
 @Component({
@@ -28,7 +29,7 @@ export class GuxHeaderSortable {
   private renderSrText(): JSX.Element {
     return (
       <div class="gux-sr-only">
-        {this.i18n('th', {
+        {this.i18n('colSortDirection', {
           label: this.label
         })}
       </div>
@@ -42,11 +43,10 @@ export class GuxHeaderSortable {
   render(): JSX.Element {
     return (
       <Host>
-        <button type="button">
+        <button type="button">{this.renderSrText()}</button>
+        <span aria-hidden="true">
           <slot onSlotchange={this.onSlotChange.bind(this)} />
-        </button>
-        <span aria-hidden="true"></span>
-        {this.renderSrText()}
+        </span>
       </Host>
     ) as JSX.Element;
   }

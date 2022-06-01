@@ -6,5 +6,5 @@
   "selectTableRow": "Select Table Row",
   "sortAsc": "Sorted Ascending",
   "sortDesc": "Sorted Descending",
-  "th": "table header with label: {label}"
+  "colSortDirection": "{label} , sort ascending"
 }
