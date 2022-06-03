@@ -14,6 +14,19 @@
 | `value`       | `value`       |             | `string`  | `undefined` |
 
 
+## Methods
+
+### `getSelectedValues() => Promise<string[]>`
+
+Gets the currently selected values.
+
+#### Returns
+
+Type: `Promise<string[]>`
+
+
+
+
 ## Slots
 
 | Slot | Description                                                  |

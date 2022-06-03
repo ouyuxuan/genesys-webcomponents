@@ -3,8 +3,9 @@ import {
   Element,
   forceUpdate,
   h,
-  Listen,
   JSX,
+  Listen,
+  Method,
   Prop,
   State,
   Watch
@@ -93,6 +94,14 @@ export class GuxDropdownMulti {
     }
 
     this.value = undefined;
+  }
+
+  /**
+   * Gets the currently selected values.
+   */
+  @Method()
+  getSelectedValues(): Promise<string[]> {
+    return Promise.resolve(this.value?.split(',') || []);
   }
 
   @Listen('keydown')
