@@ -21,18 +21,18 @@ import translationResources from './i18n/en.json';
 import { getSearchOption } from '../../stable/gux-listbox/gux-listbox.service';
 
 /**
- * @slot - for a gux-listbox-multi containing gux-option-multi children
+ * @slot - for a gux-listbox-multi-beta containing gux-option-multi children
  */
 @Component({
   styleUrl: 'gux-dropdown-multi.less',
-  tag: 'gux-dropdown-multi',
+  tag: 'gux-dropdown-multi-beta',
   shadow: true
 })
 export class GuxDropdownMulti {
   private i18n: GetI18nValue;
   private fieldButtonElement: HTMLElement;
   private filterElement: HTMLInputElement;
-  private listboxElement: HTMLGuxListboxMultiElement;
+  private listboxElement: HTMLGuxListboxMultiBetaElement;
 
   @Element()
   private root: HTMLElement;
@@ -182,7 +182,7 @@ export class GuxDropdownMulti {
     trackComponent(this.root);
     this.i18n = await buildI18nForComponent(this.root, translationResources);
 
-    this.listboxElement = this.root.querySelector('gux-listbox-multi');
+    this.listboxElement = this.root.querySelector('gux-listbox-multi-beta');
     this.validateValue(this.value);
   }
 
@@ -190,7 +190,7 @@ export class GuxDropdownMulti {
     this.listboxElement.addEventListener('input', (event: InputEvent) => {
       event.stopPropagation();
 
-      this.updateValue((event.target as HTMLGuxListboxMultiElement).value);
+      this.updateValue((event.target as HTMLGuxListboxMultiBetaElement).value);
     });
     this.listboxElement.addEventListener('change', (event: InputEvent) => {
       event.stopPropagation();
@@ -293,7 +293,6 @@ export class GuxDropdownMulti {
   private updateValue(newValue: string): void {
     if (this.value !== newValue) {
       this.value = newValue;
-      // this.collapseListbox('focusFieldButton');
       simulateNativeEvent(this.root, 'input');
       simulateNativeEvent(this.root, 'change');
     }
@@ -313,18 +312,6 @@ export class GuxDropdownMulti {
   }
 
   private renderTargetDisplay(): JSX.Element {
-    const selectedListboxOptionElement = this.getOptionElementByValue(
-      this.value
-    );
-
-    if (selectedListboxOptionElement?.length) {
-      return (
-        <div class="gux-placeholder">
-          {this.placeholder || this.i18n('noSelection')}
-        </div>
-      ) as JSX.Element;
-    }
-
     return (
       <div class="gux-placeholder">
         {this.placeholder || this.i18n('noSelection')}
@@ -361,6 +348,7 @@ export class GuxDropdownMulti {
               <div class="input-and-dropdown-button">
                 <input
                   onClick={this.fieldButtonInputClick.bind(this)}
+                  placeholder={this.placeholder || this.i18n('noSelection')}
                   class="gux-filter-input"
                   type="text"
                   aria-label={this.i18n('filterResults')}

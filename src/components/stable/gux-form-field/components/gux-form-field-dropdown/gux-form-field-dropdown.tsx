@@ -27,8 +27,12 @@ import {
   shadow: true
 })
 export class GuxFormFieldDropdown {
-  private listboxElement: HTMLGuxListboxElement | HTMLGuxListboxMultiElement;
-  private dropdownElement: HTMLGuxDropdownElement | HTMLGuxDropdownMultiElement;
+  private listboxElement:
+    | HTMLGuxListboxElement
+    | HTMLGuxListboxMultiBetaElement;
+  private dropdownElement:
+    | HTMLGuxDropdownElement
+    | HTMLGuxDropdownMultiBetaElement;
   private label: HTMLLabelElement;
   private disabledObserver: MutationObserver;
   private requiredObserver: MutationObserver;
@@ -114,8 +118,12 @@ export class GuxFormFieldDropdown {
   }
 
   private setInput(): void {
-    this.dropdownElement = this.root.querySelector('gux-dropdown') || this.root.querySelector('gux-dropdown-multi');
-    this.listboxElement = this.root.querySelector('gux-listbox') || this.root.querySelector('gux-listbox-multi')
+    this.dropdownElement =
+      this.root.querySelector('gux-dropdown') ||
+      this.root.querySelector('gux-dropdown-multi-beta');
+    this.listboxElement =
+      this.root.querySelector('gux-listbox') ||
+      this.root.querySelector('gux-listbox-multi-beta');
 
     this.disabled = this.dropdownElement.disabled;
     this.required = this.dropdownElement.required;

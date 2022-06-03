@@ -24,7 +24,7 @@
 
 ### Used by
 
- - [gux-dropdown-multi](..)
+ - [gux-dropdown-multi-beta](..)
 
 ### Depends on
 
@@ -34,7 +34,7 @@
 ```mermaid
 graph TD;
   gux-dropdown-multi-tag --> gux-icon
-  gux-dropdown-multi --> gux-dropdown-multi-tag
+  gux-dropdown-multi-beta --> gux-dropdown-multi-tag
   style gux-dropdown-multi-tag fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

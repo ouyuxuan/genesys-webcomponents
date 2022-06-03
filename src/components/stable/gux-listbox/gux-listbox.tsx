@@ -30,7 +30,6 @@ import { buildI18nForComponent, GetI18nValue } from '../../../i18n';
 import { whenEventIsFrom } from '../../../utils/dom/when-event-is-from';
 import simulateNativeEvent from '../../../utils/dom/simulate-native-event';
 import { trackComponent } from '../../../usage-tracking';
-// import { logError } from '../../../utils/error/log-error';
 
 import translationResources from './i18n/en.json';
 
@@ -181,21 +180,6 @@ export class GuxListbox {
 
     this.setListboxOptions();
   }
-
-  // to do: do not log error if listbox has associated label
-  // componentDidLoad(): void {
-  //   if (
-  //     !(
-  //       this.root.getAttribute('aria-label') ||
-  //       this.root.getAttribute('aria-labelledby')
-  //     )
-  //   ) {
-  //     logError(
-  //       'gux-listbox',
-  //       '`gux-listbox` requires a label. Either provide a label and associate it with the listbox using `aria-labelledby` or add an `aria-label` attribute to the gux-listbox element.'
-  //     );
-  //   }
-  // }
 
   componentWillRender(): void {
     this.listboxOptions.forEach(listboxOption => {
