@@ -491,7 +491,7 @@ export class GuxTable {
         if (!this.columnResizeHover) {
           const button = event.target as HTMLElement;
           const columnElement = button.parentElement;
-          const sortDirection = columnElement.dataset.sort || '';
+          const sortDirection = columnElement.getAttribute('aria-sort') || '';
           let newSortDirection = null;
 
           switch (sortDirection) {
@@ -530,8 +530,8 @@ export class GuxTable {
 
       styleElement.innerHTML = `
       th[data-sortable]:hover:after{content: "${sortAscContent}";background-image: url("${ascArrowIcon}");}
-      th[data-sort="ascending"]:after{background-image:url("${ascArrowIcon}")!important;content:"${sortAscContent}"!important;}
-      th[data-sort="descending"]:after{background-image:url("${descArrowIcon}")!important;content:"${sortDescContent}"!important;}
+      th[aria-sort="ascending"]:after{background-image:url("${ascArrowIcon}")!important;content:"${sortAscContent}"!important;}
+      th[aria-sort="descending"]:after{background-image:url("${descArrowIcon}")!important;content:"${sortDescContent}"!important;}
     `;
 
       document.querySelector('head').appendChild(styleElement);
