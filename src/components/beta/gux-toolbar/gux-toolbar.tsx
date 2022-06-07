@@ -12,7 +12,16 @@ export class GuxToolbar {
   @Element()
   root: HTMLElement;
 
+  private renderSearchField(): JSX.Element {
+    return (
+      <gux-form-field-search>
+        <input slot="input" type="search" name="lp-1" />
+        <label slot="label">Default</label>
+      </gux-form-field-search>
+    ) as JSX.Element;
+  }
+
   render(): JSX.Element {
-    return (<Host></Host>) as JSX.Element;
+    return (<Host>{this.renderSearchField()}</Host>) as JSX.Element;
   }
 }

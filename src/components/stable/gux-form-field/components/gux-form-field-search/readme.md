@@ -26,6 +26,7 @@
 ### Used by
 
  - [gux-advanced-dropdown](../../../gux-advanced-dropdown)
+ - [gux-toolbar-beta](../../../../beta/gux-toolbar)
 
 ### Depends on
 
@@ -39,6 +40,7 @@ graph TD;
   gux-form-field-search --> gux-form-field-input-clear-button
   gux-form-field-input-clear-button --> gux-icon
   gux-advanced-dropdown --> gux-form-field-search
+  gux-toolbar-beta --> gux-form-field-search
   style gux-form-field-search fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
