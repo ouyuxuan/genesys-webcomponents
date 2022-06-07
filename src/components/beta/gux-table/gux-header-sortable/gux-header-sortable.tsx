@@ -21,19 +21,11 @@ export class GuxHeaderSortable {
   @State()
   colSortDirection: string;
 
-  /* Listen to guxsortchanged event to retrieve sort direction */
+  /* Listen to guxsortchanged event to retrieve sort direction and column name */
   @Listen('guxsortchanged', { target: 'body' })
   sortDirectionEvent(event: CustomEvent<GuxTableSortState>) {
     this.colSortDirection = event.detail.sortDirection;
-  }
-
-  private onSlotChange(event: Event) {
-    const slotAssignedNodes = (
-      event.composedPath()[0] as HTMLSlotElement
-    ).assignedNodes();
-    this.colLabel = slotAssignedNodes
-      .map(nodeItem => nodeItem.textContent)
-      .join('');
+    this.colLabel = event.detail.columnName;
   }
 
   private renderSrText(): JSX.Element {
@@ -55,9 +47,6 @@ export class GuxHeaderSortable {
     return (
       <Host>
         <button type="button">{this.renderSrText()}</button>
-        <span aria-hidden="true">
-          <slot onSlotchange={this.onSlotChange.bind(this)} />
-        </span>
       </Host>
     ) as JSX.Element;
   }
