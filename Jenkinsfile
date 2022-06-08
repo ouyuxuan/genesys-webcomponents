@@ -12,12 +12,16 @@ def isFeatureBranch = {
     return env.BRANCH_NAME.startsWith('feature/')
 }
 
+def isBetaBranch = {
+    return env.BRANCH_NAME.startsWith('beta/')
+}
+
 def isReleaseBranch = {
     return isMainBranch() || isMaintenanceReleaseBranch()
 }
 
 def isPublicBranch = {
-    isReleaseBranch() || isFeatureBranch()
+    isReleaseBranch() || isFeatureBranch() || isBetaBranch()
 }
 
 webappPipeline {
@@ -60,30 +64,49 @@ webappPipeline {
         // (builds happen twice, legacy and FedRAMP)
         if (isReleaseBranch()) {
             sh('npm run release')
+        }else if (isBetaBranch()) {
+            sh('npm run release -- --prerelease beta')
         }
     }
     buildStep = { assetPrefix ->
+        String cdnUrl = assetPrefix
+        // This is a bit of a kludge, but the build pipeline is intended for apps, which 
+        // can use relative URLs to load assets. Because the components are running inside
+        // apps, they have to load their assets from a full URL on the new UI hosting stack.
+        if (assetPrefix.startsWith('/')) {
+            cdnUrl = "https://app.mypurecloud.com${assetPrefix}"
+        }
+
         sh("""
-          export CDN_URL=${assetPrefix}
+          export CDN_URL=${cdnUrl}
           npm run build
         """)
     }
     onSuccess = {
-        if (isReleaseBranch()) {
+        // Publish releases and betas
+        if (isReleaseBranch() || isBetaBranch()) {
+
+            String npmTag = 'latest'
+            if (isMaintenanceReleaseBranch()) {
+                npmTag = 'maintenance'
+            } else if (isBetaBranch()) {
+                npmTag = 'beta'
+            }
+
             stage('NPM Publish') {
                 withCredentials([
               string(credentialsId: constants.credentials.npm,  variable: 'NPM_TOKEN')
             ]) {
                     sh('''
-                  echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ./.npmrc
-                  echo ".npmrc" >> .npmignore
-                  npm publish
-                ''')
+                        echo "//registry.npmjs.org/:_authToken=${NPM_TOKEN}" >> ./.npmrc
+                        echo ".npmrc" >> .npmignore
+                    ''')
+                    sh("npm publish --tag ${npmTag}")
             }
                 def publishedVersion = sh(script: 'node -e "console.log(require(\'./package.json\').version)"', returnStdout: true).trim()
                 currentBuild.description = publishedVersion
             }
-
+        
             stage('Push Changes') {
                 sshagent(credentials: [constants.credentials.github.inin_dev_evangelists]) {
                     sh "git push --follow-tags -u origin ${env.BRANCH_NAME}"

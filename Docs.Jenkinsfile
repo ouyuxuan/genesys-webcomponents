@@ -16,12 +16,16 @@ def isFeatureBranch = {
   return env.BRANCH_NAME.startsWith('feature/');
 }
 
+def isBetaBranch = {
+    return env.BRANCH_NAME.startsWith('beta/')
+}
+
 def isReleaseBranch = {
   return isMainBranch() || isActiveReleaseBranch() || isMaintenanceReleaseBranch();
 }
 
 def isPublicBranch = {
-    isReleaseBranch() || isFeatureBranch()
+    isReleaseBranch() || isFeatureBranch() || isBetaBranch()
 }
 
 webappPipeline {
