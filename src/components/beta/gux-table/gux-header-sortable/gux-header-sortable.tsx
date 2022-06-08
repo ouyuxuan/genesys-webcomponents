@@ -1,4 +1,4 @@
-import { Component, h, Host, JSX, State, Listen } from '@stencil/core';
+import { Component, h, Host, JSX, State, Listen, Element } from '@stencil/core';
 import { buildI18nForComponent, GetI18nValue } from '../../../../i18n';
 import { GuxTableSortState } from '../gux-table.types';
 import tableResources from '../i18n/en.json';
@@ -11,17 +11,16 @@ import tableResources from '../i18n/en.json';
 export class GuxHeaderSortable {
   private i18n: GetI18nValue;
   /* Reference Host Element */
-  root: HTMLElement;
+  @Element() root: HTMLElement;
 
-  /* Label to indicate column text content */
+  /* State label to indicate column text content */
   @State()
   colLabel: string;
 
-  /* State to store direction of sort */
+  /* State label to store direction of sort */
   @State()
   colSortDirection: string;
 
-  /* Listen to guxsortchanged event to retrieve sort direction and column name */
   @Listen('guxsortchanged', { target: 'body' })
   sortDirectionEvent(event: CustomEvent<GuxTableSortState>) {
     this.colSortDirection = event.detail.sortDirection;
@@ -41,6 +40,11 @@ export class GuxHeaderSortable {
 
   async componentWillRender(): Promise<void> {
     this.i18n = await buildI18nForComponent(this.root, tableResources);
+  }
+
+  componentDidLoad() {
+    this.colLabel = this.root.closest('th').getAttribute('data-column-name');
+    this.colSortDirection = this.root.closest('th').getAttribute('aria-sort');
   }
 
   render(): JSX.Element {
