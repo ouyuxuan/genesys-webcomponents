@@ -4,11 +4,11 @@ import { GuxTableSortState } from '../gux-table.types';
 import tableResources from '../i18n/en.json';
 
 @Component({
-  styleUrl: 'gux-header-sortable.less',
-  tag: 'gux-header-sortable',
+  styleUrl: 'gux-sort-control.less',
+  tag: 'gux-sort-control',
   shadow: true
 })
-export class GuxHeaderSortable {
+export class GuxSortControl {
   private i18n: GetI18nValue;
   /* Reference Host Element */
   @Element() root: HTMLElement;

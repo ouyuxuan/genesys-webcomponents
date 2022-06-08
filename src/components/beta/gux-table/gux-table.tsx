@@ -221,7 +221,7 @@ export class GuxTable {
 
   private get sortableTableColumn(): Array<HTMLElement> {
     return Array.from(
-      this.slottedTable.querySelectorAll('thead th gux-header-sortable')
+      this.slottedTable.querySelectorAll('thead th gux-sort-control')
     );
   }
 
