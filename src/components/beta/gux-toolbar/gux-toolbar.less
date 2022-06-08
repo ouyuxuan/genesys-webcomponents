@@ -6,7 +6,16 @@
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  height: 48px;
   padding: @spacing-xs;
-  background: @gux-grey-100;
-  border-radius: 4px;
+  background-color: @gux-grey-90;
+  border-radius: @spacing-2xs;
+
+  .gux-search-filter {
+    display: flex;
+    gap: @spacing-2xs;
+    align-content: flex-start;
+    align-items: center;
+  }
 }

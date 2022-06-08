@@ -1,5 +1,9 @@
 import { Component, Element, JSX, h, Host } from '@stencil/core';
 
+/**
+ * @slot filter - Slot for filter option.
+ */
+
 @Component({
   styleUrl: 'gux-toolbar.less',
   tag: 'gux-toolbar-beta',
@@ -12,16 +16,18 @@ export class GuxToolbar {
   @Element()
   root: HTMLElement;
 
-  private renderSearchField(): JSX.Element {
+  private renderSearchFilterControls(): JSX.Element {
     return (
-      <gux-form-field-search>
-        <input slot="input" type="search" name="lp-1" />
-        <label slot="label">Default</label>
-      </gux-form-field-search>
+      <div class="gux-search-filter">
+        <gux-form-field-search>
+          <input slot="input" type="search" name="lp-1" placeholder="Search" />
+        </gux-form-field-search>
+        <slot name="filter" />
+      </div>
     ) as JSX.Element;
   }
 
   render(): JSX.Element {
-    return (<Host>{this.renderSearchField()}</Host>) as JSX.Element;
+    return (<Host>{this.renderSearchFilterControls()}</Host>) as JSX.Element;
   }
 }
