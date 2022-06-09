@@ -529,7 +529,7 @@ export class GuxTable {
       const sortDescContent = this.i18n('sortDesc');
 
       styleElement.innerHTML = `
-      th[data-sortable]:hover:after{content: "${sortAscContent}";background-image: url("${ascArrowIcon}");}
+      th[data-sortable]:focus-within:after{content: "${sortAscContent}";background-image: url("${ascArrowIcon}"); outline: none; box-shadow: 0 0 0 1px transparent, 0 0 0 2px #aac9ff;}
       th[aria-sort="ascending"]:after{background-image:url("${ascArrowIcon}")!important;content:"${sortAscContent}"!important;}
       th[aria-sort="descending"]:after{background-image:url("${descArrowIcon}")!important;content:"${sortDescContent}"!important;}
     `;
