@@ -60,6 +60,7 @@
  - [gux-tab-legacy](../../legacy/gux-tabs-legacy/gux-tab-legacy)
  - [gux-tab-list](../gux-tabs/gux-tab-list)
  - [gux-table-beta](../../beta/gux-table)
+ - [gux-table-header-menu](../../beta/gux-table/gux-table-header-menu)
  - [gux-tabs-legacy](../../legacy/gux-tabs-legacy)
  - [gux-tag-beta](../../beta/gux-tag)
  - [gux-toggle-slider](../gux-toggle/gux-toggle-slider)
@@ -109,6 +110,7 @@ graph TD;
   gux-tab-legacy --> gux-icon
   gux-tab-list --> gux-icon
   gux-table-beta --> gux-icon
+  gux-table-header-menu --> gux-icon
   gux-tabs-legacy --> gux-icon
   gux-tag-beta --> gux-icon
   gux-toggle-slider --> gux-icon
