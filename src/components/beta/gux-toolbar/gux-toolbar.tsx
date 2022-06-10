@@ -43,6 +43,7 @@ export class GuxToolbar {
         <div class="gux-contextual-actions">
           <slot name="contextual" />
         </div>
+        <div class="seperator" />
         <div class="gux-permanent-actions">
           <slot name="permanent" />
         </div>

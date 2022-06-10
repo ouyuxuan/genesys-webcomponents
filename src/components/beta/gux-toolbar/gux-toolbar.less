@@ -22,7 +22,6 @@
   .gux-permanent-contextual-container {
     display: flex;
     flex-direction: row;
-    gap: @spacing-xl;
     justify-content: space-between;
 
     .gux-permanent-actions {
@@ -39,6 +38,13 @@
       gap: @spacing-2xs;
       align-content: flex-end;
       align-items: center;
+    }
+
+    .seperator {
+      width: 1px;
+      margin-right: @spacing-medium;
+      margin-left: @spacing-medium;
+      background: @gux-grey-50;
     }
   }
 }
