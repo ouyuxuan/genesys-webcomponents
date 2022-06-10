@@ -19,7 +19,7 @@ export class GuxToolbar {
   @Prop()
   search: boolean;
 
-  private renderSearchFilterControls(): JSX.Element {
+  private renderSearchFilterActions(): JSX.Element {
     return (
       <div class="gux-search-filter">
         {this.search ? (
@@ -37,7 +37,20 @@ export class GuxToolbar {
     ) as JSX.Element;
   }
 
+  private renderPermanentActions(): JSX.Element {
+    return (
+      <div class="gux-permanent-actions">
+        <slot name="permanent" />
+      </div>
+    ) as JSX.Element;
+  }
+
   render(): JSX.Element {
-    return (<Host>{this.renderSearchFilterControls()}</Host>) as JSX.Element;
+    return (
+      <Host>
+        {this.renderSearchFilterActions()}
+        {this.renderPermanentActions()}
+      </Host>
+    ) as JSX.Element;
   }
 }
