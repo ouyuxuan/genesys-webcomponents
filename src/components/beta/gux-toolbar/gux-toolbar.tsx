@@ -37,10 +37,15 @@ export class GuxToolbar {
     ) as JSX.Element;
   }
 
-  private renderPermanentActions(): JSX.Element {
+  private renderContextualPermanentActions(): JSX.Element {
     return (
-      <div class="gux-permanent-actions">
-        <slot name="permanent" />
+      <div class="gux-permanent-contextual-container">
+        <div class="gux-contextual-actions">
+          <slot name="contextual" />
+        </div>
+        <div class="gux-permanent-actions">
+          <slot name="permanent" />
+        </div>
       </div>
     ) as JSX.Element;
   }
@@ -49,7 +54,7 @@ export class GuxToolbar {
     return (
       <Host>
         {this.renderSearchFilterActions()}
-        {this.renderPermanentActions()}
+        {this.renderContextualPermanentActions()}
       </Host>
     ) as JSX.Element;
   }
