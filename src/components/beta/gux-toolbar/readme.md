@@ -5,6 +5,20 @@
 <!-- Auto Generated Below -->
 
 
+## Properties
+
+| Property | Attribute | Description | Type      | Default     |
+| -------- | --------- | ----------- | --------- | ----------- |
+| `search` | `search`  |             | `boolean` | `undefined` |
+
+
+## Slots
+
+| Slot       | Description             |
+| ---------- | ----------------------- |
+| `"filter"` | Slot for filter option. |
+
+
 ## Dependencies
 
 ### Depends on

@@ -1,4 +1,4 @@
-import { Component, Element, JSX, h, Host } from '@stencil/core';
+import { Component, Element, JSX, h, Host, Prop } from '@stencil/core';
 
 /**
  * @slot filter - Slot for filter option.
@@ -16,12 +16,22 @@ export class GuxToolbar {
   @Element()
   root: HTMLElement;
 
+  @Prop()
+  search: boolean;
+
   private renderSearchFilterControls(): JSX.Element {
     return (
       <div class="gux-search-filter">
-        <gux-form-field-search>
-          <input slot="input" type="search" name="lp-1" placeholder="Search" />
-        </gux-form-field-search>
+        {this.search ? (
+          <gux-form-field-search>
+            <input
+              slot="input"
+              type="search"
+              name="lp-1"
+              placeholder="Search"
+            />
+          </gux-form-field-search>
+        ) : null}
         <slot name="filter" />
       </div>
     ) as JSX.Element;

@@ -6,8 +6,7 @@ import translationResources from '../i18n/en.json';
 
 @Component({
   styleUrl: 'gux-toolbar-action.less',
-  tag: 'gux-toolbar-action',
-  shadow: true
+  tag: 'gux-toolbar-action'
 })
 export class GuxToolbarAction {
   private i18n: GetI18nValue;
@@ -30,16 +29,9 @@ export class GuxToolbarAction {
       .join('');
   }
 
-  private renderFilterTitle(): JSX.Element {
+  private renderActionTitle(): JSX.Element {
     return (
-      <gux-tooltip-title>
-        <span>
-          <slot
-            aria-hidden="true"
-            onSlotchange={this.onSlotChange.bind(this)}
-          />
-        </span>
-      </gux-tooltip-title>
+      <slot aria-hidden="true" onSlotchange={this.onSlotChange.bind(this)} />
     ) as JSX.Element;
   }
 
@@ -56,5 +48,14 @@ export class GuxToolbarAction {
   async componentWillLoad(): Promise<void> {
     trackComponent(this.root);
     this.i18n = await buildI18nForComponent(this.root, translationResources);
+  }
+
+  render(): JSX.Element {
+    return (
+      <div class={{ 'gux-toolbar-action': true }}>
+        {this.renderActionTitle()}
+        {this.renderSrText()}
+      </div>
+    ) as JSX.Element;
   }
 }
