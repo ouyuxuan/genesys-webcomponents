@@ -1,4 +1,4 @@
-import { Component, Element, State, JSX, h } from '@stencil/core';
+import { Component, Element, State, JSX, h, Prop } from '@stencil/core';
 import { trackComponent } from '../../../../usage-tracking';
 import { buildI18nForComponent, GetI18nValue } from '../../../../i18n';
 
@@ -19,6 +19,9 @@ export class GuxToolbarAction {
 
   @State()
   label: string;
+
+  @Prop()
+  primary: boolean;
 
   private onSlotChange(event: Event) {
     const slotAssignedNodes = (
@@ -52,7 +55,12 @@ export class GuxToolbarAction {
 
   render(): JSX.Element {
     return (
-      <div class={{ 'gux-toolbar-action': true }}>
+      <div
+        class={{
+          'gux-toolbar-action': true,
+          'gux-toolbar-action-primary': this.primary
+        }}
+      >
         {this.renderActionTitle()}
         {this.renderSrText()}
       </div>
