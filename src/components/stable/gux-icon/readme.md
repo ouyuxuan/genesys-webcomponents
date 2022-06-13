@@ -63,6 +63,7 @@
  - [gux-tabs-legacy](../../legacy/gux-tabs-legacy)
  - [gux-tag-beta](../../beta/gux-tag)
  - [gux-toggle-slider](../gux-toggle/gux-toggle-slider)
+ - [gux-toolbar-action](../../beta/gux-toolbar/gux-toolbar-action)
 
 ### Graph
 ```mermaid
@@ -112,6 +113,7 @@ graph TD;
   gux-tabs-legacy --> gux-icon
   gux-tag-beta --> gux-icon
   gux-toggle-slider --> gux-icon
+  gux-toolbar-action --> gux-icon
   style gux-icon fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

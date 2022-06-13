@@ -41,6 +41,19 @@ export class GuxToolbarAction {
     ) as JSX.Element;
   }
 
+  private renderIcon(): JSX.Element {
+    if (this.icon) {
+      return (
+        <gux-icon
+          iconName={this.icon}
+          screenreaderText={this.i18n('action', {
+            label: this.label
+          })}
+        />
+      ) as JSX.Element;
+    }
+  }
+
   private renderSrText(): JSX.Element {
     return (
       <div class="gux-sr-only">
@@ -64,6 +77,7 @@ export class GuxToolbarAction {
           'gux-toolbar-action-primary': this.primary
         }}
       >
+        {this.renderIcon()}
         {this.renderActionTitle()}
         {this.renderSrText()}
       </button>
