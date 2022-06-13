@@ -20,12 +20,13 @@ export class GuxToolbar {
     return (<slot name="searchFilter" />) as JSX.Element;
   }
 
-  private renderContextualPermanentActions(): JSX.Element {
+  private renderContextualPermanentPrimary(): JSX.Element {
     return (
-      <div class="gux-permanent-contextual-container">
+      <div class="gux-contextual-permanent-primary">
         <slot name="contextual" />
         <div class="seperator" />
         <slot name="permanent" />
+        <slot name="primary" />
       </div>
     ) as JSX.Element;
   }
@@ -34,7 +35,7 @@ export class GuxToolbar {
     return (
       <Host>
         {this.renderSearchFilterActions()}
-        {this.renderContextualPermanentActions()}
+        {this.renderContextualPermanentPrimary()}
       </Host>
     ) as JSX.Element;
   }

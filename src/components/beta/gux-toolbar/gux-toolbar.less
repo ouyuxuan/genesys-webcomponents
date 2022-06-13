@@ -20,7 +20,7 @@
     align-items: center;
   }
 
-  .gux-permanent-contextual-container {
+  .gux-contextual-permanent-primary {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -39,6 +39,10 @@
       gap: @spacing-2xs;
       align-content: flex-end;
       align-items: center;
+    }
+
+    slot[name='primary']::slotted(*) {
+      margin-left: @spacing-2xs;
     }
 
     .seperator {
