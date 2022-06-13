@@ -2,31 +2,17 @@
 
 <h2>Toolbar Example</h2>
 
-<gux-toolbar-beta search>
-  <gux-toolbar-action slot="filter"
-    ><gux-icon icon-name="filter" decorative></gux-icon
-    >Filter</gux-toolbar-action
-  >
+<gux-toolbar-beta>
+  <div slot="searchFilter">
+    <gux-form-field-search>
+      <input slot="input" type="search" name="lp-1" />
+    </gux-form-field-search>
+    <gux-toolbar-action icon="filter">Filter</gux-toolbar-action>
+  </div>
 
-  <gux-toolbar-action slot="contextual"
-    ><gux-icon icon-name="delete" decorative></gux-icon
-    >Delete</gux-toolbar-action
-  >
-  <gux-toolbar-action slot="permanent"
-    ><gux-icon icon-name="delete" decorative></gux-icon
-    >Delete</gux-toolbar-action
-  >
-  <gux-toolbar-action slot="permanent"
-    ><gux-icon icon-name="refresh" decorative></gux-icon
-    >Refresh</gux-toolbar-action
-  >
-  <gux-toolbar-action slot="permanent"
-    ><gux-icon icon-name="export" decorative></gux-icon
-    >Export</gux-toolbar-action
-  >
-  <gux-toolbar-action primary slot="permanent"
-    ><gux-icon icon-name="cog" decorative></gux-icon
-    >Customize</gux-toolbar-action
-  >
-  >
+  <gux-toolbar-action slot="contextual">Delete</gux-toolbar-action>
+  <gux-toolbar-action slot="permanent">Delete</gux-toolbar-action>
+  <gux-toolbar-action slot="permanent">Refresh</gux-toolbar-action>
+  <gux-toolbar-action slot="permanent">Export</gux-toolbar-action>
+  <gux-toolbar-action primary slot="permanent">Customize</gux-toolbar-action>
 </gux-toolbar-beta>

@@ -12,8 +12,9 @@
   background-color: @gux-grey-90;
   border-radius: @spacing-2xs;
 
-  .gux-search-filter {
+  slot[name='searchFilter']::slotted(*) {
     display: flex;
+    flex-direction: row;
     gap: @spacing-2xs;
     align-content: flex-start;
     align-items: center;

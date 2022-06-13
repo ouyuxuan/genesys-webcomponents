@@ -9,6 +9,7 @@
 
 | Property  | Attribute | Description | Type      | Default     |
 | --------- | --------- | ----------- | --------- | ----------- |
+| `icon`    | `icon`    |             | `string`  | `undefined` |
 | `primary` | `primary` |             | `boolean` | `undefined` |
 
 

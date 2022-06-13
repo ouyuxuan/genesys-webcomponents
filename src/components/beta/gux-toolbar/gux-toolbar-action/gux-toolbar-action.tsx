@@ -23,6 +23,9 @@ export class GuxToolbarAction {
   @Prop()
   primary: boolean;
 
+  @Prop()
+  icon: string;
+
   private onSlotChange(event: Event) {
     const slotAssignedNodes = (
       event.composedPath()[0] as HTMLSlotElement
