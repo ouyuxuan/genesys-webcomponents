@@ -33,7 +33,7 @@ export class GuxToolbar {
 
   render(): JSX.Element {
     return (
-      <Host>
+      <Host role="toolbar" aria-orientation="horizontal">
         {this.renderSearchFilterActions()}
         {this.renderContextualPermanentPrimary()}
       </Host>

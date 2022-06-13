@@ -58,7 +58,7 @@ export class GuxToolbarAction {
 
   render(): JSX.Element {
     return (
-      <div
+      <button
         class={{
           'gux-toolbar-action': true,
           'gux-toolbar-action-primary': this.primary
@@ -66,7 +66,7 @@ export class GuxToolbarAction {
       >
         {this.renderActionTitle()}
         {this.renderSrText()}
-      </div>
+      </button>
     ) as JSX.Element;
   }
 }
