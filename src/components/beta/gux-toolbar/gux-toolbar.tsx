@@ -23,13 +23,9 @@ export class GuxToolbar {
   private renderContextualPermanentActions(): JSX.Element {
     return (
       <div class="gux-permanent-contextual-container">
-        <div class="gux-contextual-actions">
-          <slot name="contextual" />
-        </div>
+        <slot name="contextual" />
         <div class="seperator" />
-        <div class="gux-permanent-actions">
-          <slot name="permanent" />
-        </div>
+        <slot name="permanent" />
       </div>
     ) as JSX.Element;
   }

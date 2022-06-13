@@ -25,7 +25,7 @@
     flex-direction: row;
     justify-content: space-between;
 
-    .gux-permanent-actions {
+    slot[name='permanent']::slotted(*) {
       display: flex;
       flex-direction: row;
       gap: @spacing-2xs;
@@ -33,7 +33,7 @@
       align-items: center;
     }
 
-    .gux-contextual-actions {
+    slot[name='contextual']::slotted(*) {
       display: flex;
       flex-direction: row;
       gap: @spacing-2xs;

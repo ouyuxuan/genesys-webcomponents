@@ -10,9 +10,14 @@
     <gux-toolbar-action icon="filter">Filter</gux-toolbar-action>
   </div>
 
-  <gux-toolbar-action slot="contextual">Delete</gux-toolbar-action>
-  <gux-toolbar-action slot="permanent">Delete</gux-toolbar-action>
-  <gux-toolbar-action slot="permanent">Refresh</gux-toolbar-action>
-  <gux-toolbar-action slot="permanent">Export</gux-toolbar-action>
-  <gux-toolbar-action primary slot="permanent">Customize</gux-toolbar-action>
+  <div slot="contextual">
+    <gux-toolbar-action>Delete</gux-toolbar-action>
+  </div>
+
+  <div slot="permanent">
+    <gux-toolbar-action>Delete</gux-toolbar-action>
+    <gux-toolbar-action>Refresh</gux-toolbar-action>
+    <gux-toolbar-action>Export</gux-toolbar-action>
+    <gux-toolbar-action primary>Customize</gux-toolbar-action>
+  </div>
 </gux-toolbar-beta>
