@@ -5,11 +5,10 @@
 
 ## Properties
 
-| Property              | Attribute                | Description                                                                          | Type                                                                                                                                                                 | Default     |
-| --------------------- | ------------------------ | ------------------------------------------------------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------- |
-| `closeOnClickOutside` | `close-on-click-outside` | Close popover when the user clicks outside of its bounds                             | `boolean`                                                                                                                                                            | `false`     |
-| `for`                 | `for`                    | Indicates the id of the element the popover should anchor to                         | `string`                                                                                                                                                             | `undefined` |
-| `position`            | `position`               | Indicate position of popover element arrow (follow popper js position attribute api) | `"bottom" \| "bottom-end" \| "bottom-start" \| "left" \| "left-end" \| "left-start" \| "right" \| "right-end" \| "right-start" \| "top" \| "top-end" \| "top-start"` | `'bottom'`  |
+| Property              | Attribute                | Description                                                  | Type      | Default     |
+| --------------------- | ------------------------ | ------------------------------------------------------------ | --------- | ----------- |
+| `closeOnClickOutside` | `close-on-click-outside` | Close popover when the user clicks outside of its bounds     | `boolean` | `false`     |
+| `for`                 | `for`                    | Indicates the id of the element the popover should anchor to | `string`  | `undefined` |
 
 
 ## Events

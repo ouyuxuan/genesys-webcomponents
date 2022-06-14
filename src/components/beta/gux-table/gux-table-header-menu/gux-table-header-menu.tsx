@@ -54,7 +54,11 @@ export class GuxTableHeaderMenu {
     this.hasHeaderMenuOptions = !!this.root.querySelector(
       '[slot="header-menu-options"]'
     );
-    this.i18n = await buildI18nForComponent(this.root, tableResources);
+    this.i18n = await buildI18nForComponent(
+      this.root,
+      tableResources,
+      'gux-table'
+    );
   }
 
   @Listen('keydown')
@@ -111,7 +115,6 @@ export class GuxTableHeaderMenu {
           ></gux-icon>
         </button>,
         <gux-table-header-popover
-          position="bottom-start"
           for={this.dropdownOptionsButtonId}
           hidden={this.popoverHidden}
           closeOnClickOutside={true}

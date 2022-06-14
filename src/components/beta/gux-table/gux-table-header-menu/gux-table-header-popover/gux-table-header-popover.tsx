@@ -13,9 +13,6 @@ import {
 
 import { OnClickOutside } from '../../../../../utils/decorator/on-click-outside';
 import { onHiddenChange } from '../../../../../utils/dom/on-attribute-change';
-import { trackComponent } from '../../../../../usage-tracking';
-
-import { PopperPosition } from './gux-table-header-popover.types';
 
 @Component({
   styleUrl: 'gux-table-header-popover.less',
@@ -35,12 +32,6 @@ export class GuxTableHeaderPopover {
    */
   @Prop()
   for: string;
-
-  /**
-   * Indicate position of popover element arrow (follow popper js position attribute api)
-   */
-  @Prop()
-  position: PopperPosition = 'bottom';
 
   /**
    * Close popover when the user clicks outside of its bounds
@@ -80,11 +71,7 @@ export class GuxTableHeaderPopover {
   private runPopper(): void {
     const forElement = document.getElementById(this.for);
 
-    if (!forElement) {
-      console.error(
-        `gux-table-header-popover: invalid "for" attribute. No element in page with the id "${this.for}"`
-      );
-    } else if (this.popupElement) {
+    if (this.popupElement) {
       this.popperInstance = createPopper(forElement, this.popupElement, {
         strategy: 'fixed',
         modifiers: [
@@ -93,15 +80,9 @@ export class GuxTableHeaderPopover {
             options: {
               offset: [0, 0]
             }
-          },
-          {
-            name: 'flip',
-            options: {
-              fallbackPlacements: ['top', 'right']
-            }
           }
         ],
-        placement: this.position
+        placement: 'bottom-start'
       });
     }
   }
@@ -121,8 +102,6 @@ export class GuxTableHeaderPopover {
   }
 
   connectedCallback(): void {
-    trackComponent(this.root, { variant: this.position });
-
     this.hiddenObserver = onHiddenChange(this.root, (hidden: boolean) => {
       this.hidden = hidden;
     });
@@ -145,7 +124,6 @@ export class GuxTableHeaderPopover {
         ref={(el: HTMLDivElement) => (this.popupElement = el)}
         class="gux-popover-wrapper"
       >
-        {/* <div class="gux-arrow" data-popper-arrow /> */}
         <div class="gux-popover-content">
           <slot />
         </div>
