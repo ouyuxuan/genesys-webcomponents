@@ -20,6 +20,9 @@ export class GuxToolbarAction {
   @State()
   label: string;
 
+  @State()
+  active: boolean = false;
+
   @Prop()
   primary: boolean;
 
@@ -76,6 +79,7 @@ export class GuxToolbarAction {
           'gux-toolbar-action': true,
           'gux-toolbar-action-primary': this.primary
         }}
+        tabIndex={this.active ? 0 : -1}
       >
         {this.renderIcon()}
         {this.renderActionTitle()}
