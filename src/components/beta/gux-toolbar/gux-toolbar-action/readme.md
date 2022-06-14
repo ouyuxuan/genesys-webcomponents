@@ -13,6 +13,39 @@
 | `primary` | `primary` |             | `boolean` | `undefined` |
 
 
+## Methods
+
+### `guxActionFocus() => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+### `guxGetActiveAction() => Promise<boolean>`
+
+
+
+#### Returns
+
+Type: `Promise<boolean>`
+
+
+
+### `guxSetActive(active: boolean) => Promise<void>`
+
+
+
+#### Returns
+
+Type: `Promise<void>`
+
+
+
+
 ## Dependencies
 
 ### Depends on
