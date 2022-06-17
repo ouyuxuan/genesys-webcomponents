@@ -1,8 +1,14 @@
-import { Component, Element, JSX, h, Host } from '@stencil/core';
+import { Component, Element, JSX, h, Host, readTask } from '@stencil/core';
 
 /**
  * @slot filter - Slot for filter option.
  */
+
+/**
+ * Below is the minimum spacing in px that is required between,
+ * the controls aligned to the left and controls aligned to the right.
+ */
+const MIN_SPACING = 72;
 
 @Component({
   styleUrl: 'gux-toolbar.less',
@@ -16,8 +22,14 @@ export class GuxToolbar {
   @Element()
   root: HTMLElement;
 
+  private resizeOberser?: ResizeObserver;
+
   private renderSearchFilterActions(): JSX.Element {
     return (<slot name="searchFilter" />) as JSX.Element;
+  }
+
+  private layoutChange(): JSX.Element {
+    return (<div class="layout-container">flex</div>) as JSX.Element;
   }
 
   private renderContextualPermanentPrimary(): JSX.Element {
@@ -31,10 +43,32 @@ export class GuxToolbar {
     ) as JSX.Element;
   }
 
+  private checkToolBarWidthForLayout() {
+    readTask(() => {
+      const el = this.root.querySelector('.layout-container');
+
+      const layoutContainerWidth = el.clientWidth;
+      if (layoutContainerWidth < MIN_SPACING) {
+        //emit event here
+      } else {
+        //emit event here ??
+      }
+    });
+  }
+
+  componentDidLoad() {
+    if (!this.resizeOberser && window.ResizeObserver) {
+      this.resizeOberser = new ResizeObserver(() => {
+        this.checkToolBarWidthForLayout();
+      });
+    }
+  }
+
   render(): JSX.Element {
     return (
       <Host role="toolbar" aria-orientation="horizontal">
         {this.renderSearchFilterActions()}
+        {this.layoutChange()}
         {this.renderContextualPermanentPrimary()}
       </Host>
     ) as JSX.Element;
