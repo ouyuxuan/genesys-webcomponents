@@ -1,4 +1,13 @@
-import { Component, Element, JSX, h, Host, readTask } from '@stencil/core';
+import {
+  Component,
+  Element,
+  JSX,
+  h,
+  Host,
+  readTask,
+  EventEmitter,
+  Event
+} from '@stencil/core';
 
 /**
  * @slot filter - Slot for filter option.
@@ -22,14 +31,17 @@ export class GuxToolbar {
   @Element()
   root: HTMLElement;
 
+  @Event()
+  emitLayoutChange: EventEmitter<boolean>;
+
   private resizeOberser?: ResizeObserver;
 
   private renderSearchFilterActions(): JSX.Element {
     return (<slot name="searchFilter" />) as JSX.Element;
   }
 
-  private layoutChange(): JSX.Element {
-    return (<div class="layout-container">flex</div>) as JSX.Element;
+  private sectionSpacing(): JSX.Element {
+    return (<div class="section-spacing">flex</div>) as JSX.Element;
   }
 
   private renderContextualPermanentPrimary(): JSX.Element {
@@ -43,14 +55,12 @@ export class GuxToolbar {
     ) as JSX.Element;
   }
 
-  private checkToolBarWidthForLayout() {
+  private checkSpacingBetweenSections() {
     readTask(() => {
-      const el = this.root.shadowRoot.querySelector('.layout-container');
+      const el = this.root.shadowRoot.querySelector('.section-spacing');
       const layoutContainerWidth = el.clientWidth;
       if (layoutContainerWidth < MIN_SPACING) {
-        //emit event
-      } else {
-        //emit event
+        this.emitLayoutChange.emit(true);
       }
     });
   }
@@ -58,25 +68,25 @@ export class GuxToolbar {
   componentDidLoad() {
     if (!this.resizeOberser && window.ResizeObserver) {
       this.resizeOberser = new ResizeObserver(() => {
-        this.checkToolBarWidthForLayout();
+        this.checkSpacingBetweenSections();
       });
     }
 
     if (this.resizeOberser) {
       this.resizeOberser.observe(
-        this.root.shadowRoot.querySelector('.layout-container')
+        this.root.shadowRoot.querySelector('.section-spacing')
       );
     }
 
     setTimeout(() => {
-      this.checkToolBarWidthForLayout();
+      this.checkSpacingBetweenSections();
     }, 500);
   }
 
   disconnectedCallback() {
     if (this.resizeOberser) {
       this.resizeOberser.unobserve(
-        this.root.shadowRoot.querySelector('.layout-container')
+        this.root.shadowRoot.querySelector('.section-spacing')
       );
     }
   }
@@ -85,7 +95,7 @@ export class GuxToolbar {
     return (
       <Host role="toolbar" aria-orientation="horizontal">
         {this.renderSearchFilterActions()}
-        {this.layoutChange()}
+        {this.sectionSpacing()}
         {this.renderContextualPermanentPrimary()}
       </Host>
     ) as JSX.Element;

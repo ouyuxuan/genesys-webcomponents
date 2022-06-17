@@ -1,4 +1,14 @@
-import { Component, Element, State, JSX, h, Prop, Method } from '@stencil/core';
+import {
+  Component,
+  Element,
+  State,
+  JSX,
+  h,
+  Prop,
+  Method,
+  Listen,
+  State
+} from '@stencil/core';
 import { trackComponent } from '../../../../usage-tracking';
 import { buildI18nForComponent, GetI18nValue } from '../../../../i18n';
 
@@ -31,6 +41,9 @@ export class GuxToolbarAction {
   @Prop()
   icon: string;
 
+  @State()
+  sectionSpacing: boolean = false;
+
   // eslint-disable-next-line @typescript-eslint/require-await
   @Method()
   async guxSetActive(active: boolean): Promise<void> {
@@ -41,6 +54,15 @@ export class GuxToolbarAction {
   @Method()
   async guxActionFocus(): Promise<void> {
     this.buttonElement.focus();
+  }
+
+  @Listen('emitLayoutChange', { target: 'body' })
+  emitLayoutChangeHandler(event: CustomEvent<boolean>) {
+    if (event.detail == true) {
+      this.sectionSpacing = true;
+    } else {
+      this.sectionSpacing = false;
+    }
   }
 
   // eslint-disable-next-line @typescript-eslint/require-await
