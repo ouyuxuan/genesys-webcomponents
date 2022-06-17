@@ -45,11 +45,10 @@ export class GuxToolbar {
 
   private checkToolBarWidthForLayout() {
     readTask(() => {
-      const el = this.root.querySelector('.layout-container');
-
+      const el = this.root.shadowRoot.querySelector('.layout-container');
       const layoutContainerWidth = el.clientWidth;
       if (layoutContainerWidth < MIN_SPACING) {
-        //emit event here
+        //emit event here.
       } else {
         //emit event here ??
       }
@@ -61,6 +60,20 @@ export class GuxToolbar {
       this.resizeOberser = new ResizeObserver(() => {
         this.checkToolBarWidthForLayout();
       });
+    }
+
+    if (this.resizeOberser) {
+      this.resizeOberser.observe(
+        this.root.shadowRoot.querySelector('.layout-container')
+      );
+    }
+  }
+
+  disconnectedCallback() {
+    if (this.resizeOberser) {
+      this.resizeOberser.unobserve(
+        this.root.shadowRoot.querySelector('.layout-container')
+      );
     }
   }
 
