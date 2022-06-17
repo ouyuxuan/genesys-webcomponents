@@ -61,6 +61,8 @@ export class GuxToolbar {
       const layoutContainerWidth = el.clientWidth;
       if (layoutContainerWidth < MIN_SPACING) {
         this.emitLayoutChange.emit(true);
+      } else {
+        this.emitLayoutChange.emit(false);
       }
     });
   }

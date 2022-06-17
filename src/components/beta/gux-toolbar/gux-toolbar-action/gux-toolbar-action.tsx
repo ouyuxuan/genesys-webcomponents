@@ -6,8 +6,7 @@ import {
   h,
   Prop,
   Method,
-  Listen,
-  State
+  Listen
 } from '@stencil/core';
 import { trackComponent } from '../../../../usage-tracking';
 import { buildI18nForComponent, GetI18nValue } from '../../../../i18n';
