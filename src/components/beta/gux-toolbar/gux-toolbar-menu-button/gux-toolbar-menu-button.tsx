@@ -1,6 +1,16 @@
-import { Component, Element, Event, EventEmitter, Prop } from '@stencil/core';
+import {
+  Component,
+  Element,
+  Event,
+  EventEmitter,
+  Prop,
+  h,
+  JSX,
+  Listen
+} from '@stencil/core';
 
 import { trackComponent } from '../../../../usage-tracking';
+import { OnClickOutside } from '../../../../utils/decorator/on-click-outside';
 
 @Component({
   styleUrl: 'gux-toolbar-menu-button',
@@ -10,6 +20,7 @@ import { trackComponent } from '../../../../usage-tracking';
 export class GuxToolbarMenuButton {
   listElement: HTMLGuxListElement;
   dropdownButton: HTMLElement;
+  private moveFocusDelay: number = 100;
 
   /**
    * Reference to the host element
@@ -35,7 +46,88 @@ export class GuxToolbarMenuButton {
   @Prop()
   text: string;
 
+  /* Used to open and closed he list */
+  @Prop({ mutable: true })
+  isOpen: boolean = false;
+
+  @Listen('keydown')
+  handleKeyDown(event: KeyboardEvent): void {
+    const composedPath = event.composedPath();
+
+    switch (event.key) {
+      case 'Escape':
+        this.isOpen = false;
+
+        if (composedPath.includes(this.listElement)) {
+          event.preventDefault();
+          this.dropdownButton.focus();
+        }
+
+        break;
+      case 'Tab': {
+        this.isOpen = false;
+        break;
+      }
+      case 'ArrowDown':
+      case 'Enter':
+        if (composedPath.includes(this.dropdownButton)) {
+          event.preventDefault();
+          this.isOpen = true;
+          this.focusFirstItemInPopupList();
+        }
+    }
+  }
+
+  private toggle(): void {
+    this.isOpen = !this.isOpen;
+    if (this.isOpen) {
+      this.focusPopupList();
+    }
+  }
+
+  @OnClickOutside({ triggerEvents: 'mousedown' })
+  onClickOutside(): void {
+    this.isOpen = false;
+  }
+
+  private focusPopupList(): void {
+    setTimeout(() => {
+      this.listElement.focus();
+    }, this.moveFocusDelay);
+  }
+
+  private focusFirstItemInPopupList(): void {
+    setTimeout(() => {
+      void this.listElement.guxFocusFirstItem();
+    }, this.moveFocusDelay);
+  }
+
   componentWillLoad(): void {
     trackComponent(this.root);
+  }
+
+  render(): JSX.Element {
+    return (
+      <gux-popup expanded={this.isOpen}>
+        <div slot="target" class="gux-toolbar-menu-container">
+          <gux-button-slot-beta class="gux-dropdown-button">
+            <button
+              type="button"
+              ref={el => (this.dropdownButton = el)}
+              onMouseUp={() => this.toggle()}
+              aria-haspopup="true"
+              aria-expanded={this.isOpen.toString()}
+            >
+              <gux-icon decorative icon-name="menu-kebab-horizontal"></gux-icon>
+            </button>
+          </gux-button-slot-beta>
+        </div>
+        <div class="gux-list-container" slot="popup">
+          <gux-list ref={el => (this.listElement = el)}>
+            <slot />
+          </gux-list>
+        </div>
+      </gux-popup>
+    ) as JSX.Element;
   }
 }
