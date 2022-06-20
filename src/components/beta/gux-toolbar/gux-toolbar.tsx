@@ -59,10 +59,8 @@ export class GuxToolbar {
     readTask(() => {
       const el = this.root.shadowRoot.querySelector('.section-spacing');
       const layoutContainerWidth = el.clientWidth;
-      if (layoutContainerWidth < MIN_SPACING) {
+      if (layoutContainerWidth == MIN_SPACING) {
         this.emitLayoutChange.emit(true);
-      } else {
-        this.emitLayoutChange.emit(false);
       }
     });
   }

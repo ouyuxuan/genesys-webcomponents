@@ -80,9 +80,11 @@ export class GuxToolbarAction {
   }
 
   private renderActionTitle(): JSX.Element {
-    return (
-      <slot aria-hidden="true" onSlotchange={this.onSlotChange.bind(this)} />
-    ) as JSX.Element;
+    if (!this.sectionSpacing) {
+      return (
+        <slot aria-hidden="true" onSlotchange={this.onSlotChange.bind(this)} />
+      ) as JSX.Element;
+    }
   }
 
   private renderIcon(): JSX.Element {
