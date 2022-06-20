@@ -40,12 +40,6 @@ export class GuxToolbarMenuButton {
   @Event()
   closed: EventEmitter;
 
-  /**
-   * The component text
-   */
-  @Prop()
-  text: string;
-
   /* Used to open and closed he list */
   @Prop({ mutable: true })
   isOpen: boolean = false;
@@ -75,6 +69,22 @@ export class GuxToolbarMenuButton {
           this.isOpen = true;
           this.focusFirstItemInPopupList();
         }
+        break;
+    }
+  }
+
+  @Listen('keyup')
+  handleKeyup(event: KeyboardEvent): void {
+    switch (event.key) {
+      case ' ': {
+        const composedPath = event.composedPath();
+
+        if (composedPath.includes(this.dropdownButton)) {
+          this.isOpen = true;
+          this.focusFirstItemInPopupList();
+        }
+        break;
+      }
     }
   }
 

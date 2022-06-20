@@ -27,6 +27,7 @@
  - [gux-pagination-buttons](../../stable/gux-pagination/gux-pagination-buttons)
  - [gux-pagination-cursor](../../stable/gux-pagination-cursor)
  - [gux-table-beta](../gux-table)
+ - [gux-toolbar-menu-button](../gux-toolbar/gux-toolbar-menu-button)
 
 ### Graph
 ```mermaid
@@ -38,6 +39,7 @@ graph TD;
   gux-pagination-buttons --> gux-button-slot-beta
   gux-pagination-cursor --> gux-button-slot-beta
   gux-table-beta --> gux-button-slot-beta
+  gux-toolbar-menu-button --> gux-button-slot-beta
   style gux-button-slot-beta fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
