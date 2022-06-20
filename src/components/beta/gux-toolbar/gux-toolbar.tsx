@@ -41,7 +41,7 @@ export class GuxToolbar {
   }
 
   private sectionSpacing(): JSX.Element {
-    return (<div class="section-spacing">flex</div>) as JSX.Element;
+    return (<div class="section-spacing" />) as JSX.Element;
   }
 
   private renderContextualPermanentPrimary(): JSX.Element {
