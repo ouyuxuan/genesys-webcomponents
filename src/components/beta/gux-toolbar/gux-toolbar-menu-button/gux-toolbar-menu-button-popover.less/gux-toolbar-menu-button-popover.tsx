@@ -8,7 +8,7 @@ import { createPopper, Instance } from '@popperjs/core';
  */
 
 @Component({
-  styleUrl: 'gux-toolbar-menu-button-popover.tsx',
+  styleUrl: 'gux-toolbar-menu-button-popover.less',
   tag: 'gux-toolbar-menu-button-popover',
   shadow: true
 })
@@ -40,18 +40,29 @@ export class GuxToolbarMenuButtonPopover {
             }
           }
         ],
-        placement: 'bottom-end'
+        placement: 'bottom-start'
       }
     );
   }
 
   disconnectedCallback(): void {
-    if (this.popperInstance) {
-      this.popperInstance.destroy();
-    }
+    this.popperInstance.destroy();
   }
 
   render(): JSX.Element {
-    return (<div></div>) as JSX.Element;
+    return (
+      <div ref={(el: HTMLElement) => (this.targetElementContainer = el)}>
+        <slot name="target"></slot>
+        <div
+          class={{
+            'gux-popover-container': true,
+            'gux-expanded': this.expanded
+          }}
+          ref={(el: HTMLElement) => (this.popupElementContainer = el)}
+        >
+          <slot name="popup"></slot>
+        </div>
+      </div>
+    ) as JSX.Element;
   }
 }

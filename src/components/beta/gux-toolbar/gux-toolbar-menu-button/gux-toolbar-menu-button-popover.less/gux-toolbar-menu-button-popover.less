@@ -1,0 +1,21 @@
+@import (reference) '../../../../../style/color.less';
+@import (reference) '../../../../../style/shadows.less';
+@import (reference) '../../../../../style/spacing.less';
+
+:host {
+  color: @gux-black-50;
+}
+
+.gux-popover-container {
+  display: inline-block;
+  padding: @spacing-xs 0;
+  visibility: hidden;
+  background-color: @gux-grey-100;
+  border: 1px solid @gux-grey-30;
+  border-radius: @spacing-2xs;
+  .gux-shadow-20();
+
+  &.gux-expanded {
+    visibility: visible;
+  }
+}

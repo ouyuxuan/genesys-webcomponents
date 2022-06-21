@@ -30,7 +30,6 @@
  - [gux-button-multi](../gux-button-multi)
  - [gux-button-multi-legacy](../../legacy/gux-button-multi-legacy)
  - [gux-dropdown](../gux-dropdown)
- - [gux-toolbar-menu-button](../../beta/gux-toolbar/gux-toolbar-menu-button)
 
 ### Graph
 ```mermaid
@@ -40,7 +39,6 @@ graph TD;
   gux-button-multi --> gux-popup
   gux-button-multi-legacy --> gux-popup
   gux-dropdown --> gux-popup
-  gux-toolbar-menu-button --> gux-popup
   style gux-popup fill:#f9f,stroke:#333,stroke-width:4px
 ```
 

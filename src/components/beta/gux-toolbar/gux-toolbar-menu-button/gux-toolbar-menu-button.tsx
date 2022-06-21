@@ -118,7 +118,7 @@ export class GuxToolbarMenuButton {
 
   render(): JSX.Element {
     return (
-      <gux-popup expanded={this.isOpen}>
+      <gux-toolbar-menu-button-popover expanded={this.isOpen}>
         <div slot="target" class="gux-toolbar-menu-container">
           <gux-button-slot-beta class="gux-dropdown-button">
             <button
@@ -132,12 +132,12 @@ export class GuxToolbarMenuButton {
             </button>
           </gux-button-slot-beta>
         </div>
-        <div class="gux-list-container" slot="popup">
+        <div slot="popup">
           <gux-list ref={el => (this.listElement = el)}>
             <slot />
           </gux-list>
         </div>
-      </gux-popup>
+      </gux-toolbar-menu-button-popover>
     ) as JSX.Element;
   }
 }
