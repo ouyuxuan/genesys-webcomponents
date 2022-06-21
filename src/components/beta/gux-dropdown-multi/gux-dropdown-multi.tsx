@@ -315,8 +315,24 @@ export class GuxDropdownMulti {
     return (
       <div class="gux-placeholder">
         {this.placeholder || this.i18n('noSelection')}
+        {this.getSrSelectedText()}
       </div>
     ) as JSX.Element;
+  }
+
+  private getSrSelectedText(): JSX.Element {
+    const selectedListboxOptionElement = this.getOptionElementByValue(
+      this.value
+    );
+    if (selectedListboxOptionElement?.length) {
+      return (
+        <span class="gux-sr-only">
+          {this.i18n('numberSelected', {
+            numberSelected: selectedListboxOptionElement.length.toString()
+          })}
+        </span>
+      ) as JSX.Element;
+    }
   }
 
   private renderTag(): JSX.Element {

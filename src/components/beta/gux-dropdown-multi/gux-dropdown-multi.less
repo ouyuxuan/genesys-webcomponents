@@ -2,6 +2,7 @@
 @import (reference) '../../../style/mixins.less';
 @import (reference) '../../../style/shadows.less';
 @import (reference) '../../../style/spacing.less';
+@import (reference) '../../../style/typography.less';
 
 :host {
   color: @gux-black-50;
@@ -65,6 +66,10 @@ gux-dropdown-multi-tag {
       overflow: hidden;
       text-overflow: ellipsis;
       white-space: nowrap;
+
+      .gux-sr-only {
+        .gux-sr-only-clip();
+      }
     }
 
     .gux-filter {
