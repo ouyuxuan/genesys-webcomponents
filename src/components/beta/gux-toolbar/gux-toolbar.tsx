@@ -62,10 +62,6 @@ export class GuxToolbar {
 
       if (layoutContainerWidth == MIN_SPACING) {
         this.emitLayoutChange.emit(true);
-      } else if (
-        (screen.availHeight || screen.height - 30) <= window.innerHeight
-      ) {
-        this.emitLayoutChange.emit(false);
       }
     });
   }
