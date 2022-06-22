@@ -82,7 +82,14 @@ export class GuxToolbarAction {
   private renderActionTitle(): JSX.Element {
     if (!this.sectionSpacing) {
       return (
-        <slot aria-hidden="true" onSlotchange={this.onSlotChange.bind(this)} />
+        <gux-tooltip-title>
+          <span>
+            <slot
+              aria-hidden="true"
+              onSlotchange={this.onSlotChange.bind(this)}
+            />
+          </span>
+        </gux-tooltip-title>
       ) as JSX.Element;
     }
   }
