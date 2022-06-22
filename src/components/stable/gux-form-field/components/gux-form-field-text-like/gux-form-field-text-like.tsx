@@ -22,6 +22,8 @@ import {
 /**
  * @slot input - Required slot for input tag
  * @slot label - Required slot for label tag
+ * @slot prefix - Optional slot for prefix
+ * @slot suffix - Optional slot for suffix
  * @slot error - Optional slot for error message
  */
 @Component({
@@ -43,6 +45,12 @@ export class GuxFormFieldTextLike {
 
   @Prop()
   labelPosition: GuxFormFieldLabelPosition;
+
+  @Prop()
+  prefix: boolean;
+
+  @Prop()
+  suffix: boolean;
 
   @State()
   private computedLabelPosition: GuxFormFieldLabelPosition = 'above';
@@ -97,10 +105,14 @@ export class GuxFormFieldTextLike {
             <div
               class={{
                 'gux-input-container': true,
-                'gux-disabled': this.disabled
+                'gux-disabled': this.disabled,
+                prefix: this.prefix,
+                suffix: this.suffix
               }}
             >
+              <slot name="prefix" />
               <slot name="input" />
+              <slot name="suffix" />
               {this.clearable && this.hasContent && !this.disabled && (
                 <gux-form-field-input-clear-button
                   onClick={() => clearInput(this.input)}

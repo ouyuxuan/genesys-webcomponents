@@ -11,15 +11,19 @@
 | --------------- | ---------------- | ----------- | --------------------------------------- | ----------- |
 | `clearable`     | `clearable`      |             | `boolean`                               | `undefined` |
 | `labelPosition` | `label-position` |             | `"above" \| "beside" \| "screenreader"` | `undefined` |
+| `prefix`        | `prefix`         |             | `boolean`                               | `undefined` |
+| `suffix`        | `suffix`         |             | `boolean`                               | `undefined` |
 
 
 ## Slots
 
-| Slot      | Description                     |
-| --------- | ------------------------------- |
-| `"error"` | Optional slot for error message |
-| `"input"` | Required slot for input tag     |
-| `"label"` | Required slot for label tag     |
+| Slot       | Description                     |
+| ---------- | ------------------------------- |
+| `"error"`  | Optional slot for error message |
+| `"input"`  | Required slot for input tag     |
+| `"label"`  | Required slot for label tag     |
+| `"prefix"` | Optionsal slot for prefix       |
+| `"suffix"` | Optionsal slot for suffix       |
 
 
 ## Dependencies
