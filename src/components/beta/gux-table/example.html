@@ -1,9 +1,10 @@
 <h1>gux-table-beta</h1>
 <h2>Data table</h2>
-<gux-table-beta>
+<gux-table-beta object-table>
   <table slot="data">
     <thead>
       <tr>
+        <th></th>
         <th data-column-name="first-name">First name</th>
         <th data-column-name="last-name">Last name</th>
         <th data-colum-name="summary">Summary</th>
@@ -13,6 +14,7 @@
     </thead>
     <tbody>
       <tr>
+        <td><gux-row-expandable>click</gux-row-expandable></td>
         <td>John</td>
         <td>Doe</td>
         <td>
@@ -43,6 +45,7 @@
         <td data-cell-action>Delete</td>
       </tr>
       <tr>
+        <td></td>
         <td>Jane</td>
         <td>Doe</td>
         <td>
@@ -58,6 +61,7 @@
         <td data-cell-action>Delete</td>
       </tr>
       <tr>
+        <td></td>
         <td>Jane</td>
         <td>Doe</td>
         <td>

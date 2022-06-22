@@ -225,6 +225,12 @@ export class GuxTable {
     );
   }
 
+  private get rowExpandable(): Array<HTMLGuxExpandableRowElement> {
+    return Array.from(
+      this.slottedTable.querySelectorAll('tbody tr td gux-row-expandable')
+    );
+  }
+
   private get selectAllCheckbox(): HTMLGuxAllRowSelectElement {
     return this.slottedTable.querySelector('thead tr th gux-all-row-select');
   }
