@@ -47,7 +47,7 @@ export class GuxSortControl {
     ) as JSX.Element;
   }
 
-  /* Styles can bet static as we need asset path to generate URL */
+  /* Styles cant be static as we need asset path to generate URL */
   private prepareSortableStyles(): void {
     const styleId = 'gux-table-sort-control-styles';
     if (document.getElementById(styleId) == null) {
