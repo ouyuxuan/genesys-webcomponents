@@ -483,14 +483,26 @@ export class GuxTable {
   /******************************* Sortable Columns *******************************/
 
   private prepareSortableColumns(): void {
-    const columnsElements = this.sortableTableColumn;
-    this.prepareSortableColumnsStyles();
+    let sortControlSelected = [];
+    const sortControl = document.querySelector('gux-sort-control');
+    sortControl
+      ? (sortControlSelected = this.sortableTableColumn)
+      : (sortControlSelected = this.tableColumns);
 
-    columnsElements.forEach((column: HTMLElement) => {
+    /* Only apply sortable styles if the data-sortable way of sorting is being used(ie the old way) and not the <gux-sort-control /> */
+    this.tableColumns.forEach((tableHeader: HTMLElement) => {
+      if (tableHeader.hasAttribute('data-sortable')) {
+        this.prepareSortableColumnsStyles();
+      }
+    });
+
+    sortControlSelected.forEach((column: HTMLElement) => {
       column.onclick = (event: MouseEvent) => {
         if (!this.columnResizeHover) {
           const button = event.target as HTMLElement;
-          const columnElement = button.parentElement;
+          const columnElement = column.hasAttribute('data-sortable')
+            ? (event.currentTarget as HTMLElement)
+            : button.parentElement;
           const sortDirection = columnElement.getAttribute('aria-sort') || '';
           let newSortDirection = null;
 
@@ -529,7 +541,7 @@ export class GuxTable {
       const sortDescContent = this.i18n('sortDesc');
 
       styleElement.innerHTML = `
-      th[data-sortable]:focus-within:after{content: "${sortAscContent}";background-image: url("${ascArrowIcon}"); outline: none; box-shadow: 0 0 0 1px transparent, 0 0 0 2px #aac9ff;}
+      th[data-sortable]:focus-within:after{content: "${sortAscContent}";background-image: url("${ascArrowIcon}");}
       th[aria-sort="ascending"]:after{background-image:url("${ascArrowIcon}")!important;content:"${sortAscContent}"!important;}
       th[aria-sort="descending"]:after{background-image:url("${descArrowIcon}")!important;content:"${sortDescContent}"!important;}
     `;
