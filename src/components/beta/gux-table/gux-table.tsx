@@ -219,7 +219,13 @@ export class GuxTable {
     return Array.from(this.slottedTable.querySelectorAll('thead th'));
   }
 
-  private get sortableTableColumn(): Array<HTMLElement> {
+  private get tableColumnsDataSortable(): Array<HTMLElement> {
+    return Array.from(
+      this.slottedTable.querySelectorAll('thead th[data-sortable]')
+    );
+  }
+
+  private get sortControlCol(): Array<HTMLElement> {
     return Array.from(
       this.slottedTable.querySelectorAll('thead th gux-sort-control')
     );
@@ -486,11 +492,11 @@ export class GuxTable {
     let sortControlSelected = [];
     const sortControl = document.querySelector('gux-sort-control');
     sortControl
-      ? (sortControlSelected = this.sortableTableColumn)
-      : (sortControlSelected = this.tableColumns);
+      ? (sortControlSelected = this.sortControlCol)
+      : (sortControlSelected = this.tableColumnsDataSortable);
 
     /* Only apply sortable styles if the data-sortable way of sorting is being used(ie the old way) and not the <gux-sort-control /> */
-    this.tableColumns.forEach((tableHeader: HTMLElement) => {
+    this.tableColumnsDataSortable.forEach((tableHeader: HTMLElement) => {
       if (tableHeader.hasAttribute('data-sortable')) {
         this.prepareSortableColumnsStyles();
       }
