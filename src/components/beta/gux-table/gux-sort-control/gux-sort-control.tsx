@@ -62,7 +62,9 @@ export class GuxSortControl {
       .gux-descending {background-image:url("${descArrowIcon}"); float: right; display:block; width: 16px; height: 16px;}
       `;
 
-      document.querySelector('gux-sort-control').prepend(styleElement);
+      document
+        .querySelector('gux-sort-control')
+        .shadowRoot.append(styleElement);
     }
   }
 
