@@ -9,19 +9,12 @@ import {
   Listen
 } from '@stencil/core';
 import { trackComponent } from '../../../../usage-tracking';
-import { buildI18nForComponent, GetI18nValue } from '../../../../i18n';
-
-import translationResources from '../i18n/en.json';
 
 @Component({
-  styleUrl: 'gux-toolbar-action.less',
   tag: 'gux-toolbar-action',
   shadow: true
 })
 export class GuxToolbarAction {
-  private i18n: GetI18nValue;
-  private buttonElement: HTMLButtonElement;
-
   /**
    * Reference to the host element.
    */
@@ -41,26 +34,16 @@ export class GuxToolbarAction {
   icon: string;
 
   @State()
-  sectionSpacing: boolean = false;
-
-  // eslint-disable-next-line @typescript-eslint/require-await
-  @Method()
-  async guxSetActive(active: boolean): Promise<void> {
-    this.active = active;
-  }
-
-  // eslint-disable-next-line @typescript-eslint/require-await
-  @Method()
-  async guxActionFocus(): Promise<void> {
-    this.buttonElement.focus();
-  }
+  iconOnly: boolean = false;
 
   @Listen('emitLayoutChange', { target: 'body' })
   emitLayoutChangeHandler(event: CustomEvent<boolean>) {
     if (event.detail == true) {
-      this.sectionSpacing = true;
+      if (!this.primary) {
+        this.iconOnly = true;
+      }
     } else {
-      this.sectionSpacing = false;
+      this.iconOnly = false;
     }
   }
 
@@ -80,16 +63,14 @@ export class GuxToolbarAction {
   }
 
   private renderActionTitle(): JSX.Element {
-    if (!this.sectionSpacing) {
+    if (!this.iconOnly) {
       return (
-        <gux-tooltip-title>
-          <span>
-            <slot
-              aria-hidden="true"
-              onSlotchange={this.onSlotChange.bind(this)}
-            />
-          </span>
-        </gux-tooltip-title>
+        <span>
+          <slot
+            aria-hidden="true"
+            onSlotchange={this.onSlotChange.bind(this)}
+          />
+        </span>
       ) as JSX.Element;
     }
   }
@@ -97,46 +78,21 @@ export class GuxToolbarAction {
   private renderIcon(): JSX.Element {
     if (this.icon) {
       return (
-        <gux-icon
-          iconName={this.icon}
-          screenreaderText={this.i18n('action', {
-            label: this.label
-          })}
-        />
+        <gux-icon iconName={this.icon} screenreaderText={this.label} />
       ) as JSX.Element;
     }
   }
 
-  private renderSrText(): JSX.Element {
-    return (
-      <div class="gux-sr-only">
-        {this.i18n('action', {
-          label: this.label
-        })}
-      </div>
-    ) as JSX.Element;
-  }
-
-  async componentWillLoad(): Promise<void> {
+  componentWillLoad() {
     trackComponent(this.root);
-    this.i18n = await buildI18nForComponent(this.root, translationResources);
   }
 
   render(): JSX.Element {
     return (
-      <button
-        class={{
-          'gux-toolbar-action': true,
-          'gux-toolbar-action-primary': this.primary
-        }}
-        type="button"
-        tabIndex={this.active ? 0 : -1}
-        ref={el => (this.buttonElement = el)}
-      >
+      <gux-button accent={this.primary ? 'primary' : null} type="button">
         {this.renderIcon()}
         {this.renderActionTitle()}
-        {this.renderSrText()}
-      </button>
+      </gux-button>
     ) as JSX.Element;
   }
 }

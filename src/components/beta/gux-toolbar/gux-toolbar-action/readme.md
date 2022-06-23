@@ -15,16 +15,6 @@
 
 ## Methods
 
-### `guxActionFocus() => Promise<void>`
-
-
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
 ### `guxGetActiveAction() => Promise<boolean>`
 
 
@@ -35,30 +25,19 @@ Type: `Promise<boolean>`
 
 
 
-### `guxSetActive(active: boolean) => Promise<void>`
-
-
-
-#### Returns
-
-Type: `Promise<void>`
-
-
-
 
 ## Dependencies
 
 ### Depends on
 
-- [gux-tooltip-title](../../../stable/gux-tooltip-title)
 - [gux-icon](../../../stable/gux-icon)
+- [gux-button](../../../stable/gux-button)
 
 ### Graph
 ```mermaid
 graph TD;
-  gux-toolbar-action --> gux-tooltip-title
   gux-toolbar-action --> gux-icon
-  gux-tooltip-title --> gux-tooltip
+  gux-toolbar-action --> gux-button
   style gux-toolbar-action fill:#f9f,stroke:#333,stroke-width:4px
 ```
 
